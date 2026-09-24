@@ -1,0 +1,100 @@
+{
+  "case_id": "HHG-010",
+  "case": {
+    "status": "closed_legitimate",
+    "verdict": "legitimate",
+    "fraud_probability": 0.0215,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [],
+    "first_suspicious_txn_id": "",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 0.0,
+    "evidence": [
+      {
+        "claim": "card_window returned no rows for card C10434-K1 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:card_window(card=C10434-K1, window_start=2016-11-02 18:18:27, window_end=2016-12-02 18:18:27, max_rows=500)",
+        "entity_ids": [
+          "C10434-K1"
+        ]
+      },
+      {
+        "claim": "velocity_check returned no rows for card C10434-K1 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:velocity_check(card=C10434-K1, window_start=2016-11-29 12:18:27, window_end=2016-12-02 18:18:27)",
+        "entity_ids": [
+          "C10434-K1"
+        ]
+      },
+      {
+        "claim": "device_neighbors returned no rows for card C10434-K1 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:device_neighbors(card=C10434-K1, window_start=2016-11-02 18:18:27, window_end=2016-12-02 18:18:27)",
+        "entity_ids": [
+          "C10434-K1"
+        ]
+      },
+      {
+        "claim": "region_profile returned no rows for card C10434-K1 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:region_profile(card=C10434-K1, window_start=2016-11-02 18:18:27, window_end=2016-12-02 18:18:27, flagged_region=)",
+        "entity_ids": [
+          "C10434-K1"
+        ]
+      },
+      {
+        "claim": "Simulated customer_validation response: confirmed",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [],
+    "summary": "Case HHG-010 on card C10434-K1: verdict legitimate at probability 0.02 (cold_start playbook). The graph returned no row for the flagged transaction 3506725 in the 30-day window, so device and amount context is missing. Actions follow R3.",
+    "written_to_graph": false,
+    "graph_case_id": ""
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 4,
+      "assumed_response": "SIMULATED cardholder reply (customer_validation): 'Yes, that purchase was mine.'"
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: probability 0.31 rests on a single signal or is below 0.70; verify before any block"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+      }
+    ],
+    "final": [
+      {
+        "action": "CLOSE_NO_FRAUD",
+        "route": "auto",
+        "reason": "R3: customer confirmed the transaction; confirmation noted in the case file"
+      }
+    ],
+    "what_changed": "The simulated evidence response (confirmed) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to CLOSE_NO_FRAUD."
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: fraud not confirmed or strongly suspected",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "cold_start playbook exhausted (4 graph queries); no further query has expected gain above the gate",
+  "tool_calls": 4,
+  "tokens": 0,
+  "latency_s": 0.003
+}

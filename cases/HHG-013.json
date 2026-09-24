@@ -1,0 +1,83 @@
+{
+  "case_id": "HHG-013",
+  "case": {
+    "status": "closed_legitimate",
+    "verdict": "legitimate",
+    "fraud_probability": 0.2713,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [],
+    "first_suspicious_txn_id": "",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 0.0,
+    "evidence": [
+      {
+        "claim": "card_window returned no rows for card C07671-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:card_window(card=C07671-K2, window_start=2016-11-09 05:39:29, window_end=2016-12-09 05:39:29, max_rows=500)",
+        "entity_ids": [
+          "C07671-K2"
+        ]
+      },
+      {
+        "claim": "velocity_check returned no rows for card C07671-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:velocity_check(card=C07671-K2, window_start=2016-12-05 23:39:29, window_end=2016-12-09 05:39:29)",
+        "entity_ids": [
+          "C07671-K2"
+        ]
+      },
+      {
+        "claim": "device_neighbors returned no rows for card C07671-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:device_neighbors(card=C07671-K2, window_start=2016-11-09 05:39:29, window_end=2016-12-09 05:39:29)",
+        "entity_ids": [
+          "C07671-K2"
+        ]
+      },
+      {
+        "claim": "region_profile returned no rows for card C07671-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:region_profile(card=C07671-K2, window_start=2016-11-09 05:39:29, window_end=2016-12-09 05:39:29, flagged_region=)",
+        "entity_ids": [
+          "C07671-K2"
+        ]
+      }
+    ],
+    "similar_prior_cases": [],
+    "summary": "Case HHG-013 on card C07671-K2: verdict legitimate at probability 0.27 (cold_start playbook). The graph returned no row for the flagged transaction 3526826 in the 30-day window, so device and amount context is missing. Actions follow probability 0.27 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
+    "written_to_graph": false,
+    "graph_case_id": ""
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "CLOSE_NO_FRAUD",
+        "route": "auto",
+        "reason": "probability 0.27 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+      }
+    ],
+    "final": [
+      {
+        "action": "CLOSE_NO_FRAUD",
+        "route": "auto",
+        "reason": "probability 0.27 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: fraud not confirmed or strongly suspected",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "cold_start playbook exhausted (4 graph queries); no further query has expected gain above the gate",
+  "tool_calls": 4,
+  "tokens": 0,
+  "latency_s": 0.002
+}

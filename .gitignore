@@ -15,5 +15,6 @@ data/derived/
 .pytest_cache/
 #To not commit .bak files
 *.bak
-
+# internal worker notes, not submission material
+failures/
 

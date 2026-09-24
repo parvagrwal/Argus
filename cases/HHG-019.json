@@ -1,0 +1,111 @@
+{
+  "case_id": "HHG-019",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.799,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [],
+    "first_suspicious_txn_id": "",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 0.0,
+    "evidence": [
+      {
+        "claim": "card_window returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:card_window(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, max_rows=500)",
+        "entity_ids": [
+          "C07987-K2"
+        ]
+      },
+      {
+        "claim": "velocity_check returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:velocity_check(card=C07987-K2, window_start=2016-11-28 16:28:53, window_end=2016-12-01 22:28:53)",
+        "entity_ids": [
+          "C07987-K2"
+        ]
+      },
+      {
+        "claim": "device_neighbors returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:device_neighbors(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53)",
+        "entity_ids": [
+          "C07987-K2"
+        ]
+      },
+      {
+        "claim": "region_profile returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "source": "graph",
+        "ref": "query:region_profile(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, flagged_region=)",
+        "entity_ids": [
+          "C07987-K2"
+        ]
+      },
+      {
+        "claim": "Simulated customer_validation response: denied",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      },
+      {
+        "claim": "Case written to the graph as ARGUS-HHG-019-1790257450 and read back byte-equal",
+        "source": "graph",
+        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-HHG-019-1790257450)",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [],
+    "summary": "Case HHG-019 on card C07987-K2: verdict fraud at probability 0.80 (cold_start playbook). The graph returned no row for the flagged transaction 3503878 in the 30-day window, so device and amount context is missing. Actions follow R2.",
+    "written_to_graph": false,
+    "graph_case_id": ""
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 4,
+      "assumed_response": "SIMULATED cardholder reply (customer_validation): 'I did not make this transaction and I still have the card.'"
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: probability 0.31 rests on a single signal or is below 0.70; verify before any block"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+      }
+    ],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: customer denied the transaction; exposure $0.00"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: customer denied; internal case with the evidence attached (3a)"
+      }
+    ],
+    "what_changed": "The simulated evidence response (denied) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to BLOCK_CARD, CREATE_CASE."
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "cold_start playbook exhausted (4 graph queries); no further query has expected gain above the gate",
+  "tool_calls": 6,
+  "tokens": 0,
+  "latency_s": 0.003
+}
