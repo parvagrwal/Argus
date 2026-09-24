@@ -4,7 +4,7 @@ Audited 2026-09-24 against `data/README.md`, `case_pack.csv`, `closed_cases_hist
 `identity.csv` and `transactions.csv`. Convention: **the README wins every dispute.**
 Each entry states the plan's claim, what the data says, and the correction the team adopts.
 
-**Total discrepancies logged: 17** (D-01 … D-17). Verified-correct claims are listed at the end.
+**Total discrepancies logged: 18** (D-01 … D-18). Verified-correct claims are listed at the end.
 
 ---
 
@@ -52,6 +52,7 @@ Every row's ID, trigger, risk score, flagged transaction, amount, card ID and cu
 |---|---|---|---|---|
 | D-16 | **HHG-003** | "Prior cleared false alarm — recurring subscription? (R7 innocence test)" | C08623-K2 has 6 priors: 1 cleared (**CC-1589, confirmed travel**, $99.91 @0.94) and **5 confirmed fraud** (CC-2817, CC-2935, CC-3682, CC-4957 out-of-region; CC-3327 account takeover, $528.69). Nothing suggests a subscription; the flagged txn is in-person (`W`), region 330 | Re-frame as: chronic out-of-region / ATO victim disputing an in-person $49 charge in region 330. Check region-330 history first, then R2 |
 | D-17 | **HHG-007** | "19 priors, frequent travel — billing vs home region" | 19 priors: **18 confirmed fraud** (10 out-of-region, 8 account takeover) and 1 cleared (CC-0657, unusual amount confirmed — not travel). 4 priors filed SARs (CC-0765, CC-1228, CC-1524, CC-3821) | Not a "frequent traveller". This is one of the most-victimised cards in the history. Flagged txn is in-person, region 264, risk 0.87 — check whether 264 is a home or fraud region |
+| D-18 | **HHG-017** | README §Answer Format "### Example" works HHG-017 as card testing (synthetic card C00377-K1, txns T0412877…, $259 purchase, customer denial, SAR filed) | Illustrative format mockup, not ground truth. Actual `case_pack.csv` row 18 is card C04570-K1, flagged txn 3450629 ($100.09, online, risk 0.57). Live `velocity_check` over the 78h burst window ending at alert time finds 3 transactions ($100.09, $99.96, $100.09) and 0 sub-$5 micro-authorizations. The in-query burst test implements Policy R5 verbatim ("three or more small online authorizations on one card within an hour"), so non-detection is an immutable graph data fact, not a threshold error. Card carries cleared travel prior CC-1383; legitimate verdict stands on actual evidence | Legitimate verdict (0.0898) confirmed on actual graph facts |
 
 Rows verified correct (precedent counts and characterisations):
 

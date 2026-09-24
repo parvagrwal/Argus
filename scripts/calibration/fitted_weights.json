@@ -1,0 +1,27 @@
+{
+  "weights": {
+    "risk_score": -0.5579,
+    "customer_report": 2.1753,
+    "online": -0.0431,
+    "new_device": -0.7513,
+    "proxy": -0.0205,
+    "micro_auth_burst": 0.0014,
+    "testing_then_purchase": 0.0,
+    "online_burst_48h": 0.1025,
+    "amount_ratio_log": -0.1484,
+    "out_of_region": 0.0494,
+    "region_history": 0.0922,
+    "trip_pattern": 0.1198,
+    "mixed_channel": 0.0063,
+    "prior_fraud_log": 1.0461,
+    "prior_cleared": -1.1308,
+    "shared_device_cards_log": -0.083,
+    "neighbor_prior_fraud": 0.0555,
+    "ring": 0.0464,
+    "structuring": 0.0001,
+    "customer_denied": 2.1753,
+    "customer_confirmed": -1.938,
+    "cold_start": 0.0633
+  },
+  "bias": 0.2375
+}

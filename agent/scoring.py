@@ -62,7 +62,11 @@ class Features:
         return {f.name: float(getattr(self, f.name)) for f in fields(self) if f.type == "float"}
 
 
-# Priors chosen from the pattern definitions and the P0 closed-case counts; refit with fit_weights.
+# Priors chosen from the pattern definitions and the P0 closed-case counts.
+# A full L2 fit on all 5,565 closed cases was run 2026-09-24 and REJECTED:
+# analyst_notes keyword features leak the outcome label (in-sample AUC 1.0000)
+# and selection bias inverts risk_score. See scripts/calibration/report.md.
+
 DEFAULT_WEIGHTS: dict[str, float] = {
     "risk_score": 1.2, "customer_report": 0.9, "online": 0.2, "new_device": 1.1, "proxy": 1.0,
     "micro_auth_burst": 1.4, "testing_then_purchase": 1.6, "online_burst_48h": 0.8, "amount_ratio_log": 0.5,
