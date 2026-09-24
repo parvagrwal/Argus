@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #022B1F;
+  --foreground: #FFFBE8;
+  --card: rgba(4, 31, 19, 0.55);
+  --card-foreground: #FFFBE8;
+  --popover: #041F13;
+  --popover-foreground: #FFFBE8;
+  --primary: #0B6839;
+  --primary-foreground: #FFFBE8;
+  --secondary: #075029;
+  --secondary-foreground: #8EB89B;
+  --muted: #041F13;
+  --muted-foreground: #8EB89B;
+  --accent: #F4C93B;
+  --accent-foreground: #041F13;
+  --destructive: #FF0080;
+  --destructive-foreground: #FFFBE8;
+  --border: rgba(244, 201, 59, 0.18);
+  --input: rgba(244, 201, 59, 0.2);
+  --ring: #F4C93B;
+  --radius: 0.75rem;
+
+  /* Argus Theme Tokens */
+  --cyber-dark-forest: #022B1F;
+  --cyber-dark-deep: #041F13;
+  --primary-green: #0B6839;
+  --deep-jungle: #075029;
+  --sunset-gold: #F4C93B;
+  --gold-light: #FEE101;
+  --gold-dim: #EDD723;
+  --neon-pink: #FF0080;
+  --cream: #FFFBE8;
+  --sage: #8EB89B;
+  --ink: #111111;
+  --track: #021D15;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-figtree), sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: var(--neon-pink);
+  color: #FFFFFF;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #021D15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #075029;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F4C93B;
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: rgba(4, 31, 19, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 201, 59, 0.18);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(244, 201, 59, 0.4);
+  box-shadow: 0 0 25px -5px rgba(244, 201, 59, 0.15);
+}
+
+/* Glow border card styles */
+.glow-card-pink {
+  border-color: rgba(255, 0, 128, 0.3);
+  box-shadow: 0 0 25px -5px rgba(255, 0, 128, 0.18);
+}
+
+.glow-card-gold {
+  border-color: rgba(244, 201, 59, 0.3);
+  box-shadow: 0 0 25px -5px rgba(244, 201, 59, 0.15);
+}
+
+.glow-card-sage {
+  border-color: rgba(142, 184, 155, 0.3);
+  box-shadow: 0 0 25px -5px rgba(142, 184, 155, 0.15);
+}
