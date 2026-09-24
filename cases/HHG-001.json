@@ -3,7 +3,7 @@
   "case": {
     "status": "closed_legitimate",
     "verdict": "legitimate",
-    "fraud_probability": 0.2372,
+    "fraud_probability": 0.0981,
     "pattern": "none",
     "pattern_description": "",
     "affected_txn_ids": [],
@@ -13,7 +13,7 @@
     "exposure_usd": 0.0,
     "evidence": [
       {
-        "claim": "card_window returned no rows for card C12382-K1 [MOCK backend: not evidence]",
+        "claim": "card_window returned graph facts for card C12382-K1",
         "source": "graph",
         "ref": "query:card_window(card=C12382-K1, window_start=2016-11-05 01:55:28, window_end=2016-12-05 01:55:28, max_rows=500)",
         "entity_ids": [
@@ -21,32 +21,21 @@
         ]
       },
       {
-        "claim": "velocity_check returned no rows for card C12382-K1 [MOCK backend: not evidence]",
+        "claim": "region_profile returned graph facts for card C12382-K1",
         "source": "graph",
-        "ref": "query:velocity_check(card=C12382-K1, window_start=2016-12-01 19:55:28, window_end=2016-12-05 01:55:28)",
-        "entity_ids": [
-          "C12382-K1"
-        ]
-      },
-      {
-        "claim": "device_neighbors returned no rows for card C12382-K1 [MOCK backend: not evidence]",
-        "source": "graph",
-        "ref": "query:device_neighbors(card=C12382-K1, window_start=2016-11-05 01:55:28, window_end=2016-12-05 01:55:28)",
-        "entity_ids": [
-          "C12382-K1"
-        ]
-      },
-      {
-        "claim": "region_profile returned no rows for card C12382-K1 [MOCK backend: not evidence]",
-        "source": "graph",
-        "ref": "query:region_profile(card=C12382-K1, window_start=2016-11-05 01:55:28, window_end=2016-12-05 01:55:28, flagged_region=)",
+        "ref": "query:region_profile(card=C12382-K1, window_start=2016-11-05 01:55:28, window_end=2016-12-05 01:55:28, flagged_region=444)",
         "entity_ids": [
           "C12382-K1"
         ]
       }
     ],
-    "similar_prior_cases": [],
-    "summary": "Case HHG-001 on card C12382-K1: verdict legitimate at probability 0.24 (cold_start playbook). The graph returned no row for the flagged transaction 3514030 in the 30-day window, so device and amount context is missing. Actions follow probability 0.24 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
+    "similar_prior_cases": [
+      "CC-3587",
+      "CC-2964",
+      "CC-1673",
+      "CC-1066"
+    ],
+    "summary": "Case HHG-001 on card C12382-K1: verdict legitimate at probability 0.10 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-3587, CC-2964, CC-1673). The card has prior history in the flagged billing region while home activity continued. Actions follow probability 0.10 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
     "written_to_graph": false,
     "graph_case_id": ""
   },
@@ -56,14 +45,14 @@
       {
         "action": "CLOSE_NO_FRAUD",
         "route": "auto",
-        "reason": "probability 0.24 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "probability 0.10 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
       }
     ],
     "final": [
       {
         "action": "CLOSE_NO_FRAUD",
         "route": "auto",
-        "reason": "probability 0.24 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "probability 0.10 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
       }
     ],
     "what_changed": "nothing"
@@ -76,8 +65,8 @@
     "total_amount_usd": 0.0,
     "activity_dates": []
   },
-  "stop_reason": "cold_start playbook exhausted (4 graph queries); no further query has expected gain above the gate",
-  "tool_calls": 4,
+  "stop_reason": "§6 hard stop: probability 0.10 beyond 0.85/0.15 with 2 independent graph evidence sources",
+  "tool_calls": 2,
   "tokens": 0,
-  "latency_s": 0.009
+  "latency_s": 0.405
 }

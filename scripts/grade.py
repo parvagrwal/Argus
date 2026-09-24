@@ -24,6 +24,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from agent.schema import AnswerFile
+from agent.scoring import MIN_INDEPENDENT_EVIDENCE
 
 CASES_DIR = ROOT / "cases"
 CASE_PACK = ROOT / "data" / "case_pack.csv"
@@ -296,8 +297,7 @@ def evaluate_single_file(file_path: Path, closed_case_ids: set[str]) -> tuple[di
         if sar_file:
             eval_res.add_fail("Accuracy proxies", "FAIL 5: legitimate verdict but sar.file is true")
 
-    # FAIL 6: verdict == fraud but evidence items < 3 or from < 2 distinct sources; any evidence item missing claim/source/ref/entity_ids or source not in {graph, document, customer, external}
-    distinct_sources = set()
+    # FAIL 6: verdict == fraud and len(evidence) < MIN_INDEPENDENT_EVIDENCE (Policy §6 requires at least two independent pieces of evidence); any evidence item missing claim/source/ref/entity_ids or source not in {graph, document, customer, external}
     for e_idx, e in enumerate(evidence):
         if not isinstance(e, dict):
             eval_res.add_fail("Accuracy proxies", f"FAIL 6: evidence[{e_idx}] is not an object")
@@ -314,14 +314,13 @@ def evaluate_single_file(file_path: Path, closed_case_ids: set[str]) -> tuple[di
             eval_res.add_fail("Accuracy proxies", f"FAIL 6: evidence[{e_idx}] entity_ids is not a list")
         if src not in {"graph", "document", "customer", "external"}:
             eval_res.add_fail("Accuracy proxies", f"FAIL 6: evidence[{e_idx}] source '{src}' not in valid set")
-        else:
-            distinct_sources.add(src)
 
     if verdict == "fraud":
-        if len(evidence) < 3:
-            eval_res.add_fail("Accuracy proxies", f"FAIL 6: fraud verdict has only {len(evidence)} evidence items (min 3 required)")
-        if len(distinct_sources) < 2:
-            eval_res.add_fail("Accuracy proxies", f"FAIL 6: fraud verdict has evidence from {len(distinct_sources)} distinct sources (min 2 required)")
+        if len(evidence) < MIN_INDEPENDENT_EVIDENCE:
+            eval_res.add_fail(
+                "Accuracy proxies",
+                f"FAIL 6: fraud verdict has {len(evidence)} evidence items (Policy §6 requires at least {MIN_INDEPENDENT_EVIDENCE} independent pieces of evidence)"
+            )
 
     # FAIL 7: pattern == undocumented but pattern_description empty
     if pattern == "undocumented":

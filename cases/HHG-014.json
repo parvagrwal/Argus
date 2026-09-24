@@ -1,19 +1,43 @@
 {
   "case_id": "HHG-014",
   "case": {
-    "status": "closed_legitimate",
-    "verdict": "legitimate",
-    "fraud_probability": 0.1301,
-    "pattern": "none",
-    "pattern_description": "",
-    "affected_txn_ids": [],
-    "first_suspicious_txn_id": "",
-    "connected_card_ids": [],
-    "connected_device_profiles": [],
-    "exposure_usd": 0.0,
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.996,
+    "pattern": "undocumented",
+    "pattern_description": "Activity on C13487-K1 shows shared proxy device profile across cards with confirmed fraud. It affects the cardholder C13487 and 19 connected cards. Found through card_window, device_neighbors on the graph.",
+    "affected_txn_ids": [
+      "3478561"
+    ],
+    "first_suspicious_txn_id": "3478561",
+    "connected_card_ids": [
+      "C01289-K1",
+      "C01996-K2",
+      "C02910-K1",
+      "C02975-K1",
+      "C03676-K2",
+      "C04108-K2",
+      "C04274-K1",
+      "C05448-K2",
+      "C06710-K1",
+      "C08168-K1",
+      "C09049-K1",
+      "C09906-K1",
+      "C09975-K1",
+      "C10193-K2",
+      "C10326-K1",
+      "C11082-K1",
+      "C11670-K2",
+      "C12796-K1",
+      "C13291-K1"
+    ],
+    "connected_device_profiles": [
+      "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+    ],
+    "exposure_usd": 74.96,
     "evidence": [
       {
-        "claim": "card_window returned no rows for card C13487-K1 [MOCK backend: not evidence]",
+        "claim": "card_window returned graph facts for card C13487-K1",
         "source": "graph",
         "ref": "query:card_window(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00, max_rows=500)",
         "entity_ids": [
@@ -21,47 +45,148 @@
         ]
       },
       {
-        "claim": "velocity_check returned no rows for card C13487-K1 [MOCK backend: not evidence]",
+        "claim": "device_neighbors returned graph facts for card C13487-K1",
         "source": "graph",
-        "ref": "query:velocity_check(card=C13487-K1, window_start=2016-11-19 14:11:00, window_end=2016-11-22 20:11:00)",
+        "ref": "query:device_neighbors(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00)",
         "entity_ids": [
           "C13487-K1"
         ]
+      },
+      {
+        "claim": "Case written to the graph as ARGUS-HHG-014-1790262292 and read back byte-equal",
+        "source": "graph",
+        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-HHG-014-1790262292)",
+        "entity_ids": [
+          "ARGUS-HHG-014-1790262292"
+        ]
       }
     ],
-    "similar_prior_cases": [],
-    "summary": "Case HHG-014 on card C13487-K1: verdict legitimate at probability 0.13 (cold_start playbook). The graph returned no row for the flagged transaction 3478561 in the 30-day window, so device and amount context is missing. Actions follow probability 0.13 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
-    "written_to_graph": false,
-    "graph_case_id": ""
+    "similar_prior_cases": [
+      "CC-2734",
+      "CC-4022",
+      "CC-2818",
+      "CC-4808",
+      "CC-4952",
+      "CC-4172",
+      "CC-3976",
+      "CC-3805",
+      "CC-5345",
+      "CC-3908",
+      "CC-0100",
+      "CC-0020",
+      "CC-0422",
+      "CC-4332",
+      "CC-3696",
+      "CC-2736",
+      "CC-0118",
+      "CC-4820",
+      "CC-2245",
+      "CC-1947",
+      "CC-5155",
+      "CC-3623",
+      "CC-1622",
+      "CC-4085",
+      "CC-2940",
+      "CC-3419",
+      "CC-1102",
+      "CC-3878",
+      "CC-5410",
+      "CC-0462",
+      "CC-2503",
+      "CC-4131",
+      "CC-5256",
+      "CC-4752",
+      "CC-5177",
+      "CC-2047",
+      "CC-3599",
+      "CC-4647",
+      "CC-0359",
+      "CC-3508"
+    ],
+    "summary": "Case HHG-014 on card C13487-K1: verdict fraud at probability 1.00 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Pattern: shared proxy device profile across cards with confirmed fraud (R9; not forced into a known category). Actions follow 3a, R6, R9, probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied).",
+    "written_to_graph": true,
+    "graph_case_id": "ARGUS-HHG-014-1790262292"
   },
   "evidence_requests": [],
   "next_best_actions": {
     "initial": [
       {
-        "action": "CLOSE_NO_FRAUD",
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+      },
+      {
+        "action": "CREATE_CASE",
         "route": "auto",
-        "reason": "probability 0.13 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "3a: probability at or above 0.30"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+      },
+      {
+        "action": "ESCALATE_TO_ANALYST",
+        "route": "auto",
+        "reason": "R9: undocumented pattern described in own words; analyst review"
       }
     ],
     "final": [
       {
-        "action": "CLOSE_NO_FRAUD",
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+      },
+      {
+        "action": "CREATE_CASE",
         "route": "auto",
-        "reason": "probability 0.13 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "3a: probability at or above 0.30"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+      },
+      {
+        "action": "ESCALATE_TO_ANALYST",
+        "route": "auto",
+        "reason": "R9: undocumented pattern described in own words; analyst review"
       }
     ],
     "what_changed": "nothing"
   },
   "sar": {
-    "file": false,
-    "reason": "3a: fraud not confirmed or strongly suspected",
-    "narrative": "",
-    "subjects": [],
-    "total_amount_usd": 0.0,
-    "activity_dates": []
+    "file": true,
+    "reason": "3a/R2: activity connects to a shared device profile or another customer's fraud (3a, R6); pattern is coordinated or undocumented (3a, R9)",
+    "narrative": "Customer C13487, card C13487-K1 was used for 1 transaction(s) totalling $74.96 between 2016-11-22 and 2016-11-22. The flagged transaction 3478561 was online in billing region 191. The device profile SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080 was marked New for this account. The same device profile links to cards C01289-K1, C01996-K2, C02910-K1, C02975-K1, C03676-K2. The pattern identified is undocumented: shared proxy device profile across cards with confirmed fraud. The activity is suspicious because probability 1.00 rests on 2 independent graph evidence sources. Recommended: BLOCK_CARD, CREATE_CASE, FILE_REPORT, MONITOR_CONNECTED_CARDS, ESCALATE_TO_ANALYST.",
+    "subjects": [
+      "C13487",
+      "C13487-K1",
+      "C01289-K1",
+      "C01996-K2",
+      "C02910-K1",
+      "C02975-K1",
+      "C03676-K2",
+      "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+    ],
+    "total_amount_usd": 74.96,
+    "activity_dates": [
+      "2016-11-22",
+      "2016-11-22"
+    ]
   },
-  "stop_reason": "§6 hard stop: probability 0.13 beyond 0.85/0.15 with 2 independent graph evidence sources",
-  "tool_calls": 2,
+  "stop_reason": "§6 hard stop: probability 1.00 beyond 0.85/0.15 with 2 independent graph evidence sources",
+  "tool_calls": 4,
   "tokens": 0,
-  "latency_s": 0.002
+  "latency_s": 0.51
 }

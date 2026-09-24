@@ -3,7 +3,7 @@
   "case": {
     "status": "closed_legitimate",
     "verdict": "legitimate",
-    "fraud_probability": 0.2858,
+    "fraud_probability": 0.0898,
     "pattern": "none",
     "pattern_description": "",
     "affected_txn_ids": [],
@@ -53,32 +53,49 @@
         "entity_ids": [
           "C04570-K1"
         ]
+      },
+      {
+        "claim": "Simulated customer_validation response: confirmed",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": []
       }
     ],
     "similar_prior_cases": [
       "CC-1383"
     ],
-    "summary": "Case HHG-017 on card C04570-K1: verdict legitimate at probability 0.29 (undocumented_ring playbook). The card has prior history in the flagged billing region while home activity continued. The flagged online transaction came from a device marked New for this account behind a proxy. Actions follow probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
+    "summary": "Case HHG-017 on card C04570-K1: verdict legitimate at probability 0.09 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Actions follow R3.",
     "written_to_graph": false,
     "graph_case_id": ""
   },
-  "evidence_requests": [],
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 5,
+      "assumed_response": "SIMULATED cardholder reply (customer_validation): 'Yes, that purchase was mine.'"
+    }
+  ],
   "next_best_actions": {
     "initial": [
       {
-        "action": "CLOSE_NO_FRAUD",
+        "action": "VERIFY_WITH_CUSTOMER",
         "route": "auto",
-        "reason": "probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "R1: probability 0.66 rests on a single signal or is below 0.70; verify before any block"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
       }
     ],
     "final": [
       {
         "action": "CLOSE_NO_FRAUD",
         "route": "auto",
-        "reason": "probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+        "reason": "R3: customer confirmed the transaction; confirmation noted in the case file"
       }
     ],
-    "what_changed": "nothing"
+    "what_changed": "The simulated evidence response (confirmed) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to CLOSE_NO_FRAUD."
   },
   "sar": {
     "file": false,
@@ -91,5 +108,5 @@
   "stop_reason": "undocumented_ring playbook exhausted (5 graph queries); no further query has expected gain above the gate",
   "tool_calls": 5,
   "tokens": 0,
-  "latency_s": 0.176
+  "latency_s": 0.532
 }

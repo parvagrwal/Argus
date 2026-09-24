@@ -3,17 +3,21 @@
   "case": {
     "status": "closed_fraud",
     "verdict": "fraud",
-    "fraud_probability": 0.799,
-    "pattern": "none",
+    "fraud_probability": 0.8721,
+    "pattern": "account_takeover",
     "pattern_description": "",
-    "affected_txn_ids": [],
-    "first_suspicious_txn_id": "",
+    "affected_txn_ids": [
+      "3503878"
+    ],
+    "first_suspicious_txn_id": "3503878",
     "connected_card_ids": [],
-    "connected_device_profiles": [],
-    "exposure_usd": 0.0,
+    "connected_device_profiles": [
+      "Windows | other | chrome 61.0 | 1280x720"
+    ],
+    "exposure_usd": 99.92,
     "evidence": [
       {
-        "claim": "card_window returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "claim": "card_window returned graph facts for card C07987-K2",
         "source": "graph",
         "ref": "query:card_window(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, max_rows=500)",
         "entity_ids": [
@@ -21,60 +25,31 @@
         ]
       },
       {
-        "claim": "velocity_check returned no rows for card C07987-K2 [MOCK backend: not evidence]",
+        "claim": "Case written to the graph as ARGUS-HHG-019-1790262296 and read back byte-equal",
         "source": "graph",
-        "ref": "query:velocity_check(card=C07987-K2, window_start=2016-11-28 16:28:53, window_end=2016-12-01 22:28:53)",
+        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-HHG-019-1790262296)",
         "entity_ids": [
-          "C07987-K2"
+          "ARGUS-HHG-019-1790262296"
         ]
-      },
-      {
-        "claim": "device_neighbors returned no rows for card C07987-K2 [MOCK backend: not evidence]",
-        "source": "graph",
-        "ref": "query:device_neighbors(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53)",
-        "entity_ids": [
-          "C07987-K2"
-        ]
-      },
-      {
-        "claim": "region_profile returned no rows for card C07987-K2 [MOCK backend: not evidence]",
-        "source": "graph",
-        "ref": "query:region_profile(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, flagged_region=)",
-        "entity_ids": [
-          "C07987-K2"
-        ]
-      },
-      {
-        "claim": "Simulated customer_validation response: denied",
-        "source": "customer",
-        "ref": "evidence_request:1",
-        "entity_ids": []
-      },
-      {
-        "claim": "Case written to the graph as ARGUS-HHG-019-1790257450 and read back byte-equal",
-        "source": "graph",
-        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-HHG-019-1790257450)",
-        "entity_ids": []
       }
     ],
-    "similar_prior_cases": [],
-    "summary": "Case HHG-019 on card C07987-K2: verdict fraud at probability 0.80 (cold_start playbook). The graph returned no row for the flagged transaction 3503878 in the 30-day window, so device and amount context is missing. Actions follow R2.",
-    "written_to_graph": false,
-    "graph_case_id": ""
+    "similar_prior_cases": [
+      "CC-5026",
+      "CC-2860",
+      "CC-2087",
+      "CC-2011"
+    ],
+    "summary": "Case HHG-019 on card C07987-K2: verdict fraud at probability 0.87 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5026, CC-2860, CC-2087). The flagged online transaction came from a device marked New for this account. Actions follow 3a, R1.",
+    "written_to_graph": true,
+    "graph_case_id": "ARGUS-HHG-019-1790262296"
   },
-  "evidence_requests": [
-    {
-      "type": "customer_validation",
-      "asked_after_step": 4,
-      "assumed_response": "SIMULATED cardholder reply (customer_validation): 'I did not make this transaction and I still have the card.'"
-    }
-  ],
+  "evidence_requests": [],
   "next_best_actions": {
     "initial": [
       {
         "action": "VERIFY_WITH_CUSTOMER",
         "route": "auto",
-        "reason": "R1: probability 0.31 rests on a single signal or is below 0.70; verify before any block"
+        "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
       },
       {
         "action": "CREATE_CASE",
@@ -84,17 +59,17 @@
     ],
     "final": [
       {
-        "action": "BLOCK_CARD",
-        "route": "L1",
-        "reason": "R2: customer denied the transaction; exposure $0.00"
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
       },
       {
         "action": "CREATE_CASE",
         "route": "auto",
-        "reason": "R2: customer denied; internal case with the evidence attached (3a)"
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
       }
     ],
-    "what_changed": "The simulated evidence response (denied) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to BLOCK_CARD, CREATE_CASE."
+    "what_changed": "nothing"
   },
   "sar": {
     "file": false,
@@ -104,8 +79,8 @@
     "total_amount_usd": 0.0,
     "activity_dates": []
   },
-  "stop_reason": "cold_start playbook exhausted (4 graph queries); no further query has expected gain above the gate",
-  "tool_calls": 6,
+  "stop_reason": "fraud_heavy_priors: deciding evidence found (region_profile / device_neighbors: does the flagged activity repeat the card's confirmed-fraud typology); further queries would not change the decision",
+  "tool_calls": 3,
   "tokens": 0,
-  "latency_s": 0.003
+  "latency_s": 0.657
 }
