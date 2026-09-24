@@ -1,0 +1,143 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:32Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "region_profile",
+  "params": {
+    "card": "C13171-K2",
+    "window_start": "2016-11-20 03:08:56",
+    "window_end": "2016-12-20 03:08:56",
+    "flagged_region": ""
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C13171-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C13171-K2",
+              "Start.customer_id": "C13171"
+            }
+          }
+        ]
+      },
+      {
+        "flagged_region": "",
+        "window_start": "2016-11-20 03:08:56",
+        "window_end": "2016-12-20 03:08:56",
+        "baseline_txns": 761,
+        "baseline_txns_without_region": 712,
+        "window_txns": 139,
+        "home_region": "284",
+        "home_region_baseline_txns": 18,
+        "home_region_window_txns": 5,
+        "home_activity_continued_in_window": true,
+        "flagged_region_baseline_txns": 0,
+        "flagged_region_baseline_in_person_txns": 0,
+        "flagged_region_has_history": false,
+        "flagged_region_first_seen": "1970-01-01 00:00:00",
+        "flagged_region_last_seen": "1970-01-01 00:00:00",
+        "flagged_region_window_txns": 0,
+        "distinct_window_days_in_flagged_region": 0,
+        "flagged_region_is_home": false
+      },
+      {
+        "baseline_by_region": {
+          "486": 1,
+          "508": 1,
+          "391": 1,
+          "299": 1,
+          "148": 2,
+          "167": 1,
+          "161": 6,
+          "284": 18,
+          "130": 5,
+          "511": 2,
+          "465": 9,
+          "242": 2
+        }
+      },
+      {
+        "baseline_in_person_by_region": {
+          "299": 1
+        }
+      },
+      {
+        "baseline_amount_by_region": {
+          "486": 41.06,
+          "508": 48.27,
+          "391": 13.57,
+          "299": 59,
+          "148": 178.38,
+          "167": 36.92,
+          "161": 417.79,
+          "284": 1179.86,
+          "130": 175.69,
+          "511": 154.01,
+          "465": 602.9499999999999,
+          "242": 161.25
+        }
+      },
+      {
+        "baseline_first_seen": {
+          "486": "2016-07-09 00:01:48",
+          "508": "2016-07-06 00:39:06",
+          "391": "2016-07-08 20:13:20",
+          "299": "2016-11-05 03:04:43",
+          "148": "2016-07-06 01:21:17",
+          "167": "2016-07-11 00:56:29",
+          "161": "2016-07-05 01:08:46",
+          "284": "2016-10-11 23:41:19",
+          "130": "2016-07-12 22:05:43",
+          "511": "2016-07-05 01:10:08",
+          "465": "2016-07-05 00:28:21",
+          "242": "2016-07-07 18:41:42"
+        }
+      },
+      {
+        "baseline_last_seen": {
+          "486": "2016-07-09 00:01:48",
+          "508": "2016-07-06 00:39:06",
+          "391": "2016-07-08 20:13:20",
+          "299": "2016-11-05 03:04:43",
+          "148": "2016-07-09 07:38:45",
+          "167": "2016-07-11 00:56:29",
+          "161": "2016-07-13 02:40:12",
+          "284": "2016-11-10 17:48:34",
+          "130": "2016-10-20 23:09:17",
+          "511": "2016-07-12 15:52:43",
+          "465": "2016-10-12 18:45:17",
+          "242": "2016-07-12 03:00:02"
+        }
+      },
+      {
+        "window_by_region": {
+          "284": 5
+        }
+      },
+      {
+        "window_in_person_by_region": {}
+      },
+      {
+        "baseline_by_country": {
+          "60": 48,
+          "87": 1
+        }
+      },
+      {
+        "window_by_country": {
+          "60": 5
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "case_id": "BONUS_001",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.8504,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [],
+    "first_suspicious_txn_id": "",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 0.0,
+    "evidence": [
+      {
+        "claim": "card_window returned graph facts for card C00750-K2",
+        "source": "graph",
+        "ref": "query:card_window(card=C00750-K2, window_start=2016-11-16 23:40:18, window_end=2016-12-16 23:40:18, max_rows=500)",
+        "entity_ids": [
+          "C00750-K2"
+        ]
+      },
+      {
+        "claim": "region_profile returned graph facts for card C00750-K2",
+        "source": "graph",
+        "ref": "query:region_profile(card=C00750-K2, window_start=2016-11-16 23:40:18, window_end=2016-12-16 23:40:18, flagged_region=)",
+        "entity_ids": [
+          "C00750-K2"
+        ]
+      },
+      {
+        "claim": "Case written to the graph as ARGUS-BONUS_001-1790275276 and read back byte-equal",
+        "source": "graph",
+        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-BONUS_001-1790275276)",
+        "entity_ids": [
+          "ARGUS-BONUS_001-1790275276"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-5431",
+      "CC-4964",
+      "CC-4387",
+      "CC-4214",
+      "CC-4066"
+    ],
+    "summary": "Case BONUS_001 on card C00750-K2: verdict fraud at probability 0.85 (fraud_heavy_priors playbook). The graph returned no row for the flagged transaction 3549837 in the 30-day window, so device and amount context is missing. The card carries prior confirmed-fraud cases (CC-5431, CC-4964, CC-4387). Actions follow 3a, probability 0.85 >= 0.70 on more than one independent signal (R1 satisfied).",
+    "written_to_graph": true,
+    "graph_case_id": "ARGUS-BONUS_001-1790275276"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "probability 0.85 >= 0.70 on more than one independent signal (R1 satisfied)"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30"
+      }
+    ],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "probability 0.85 >= 0.70 on more than one independent signal (R1 satisfied)"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30"
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "§6 hard stop: probability 0.85 beyond 0.85/0.15 with 2 independent graph evidence sources",
+  "tool_calls": 4,
+  "tokens": 0,
+  "latency_s": 0.91
+}

@@ -1,0 +1,113 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:32Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C10434-K1",
+    "window_start": "2016-11-02 18:18:27",
+    "window_end": "2016-12-02 18:18:27",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C10434-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C10434-K1",
+              "Start.customer_id": "C10434",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-02 18:18:27",
+        "window_end": "2016-12-02 18:18:27",
+        "n_txns": 3,
+        "total_amount": 1197.05,
+        "n_online": 2,
+        "n_in_person": 1,
+        "n_new_device": 2,
+        "n_proxy": 0,
+        "n_prior_cases": 1,
+        "n_prior_confirmed_fraud": 0,
+        "n_prior_cleared": 1
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-21 06:09:47",
+            "txn_id": "3475344",
+            "amount": 96.98,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "469",
+            "addr2": "87",
+            "risk_score": 0.04,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-27 17:54:39",
+            "txn_id": "3492086",
+            "amount": 100.04,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "469",
+            "addr2": "87",
+            "risk_score": 0.2,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "MacOS | Mac OS X 10_13_4 | safari generic | 1440x900",
+            "p_emaildomain": "comcast.net",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-02 15:18:27",
+            "txn_id": "3506725",
+            "amount": 1000.03,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "469",
+            "addr2": "87",
+            "risk_score": 0.9,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | edge 16.0 | 1366x768",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": [
+          {
+            "opened_at": "2016-07-21 11:56:18",
+            "case_id": "CC-0873",
+            "outcome": "cleared",
+            "pattern": "",
+            "exposure_usd": 0,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-0873: model scored a $50.05 transaction at 0.93. Cardholder confirmed travel to the billing region in question. Alert cleared."
+          }
+        ]
+      }
+    ]
+  }
+}

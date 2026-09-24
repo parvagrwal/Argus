@@ -1,0 +1,87 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C09988-K1",
+    "window_start": "2016-11-12 01:39:08",
+    "window_end": "2016-12-12 01:39:08",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C09988-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C09988-K1",
+              "Start.customer_id": "C09988",
+              "Start.card6": "debit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-12 01:39:08",
+        "window_end": "2016-12-12 01:39:08",
+        "n_txns": 2,
+        "total_amount": 116.8,
+        "n_online": 2,
+        "n_in_person": 0,
+        "n_new_device": 1,
+        "n_proxy": 0,
+        "n_prior_cases": 0,
+        "n_prior_confirmed_fraud": 0,
+        "n_prior_cleared": 0
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-20 21:05:21",
+            "txn_id": "3474173",
+            "amount": 57.13,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.13,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "SAMSUNG SM-A310F Build/NRD90M |  | samsung browser 6.4 | ",
+            "p_emaildomain": "hotmail.com",
+            "r_emaildomain": "hotmail.com"
+          },
+          {
+            "ts": "2016-12-11 22:39:08",
+            "txn_id": "3534820",
+            "amount": 59.67,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.37,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows |  | edge 16.0 | ",
+            "p_emaildomain": "hotmail.com",
+            "r_emaildomain": "hotmail.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": []
+      }
+    ]
+  }
+}

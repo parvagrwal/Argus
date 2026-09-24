@@ -1,0 +1,318 @@
+{
+  "answer": {
+    "case_id": "HHG-008",
+    "case": {
+      "status": "closed_fraud",
+      "verdict": "fraud",
+      "fraud_probability": 0.962,
+      "pattern": "card_not_present_fraud",
+      "pattern_description": "",
+      "affected_txn_ids": [
+        "3558054"
+      ],
+      "first_suspicious_txn_id": "3558054",
+      "connected_card_ids": [],
+      "connected_device_profiles": [
+        " |  | chrome 66.0 | "
+      ],
+      "exposure_usd": 55.68,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C13171-K2",
+          "source": "graph",
+          "ref": "query:card_window(card=C13171-K2, window_start=2016-11-20 03:08:56, window_end=2016-12-20 03:08:56, max_rows=500)",
+          "entity_ids": [
+            "C13171-K2"
+          ]
+        },
+        {
+          "claim": "region_profile returned graph facts for card C13171-K2",
+          "source": "graph",
+          "ref": "query:region_profile(card=C13171-K2, window_start=2016-11-20 03:08:56, window_end=2016-12-20 03:08:56, flagged_region=)",
+          "entity_ids": [
+            "C13171-K2"
+          ]
+        }
+      ],
+      "similar_prior_cases": [
+        "CC-5010",
+        "CC-4819",
+        "CC-4485",
+        "CC-4163",
+        "CC-3928"
+      ],
+      "summary": "Case HHG-008 on card C13171-K2: verdict fraud at probability 0.96 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5010, CC-4819, CC-4485). Actions follow 3a, probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied).",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        }
+      ],
+      "final": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        }
+      ],
+      "what_changed": "nothing"
+    },
+    "sar": {
+      "file": false,
+      "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+      "narrative": "",
+      "subjects": [],
+      "total_amount_usd": 0.0,
+      "activity_dates": []
+    },
+    "stop_reason": "\u00a76 hard stop: probability 0.96 beyond 0.85/0.15 with 2 independent graph evidence sources",
+    "tool_calls": 2,
+    "tokens": 0,
+    "latency_s": 0.007
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-008",
+      "case": {
+        "status": "closed_fraud",
+        "verdict": "fraud",
+        "fraud_probability": 0.962,
+        "pattern": "card_not_present_fraud",
+        "pattern_description": "",
+        "affected_txn_ids": [
+          "3558054"
+        ],
+        "first_suspicious_txn_id": "3558054",
+        "connected_card_ids": [],
+        "connected_device_profiles": [
+          " |  | chrome 66.0 | "
+        ],
+        "exposure_usd": 55.68,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C13171-K2",
+            "source": "graph",
+            "ref": "query:card_window(card=C13171-K2, window_start=2016-11-20 03:08:56, window_end=2016-12-20 03:08:56, max_rows=500)",
+            "entity_ids": [
+              "C13171-K2"
+            ]
+          },
+          {
+            "claim": "region_profile returned graph facts for card C13171-K2",
+            "source": "graph",
+            "ref": "query:region_profile(card=C13171-K2, window_start=2016-11-20 03:08:56, window_end=2016-12-20 03:08:56, flagged_region=)",
+            "entity_ids": [
+              "C13171-K2"
+            ]
+          }
+        ],
+        "similar_prior_cases": [
+          "CC-5010",
+          "CC-4819",
+          "CC-4485",
+          "CC-4163",
+          "CC-3928"
+        ],
+        "summary": "Case HHG-008 on card C13171-K2: verdict fraud at probability 0.96 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5010, CC-4819, CC-4485). Actions follow 3a, probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied).",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          }
+        ],
+        "final": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 0.96 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          }
+        ],
+        "what_changed": "nothing"
+      },
+      "sar": {
+        "file": false,
+        "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+        "narrative": "",
+        "subjects": [],
+        "total_amount_usd": 0.0,
+        "activity_dates": []
+      },
+      "stop_reason": "\u00a76 hard stop: probability 0.96 beyond 0.85/0.15 with 2 independent graph evidence sources",
+      "tool_calls": 2,
+      "tokens": 0,
+      "latency_s": 0.007
+    },
+    "trigger_type": "customer_report",
+    "trigger_text": "Customer C13171 message: 'I never made this $55.68 purchase. Please check my card.' Refers to 3558054.",
+    "opened_at": "2016-12-20 03:08:56",
+    "flagged_txn_id": "3558054",
+    "card_id": "C13171-K2",
+    "customer_id": "C13171",
+    "flagged_risk_score": null,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C13171-K2",
+          "window_start": "2016-11-20 03:08:56",
+          "window_end": "2016-12-20 03:08:56",
+          "max_rows": 500
+        },
+        "rows": 170,
+        "latency_ms": 0.009,
+        "ts": "2026-09-24T19:32:00.147+00:00"
+      },
+      {
+        "step": 2,
+        "agent": "graph",
+        "tool": "region_profile",
+        "args": {
+          "card": "C13171-K2",
+          "window_start": "2016-11-20 03:08:56",
+          "window_end": "2016-12-20 03:08:56",
+          "flagged_region": ""
+        },
+        "rows": 72,
+        "latency_ms": 0.011,
+        "ts": "2026-09-24T19:32:00.151+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.38,
+        "customer_report": 1.0,
+        "online": 1.0,
+        "new_device": 0.0,
+        "proxy": 0.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 1.0,
+        "amount_ratio_log": 0.45037004936775904,
+        "out_of_region": 0.0,
+        "region_history": 0.0,
+        "trip_pattern": 0.0,
+        "mixed_channel": 0.0,
+        "prior_fraud_log": 2.9444389791664403,
+        "prior_cleared": 1.0,
+        "shared_device_cards_log": 0.0,
+        "neighbor_prior_fraud": 0.0,
+        "ring": 0.0,
+        "structuring": 0.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 0.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": 3.2311801059336758,
+      "probability": 0.962,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.962,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 1,
+        "probability": 0.962,
+        "independent_evidence": 2,
+        "rule_fired": "region_profile",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=fraud_heavy_priors; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.962,
+    "exposure_usd": 55.68,
+    "at_risk_usd": 53.56,
+    "next_query": "velocity_check",
+    "expected_logit_gain": 0.0365,
+    "expected_probability_shift": 0.0013,
+    "value_of_information_usd": 0.07,
+    "cost_of_delay_gate_usd": 0.08,
+    "continue_gathering": false,
+    "reading": "Next best query velocity_check: expected information value \u2248 $0.07 vs cost-of-delay gate \u2248 $0.08 \u2192 stop and act."
+  },
+  "counterfactual": {
+    "flips": true,
+    "feature": "customer_confirmed",
+    "old_value": 0.0,
+    "new_value": 1,
+    "old_probability": 0.962,
+    "new_probability": 0.5576,
+    "boundary": 0.85,
+    "sentence": "If customer_confirmed were 1 instead of 0, fraud probability would move from 0.96 to 0.56, crossing the 0.85 decision boundary \u2014 the verdict would become uncertain."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

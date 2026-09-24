@@ -1,0 +1,2092 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:36Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "device_neighbors",
+  "params": {
+    "card": "C01154-K1",
+    "window_start": "2016-10-07 22:43:38",
+    "window_end": "2016-11-06 22:43:38"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C01154-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C01154-K1",
+              "Start.customer_id": "C01154"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-10-07 22:43:38",
+        "window_end": "2016-11-06 22:43:38",
+        "n_devices": 7,
+        "n_devices_expanded": 4,
+        "n_hub_devices_skipped": 3,
+        "n_connected_cards": 79
+      },
+      {
+        "devices": [
+          {
+            "v_id": "MacOS | Mac OS X 10_12_1 | chrome 64.0 | 1280x800",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "MacOS | Mac OS X 10_12_1 | chrome 64.0 | 1280x800",
+              "Devices.device_info": "MacOS",
+              "Devices.os": "Mac OS X 10_12_1",
+              "Devices.browser": "chrome 64.0",
+              "Devices.screen": "1280x800",
+              "Devices.@seed_txns": 4,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "iOS Device | iOS 11.2.6 | mobile safari generic | 2208x1242",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "iOS Device | iOS 11.2.6 | mobile safari generic | 2208x1242",
+              "Devices.device_info": "iOS Device",
+              "Devices.os": "iOS 11.2.6",
+              "Devices.browser": "mobile safari generic",
+              "Devices.screen": "2208x1242",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125",
+              "Devices.device_info": "iOS Device",
+              "Devices.os": "iOS 11.2.6",
+              "Devices.browser": "mobile safari generic",
+              "Devices.screen": "2436x1125",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C13236-K1",
+                "C05530-K2",
+                "C03226-K1",
+                "C05625-K2",
+                "C12418-K1",
+                "C10156-K1",
+                "C07187-K1",
+                "C12967-K1",
+                "C07936-K2",
+                "C02245-K2",
+                "C11227-K2",
+                "C08943-K2",
+                "C09249-K1",
+                "C09876-K1",
+                "C08466-K1",
+                "C05704-K2",
+                "C04830-K1",
+                "C11000-K2",
+                "C13060-K1",
+                "C03299-K2",
+                "C09800-K2",
+                "C07473-K1",
+                "C07212-K2",
+                "C01317-K1",
+                "C09274-K1",
+                "C13023-K1",
+                "C09521-K2",
+                "C01347-K2",
+                "C03405-K2",
+                "C00179-K1",
+                "C05213-K1",
+                "C06224-K2",
+                "C08025-K1",
+                "C01755-K2",
+                "C11873-K2",
+                "C13539-K1",
+                "C08688-K1",
+                "C04285-K1",
+                "C05289-K2",
+                "C00854-K2",
+                "C09666-K2",
+                "C02716-K2",
+                "C10098-K1",
+                "C07916-K1",
+                "C12961-K2",
+                "C08557-K1",
+                "C07242-K1",
+                "C05039-K1",
+                "C10971-K1",
+                "C05341-K1",
+                "C01982-K2",
+                "C12166-K2",
+                "C05192-K2",
+                "C03040-K2",
+                "C11749-K1",
+                "C04077-K1",
+                "C02342-K1",
+                "C08256-K2",
+                "C03128-K1",
+                "C06828-K1",
+                "C03218-K2",
+                "C01909-K2",
+                "C11496-K2",
+                "C05245-K2",
+                "C12439-K1",
+                "C05604-K2",
+                "C01333-K2",
+                "C04108-K2",
+                "C13151-K1",
+                "C13152-K1",
+                "C00329-K2",
+                "C02902-K2",
+                "C13086-K2",
+                "C09301-K2",
+                "C02354-K2"
+              ]
+            }
+          },
+          {
+            "v_id": "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1049",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1049",
+              "Devices.device_info": "Trident/7.0",
+              "Devices.os": "Windows 7",
+              "Devices.browser": "ie 11.0 for desktop",
+              "Devices.screen": "1680x1049",
+              "Devices.@seed_txns": 5,
+              "Devices.@seed_statuses": [
+                "New",
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                "IP_PROXY:HIDDEN"
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": " |  | chrome 64.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | chrome 64.0 | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "chrome 64.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800",
+              "Devices.device_info": "MacOS",
+              "Devices.os": "Mac OS X 10_13_3",
+              "Devices.browser": "chrome 64.0",
+              "Devices.screen": "2880x1800",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C01155-K2",
+                "C06224-K2",
+                "C02354-K2",
+                "C03475-K1",
+                "C10553-K1",
+                "C00730-K1"
+              ]
+            }
+          },
+          {
+            "v_id": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+              "Devices.device_info": "Windows",
+              "Devices.os": "Windows 10",
+              "Devices.browser": "chrome 65.0",
+              "Devices.screen": "1920x1080",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          }
+        ]
+      },
+      {
+        "connected_cards": [
+          {
+            "v_id": "C00854-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00854-K2",
+              "Neighbors.customer_id": "C00854",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3607",
+                "CC-1562",
+                "CC-1783",
+                "CC-0720",
+                "CC-0090",
+                "CC-4826",
+                "CC-0387",
+                "CC-4902",
+                "CC-0813",
+                "CC-4053",
+                "CC-3093",
+                "CC-3743",
+                "CC-4207",
+                "CC-5363"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C13086-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13086-K2",
+              "Neighbors.customer_id": "C13086",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5240",
+                "CC-1751",
+                "CC-0996"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C03040-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03040-K2",
+              "Neighbors.customer_id": "C03040",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0279",
+                "CC-4032",
+                "CC-2044",
+                "CC-3706",
+                "CC-4536",
+                "CC-2782",
+                "CC-2640",
+                "CC-1890",
+                "CC-1489",
+                "CC-0661",
+                "CC-5124",
+                "CC-0156"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device",
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C03299-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03299-K2",
+              "Neighbors.customer_id": "C03299",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4891",
+                "CC-4470",
+                "CC-4741"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C12967-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12967-K1",
+              "Neighbors.customer_id": "C12967",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4894"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C13539-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13539-K1",
+              "Neighbors.customer_id": "C13539",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C05625-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05625-K2",
+              "Neighbors.customer_id": "C05625",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4996"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C10971-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C10971-K1",
+              "Neighbors.customer_id": "C10971",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C03226-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03226-K1",
+              "Neighbors.customer_id": "C03226",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C11000-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11000-K2",
+              "Neighbors.customer_id": "C11000",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1865",
+                "CC-5505",
+                "CC-0695",
+                "CC-1703",
+                "CC-3916",
+                "CC-2691",
+                "CC-3756",
+                "CC-3355",
+                "CC-2083",
+                "CC-0063",
+                "CC-4170",
+                "CC-0452",
+                "CC-2945",
+                "CC-1357",
+                "CC-4773",
+                "CC-4567",
+                "CC-0557",
+                "CC-3833",
+                "CC-2483",
+                "CC-3489",
+                "CC-0932"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C08557-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08557-K1",
+              "Neighbors.customer_id": "C08557",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3828"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C05213-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05213-K1",
+              "Neighbors.customer_id": "C05213",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C01755-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01755-K2",
+              "Neighbors.customer_id": "C01755",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1474",
+                "CC-2378",
+                "CC-5367",
+                "CC-1721",
+                "CC-2485",
+                "CC-4079",
+                "CC-2879",
+                "CC-1285",
+                "CC-3396"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device",
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C09521-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09521-K2",
+              "Neighbors.customer_id": "C09521",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07473-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07473-K1",
+              "Neighbors.customer_id": "C07473",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C12439-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12439-K1",
+              "Neighbors.customer_id": "C12439",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C09301-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09301-K2",
+              "Neighbors.customer_id": "C09301",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 8,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3582",
+                "CC-1460",
+                "CC-4666",
+                "CC-3021",
+                "CC-2596",
+                "CC-0095",
+                "CC-2251",
+                "CC-4059",
+                "CC-4273",
+                "CC-0766",
+                "CC-3299",
+                "CC-3389",
+                "CC-3167",
+                "CC-4842",
+                "CC-0421",
+                "CC-1808"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C04077-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04077-K1",
+              "Neighbors.customer_id": "C04077",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C08025-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08025-K1",
+              "Neighbors.customer_id": "C08025",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C10098-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C10098-K1",
+              "Neighbors.customer_id": "C10098",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07916-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07916-K1",
+              "Neighbors.customer_id": "C07916",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C02902-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02902-K2",
+              "Neighbors.customer_id": "C02902",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1877",
+                "CC-4646",
+                "CC-0415",
+                "CC-5464",
+                "CC-1225",
+                "CC-3572",
+                "CC-2557",
+                "CC-2115",
+                "CC-2697",
+                "CC-1617",
+                "CC-0200",
+                "CC-0569",
+                "CC-4299",
+                "CC-2947",
+                "CC-1748",
+                "CC-3659",
+                "CC-0767"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C05289-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05289-K2",
+              "Neighbors.customer_id": "C05289",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0597",
+                "CC-3382",
+                "CC-0076",
+                "CC-2151",
+                "CC-5258",
+                "CC-3071"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C13236-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13236-K1",
+              "Neighbors.customer_id": "C13236",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3996"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C07212-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07212-K2",
+              "Neighbors.customer_id": "C07212",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2541",
+                "CC-4234",
+                "CC-4903",
+                "CC-5419",
+                "CC-0340",
+                "CC-3868",
+                "CC-5091",
+                "CC-4607",
+                "CC-3528",
+                "CC-1821",
+                "CC-1063",
+                "CC-5532",
+                "CC-2409",
+                "CC-0045",
+                "CC-0705",
+                "CC-1498",
+                "CC-4527",
+                "CC-5230",
+                "CC-4794"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C05530-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05530-K2",
+              "Neighbors.customer_id": "C05530",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5049",
+                "CC-2306",
+                "CC-3364",
+                "CC-5301",
+                "CC-3530",
+                "CC-0298",
+                "CC-3850",
+                "CC-1563"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C05604-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05604-K2",
+              "Neighbors.customer_id": "C05604",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C02354-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02354-K2",
+              "Neighbors.customer_id": "C02354",
+              "Neighbors.@via_devices": [
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800",
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2187",
+                "CC-2051",
+                "CC-4721",
+                "CC-1699",
+                "CC-2589",
+                "CC-1450",
+                "CC-0255",
+                "CC-0631",
+                "CC-3537",
+                "CC-2432",
+                "CC-4070",
+                "CC-5558",
+                "CC-5441",
+                "CC-4942",
+                "CC-0454",
+                "CC-3634",
+                "CC-3899",
+                "CC-3085",
+                "CC-4436"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C07187-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07187-K1",
+              "Neighbors.customer_id": "C07187",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 5,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C05192-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05192-K2",
+              "Neighbors.customer_id": "C05192",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0920",
+                "CC-5126",
+                "CC-1612",
+                "CC-1152",
+                "CC-3826",
+                "CC-4726",
+                "CC-4441"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C04285-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04285-K1",
+              "Neighbors.customer_id": "C04285",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5429",
+                "CC-4665",
+                "CC-5154",
+                "CC-3518"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C00179-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00179-K1",
+              "Neighbors.customer_id": "C00179",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C11749-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11749-K1",
+              "Neighbors.customer_id": "C11749",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C05341-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05341-K1",
+              "Neighbors.customer_id": "C05341",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C03218-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03218-K2",
+              "Neighbors.customer_id": "C03218",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4877",
+                "CC-4194",
+                "CC-5408",
+                "CC-5223",
+                "CC-3372",
+                "CC-3962",
+                "CC-5316",
+                "CC-1793",
+                "CC-2358",
+                "CC-4454",
+                "CC-3183",
+                "CC-1988",
+                "CC-3638",
+                "CC-2841",
+                "CC-1189",
+                "CC-1535"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C02245-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02245-K2",
+              "Neighbors.customer_id": "C02245",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2002",
+                "CC-2126",
+                "CC-1473"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C01317-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01317-K1",
+              "Neighbors.customer_id": "C01317",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C06224-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06224-K2",
+              "Neighbors.customer_id": "C06224",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125",
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800"
+              ],
+              "Neighbors.@shared_txns": 15,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3765",
+                "CC-3940",
+                "CC-4633",
+                "CC-2800",
+                "CC-4309",
+                "CC-5430",
+                "CC-4132",
+                "CC-4431",
+                "CC-0291",
+                "CC-3319",
+                "CC-0475",
+                "CC-0145",
+                "CC-4904",
+                "CC-5248"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C10553-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C10553-K1",
+              "Neighbors.customer_id": "C10553",
+              "Neighbors.@via_devices": [
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4449",
+                "CC-2071",
+                "CC-3468",
+                "CC-2523",
+                "CC-0144",
+                "CC-1920",
+                "CC-1639"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C11227-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11227-K2",
+              "Neighbors.customer_id": "C11227",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3690",
+                "CC-0006",
+                "CC-1330",
+                "CC-2946",
+                "CC-2193",
+                "CC-5107",
+                "CC-1850",
+                "CC-1148",
+                "CC-0166",
+                "CC-1931",
+                "CC-0283",
+                "CC-4640"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C00730-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00730-K1",
+              "Neighbors.customer_id": "C00730",
+              "Neighbors.@via_devices": [
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07936-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07936-K2",
+              "Neighbors.customer_id": "C07936",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1550",
+                "CC-0133",
+                "CC-0286"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C08943-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08943-K2",
+              "Neighbors.customer_id": "C08943",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1294",
+                "CC-4544",
+                "CC-2532",
+                "CC-2274",
+                "CC-1828",
+                "CC-1075",
+                "CC-4296",
+                "CC-3033"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C04108-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04108-K2",
+              "Neighbors.customer_id": "C04108",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 8,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4332",
+                "CC-3696",
+                "CC-2736",
+                "CC-0118",
+                "CC-4820",
+                "CC-2245",
+                "CC-1947",
+                "CC-5155",
+                "CC-3623",
+                "CC-1622",
+                "CC-4085",
+                "CC-2940",
+                "CC-3419",
+                "CC-1102",
+                "CC-3878",
+                "CC-5410",
+                "CC-0462",
+                "CC-2503"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C09666-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09666-K2",
+              "Neighbors.customer_id": "C09666",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0192",
+                "CC-3669",
+                "CC-3818",
+                "CC-3563",
+                "CC-2926",
+                "CC-0690"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C12166-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12166-K2",
+              "Neighbors.customer_id": "C12166",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2787",
+                "CC-5509",
+                "CC-1870",
+                "CC-3936",
+                "CC-3724",
+                "CC-3370",
+                "CC-1674",
+                "CC-3063",
+                "CC-0070",
+                "CC-4921",
+                "CC-4379",
+                "CC-4216"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C08466-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08466-K1",
+              "Neighbors.customer_id": "C08466",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0309",
+                "CC-4190",
+                "CC-2079",
+                "CC-3235",
+                "CC-3423"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C02342-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02342-K1",
+              "Neighbors.customer_id": "C02342",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2459",
+                "CC-4545",
+                "CC-0823"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C05245-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05245-K2",
+              "Neighbors.customer_id": "C05245",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2149",
+                "CC-1907",
+                "CC-2760",
+                "CC-4362",
+                "CC-1074",
+                "CC-0115",
+                "CC-3473",
+                "CC-3744",
+                "CC-0398",
+                "CC-1574",
+                "CC-4927",
+                "CC-2010",
+                "CC-4200",
+                "CC-0274",
+                "CC-2949",
+                "CC-1237",
+                "CC-4686",
+                "CC-3088",
+                "CC-0753",
+                "CC-5121",
+                "CC-0495"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C13152-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13152-K1",
+              "Neighbors.customer_id": "C13152",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C00329-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00329-K2",
+              "Neighbors.customer_id": "C00329",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5293",
+                "CC-2260",
+                "CC-1644",
+                "CC-4499",
+                "CC-4892",
+                "CC-4183",
+                "CC-4676",
+                "CC-1073",
+                "CC-4797",
+                "CC-0529",
+                "CC-2871"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C11873-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11873-K2",
+              "Neighbors.customer_id": "C11873",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2967",
+                "CC-2846",
+                "CC-0826"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C02716-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02716-K2",
+              "Neighbors.customer_id": "C02716",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3939",
+                "CC-0184",
+                "CC-4482",
+                "CC-0578",
+                "CC-5054",
+                "CC-4763",
+                "CC-4101",
+                "CC-1221",
+                "CC-4229",
+                "CC-2257",
+                "CC-3284",
+                "CC-2057",
+                "CC-3162",
+                "CC-3836",
+                "CC-5394",
+                "CC-2382",
+                "CC-1015",
+                "CC-2713"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C01982-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01982-K2",
+              "Neighbors.customer_id": "C01982",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2538",
+                "CC-3015",
+                "CC-2235",
+                "CC-3328",
+                "CC-3476",
+                "CC-4243",
+                "CC-1253",
+                "CC-4651",
+                "CC-0129",
+                "CC-0242",
+                "CC-5108",
+                "CC-1992",
+                "CC-3982",
+                "CC-2337",
+                "CC-3065",
+                "CC-1749",
+                "CC-4998",
+                "CC-4494"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C05039-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05039-K1",
+              "Neighbors.customer_id": "C05039",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3723",
+                "CC-1792",
+                "CC-3951"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C09249-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09249-K1",
+              "Neighbors.customer_id": "C09249",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3773",
+                "CC-2001",
+                "CC-4231",
+                "CC-2092",
+                "CC-3361",
+                "CC-2348"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C11496-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11496-K2",
+              "Neighbors.customer_id": "C11496",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1055",
+                "CC-2448",
+                "CC-0373",
+                "CC-2373",
+                "CC-4729",
+                "CC-5342",
+                "CC-1823",
+                "CC-3367",
+                "CC-3938",
+                "CC-3575",
+                "CC-2118",
+                "CC-3268",
+                "CC-4064",
+                "CC-2012",
+                "CC-0074",
+                "CC-0721"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C01347-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01347-K2",
+              "Neighbors.customer_id": "C01347",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3246",
+                "CC-0141",
+                "CC-2075"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C06828-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06828-K1",
+              "Neighbors.customer_id": "C06828",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C12418-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12418-K1",
+              "Neighbors.customer_id": "C12418",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5229"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C04830-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04830-K1",
+              "Neighbors.customer_id": "C04830",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C08688-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08688-K1",
+              "Neighbors.customer_id": "C08688",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C13023-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13023-K1",
+              "Neighbors.customer_id": "C13023",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C13060-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13060-K1",
+              "Neighbors.customer_id": "C13060",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5065"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C01155-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01155-K2",
+              "Neighbors.customer_id": "C01155",
+              "Neighbors.@via_devices": [
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800"
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3434",
+                "CC-1289",
+                "CC-0177",
+                "CC-1690",
+                "CC-1576",
+                "CC-5139",
+                "CC-1454",
+                "CC-4603",
+                "CC-2280",
+                "CC-3189",
+                "CC-4920",
+                "CC-3863",
+                "CC-3740",
+                "CC-3055",
+                "CC-0364",
+                "CC-2853",
+                "CC-2050",
+                "CC-4804"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C13151-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13151-K1",
+              "Neighbors.customer_id": "C13151",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C01333-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01333-K2",
+              "Neighbors.customer_id": "C01333",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2287",
+                "CC-1898",
+                "CC-2856",
+                "CC-3675",
+                "CC-3166",
+                "CC-0596",
+                "CC-4461",
+                "CC-5160",
+                "CC-4198"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "out_of_region_use",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C05704-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05704-K2",
+              "Neighbors.customer_id": "C05704",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3258",
+                "CC-0209",
+                "CC-3895",
+                "CC-3688",
+                "CC-4638",
+                "CC-2439",
+                "CC-0732",
+                "CC-5111",
+                "CC-3047",
+                "CC-5337",
+                "CC-0289",
+                "CC-0510",
+                "CC-3501",
+                "CC-0033",
+                "CC-4521",
+                "CC-0423",
+                "CC-4912",
+                "CC-3436"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C01909-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01909-K2",
+              "Neighbors.customer_id": "C01909",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0744",
+                "CC-2831",
+                "CC-0249",
+                "CC-2670",
+                "CC-4938",
+                "CC-4495"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C08256-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08256-K2",
+              "Neighbors.customer_id": "C08256",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 4,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3006",
+                "CC-4696",
+                "CC-1787",
+                "CC-1021",
+                "CC-4191",
+                "CC-2609",
+                "CC-3480",
+                "CC-2309"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C10156-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C10156-K1",
+              "Neighbors.customer_id": "C10156",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07242-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07242-K1",
+              "Neighbors.customer_id": "C07242",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C09274-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09274-K1",
+              "Neighbors.customer_id": "C09274",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2122",
+                "CC-3915",
+                "CC-1912",
+                "CC-2302",
+                "CC-3762",
+                "CC-2683",
+                "CC-3289",
+                "CC-4606",
+                "CC-4280",
+                "CC-1813",
+                "CC-1103",
+                "CC-2580"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "account_takeover"
+              ]
+            }
+          },
+          {
+            "v_id": "C12961-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12961-K2",
+              "Neighbors.customer_id": "C12961",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1113",
+                "CC-4949",
+                "CC-0153",
+                "CC-4583",
+                "CC-2033",
+                "CC-0410",
+                "CC-0342",
+                "CC-3812",
+                "CC-0857",
+                "CC-1909",
+                "CC-5354"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device",
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          },
+          {
+            "v_id": "C03475-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03475-K1",
+              "Neighbors.customer_id": "C03475",
+              "Neighbors.@via_devices": [
+                "MacOS | Mac OS X 10_13_3 | chrome 64.0 | 2880x1800"
+              ],
+              "Neighbors.@shared_txns": 6,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C03405-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03405-K2",
+              "Neighbors.customer_id": "C03405",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3811",
+                "CC-3531",
+                "CC-1858"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C03128-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03128-K1",
+              "Neighbors.customer_id": "C03128",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C09876-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09876-K1",
+              "Neighbors.customer_id": "C09876",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 4,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5025",
+                "CC-2421"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C09800-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09800-K2",
+              "Neighbors.customer_id": "C09800",
+              "Neighbors.@via_devices": [
+                "iOS Device | iOS 11.2.6 | mobile safari generic | 2436x1125"
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1477",
+                "CC-4496",
+                "CC-5218",
+                "CC-1773",
+                "CC-4045",
+                "CC-3584",
+                "CC-1892",
+                "CC-0961",
+                "CC-0636",
+                "CC-2343",
+                "CC-2927",
+                "CC-4901",
+                "CC-0805",
+                "CC-1972",
+                "CC-3331",
+                "CC-5418",
+                "CC-0186",
+                "CC-2141",
+                "CC-2464"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "account_takeover",
+                "out_of_region_use"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "hub_devices_skipped": [
+          " |  | chrome 64.0 | ",
+          "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+          "iOS Device | iOS 11.2.6 | mobile safari generic | 2208x1242"
+        ]
+      }
+    ]
+  }
+}

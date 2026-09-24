@@ -1,0 +1,128 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C04570-K1",
+    "window_start": "2016-10-13 00:46:24",
+    "window_end": "2016-11-12 00:46:24",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C04570-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C04570-K1",
+              "Start.customer_id": "C04570",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-10-13 00:46:24",
+        "window_end": "2016-11-12 00:46:24",
+        "n_txns": 4,
+        "total_amount": 400.08,
+        "n_online": 4,
+        "n_in_person": 0,
+        "n_new_device": 1,
+        "n_proxy": 1,
+        "n_prior_cases": 1,
+        "n_prior_confirmed_fraud": 0,
+        "n_prior_cleared": 1
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-10-27 21:32:25",
+            "txn_id": "3403833",
+            "amount": 99.94,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "420",
+            "addr2": "87",
+            "risk_score": 0.85,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-11-11 22:36:50",
+            "txn_id": "3450436",
+            "amount": 100.09,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "204",
+            "addr2": "87",
+            "risk_score": 0.05,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-11-11 22:58:57",
+            "txn_id": "3450503",
+            "amount": 99.96,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "204",
+            "addr2": "87",
+            "risk_score": 0.1,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-11-11 23:46:24",
+            "txn_id": "3450629",
+            "amount": 100.09,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "204",
+            "addr2": "87",
+            "risk_score": 0.57,
+            "device_status": "Found",
+            "proxy_flag": "IP_PROXY:HIDDEN",
+            "device_profile": "Windows | Windows 10 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": [
+          {
+            "opened_at": "2016-07-29 01:30:41",
+            "case_id": "CC-1383",
+            "outcome": "cleared",
+            "pattern": "",
+            "exposure_usd": 0,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-1383: model scored a $99.98 transaction at 0.91. Cardholder confirmed travel to the billing region in question. Alert cleared."
+          }
+        ]
+      }
+    ]
+  }
+}

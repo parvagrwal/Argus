@@ -1,0 +1,68 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:35Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "detect_fraud_ring",
+  "params": {
+    "card": "C12265-K2",
+    "window_start": "2016-11-03 12:04:26",
+    "window_end": "2016-12-03 12:04:26"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "window_start": "2016-11-03 12:04:26",
+        "window_end": "2016-12-03 12:04:26",
+        "hops_expanded": 1,
+        "component_size": 1,
+        "cards_with_prior_confirmed_fraud": 1,
+        "n_shared_devices": 0,
+        "n_hub_devices_skipped": 1,
+        "include_email": false,
+        "n_shared_email_domains": 0
+      },
+      {
+        "component": [
+          {
+            "v_id": "C12265-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Component.card_id": "C12265-K2",
+              "Component.customer_id": "C12265",
+              "Component.@hop": 0,
+              "Component.@linked_via": [],
+              "Component.@prior_fraud_cases": [
+                "CC-2447",
+                "CC-2277"
+              ],
+              "Component.@prior_fraud_patterns": [
+                "account_takeover"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "shared_devices": []
+      },
+      {
+        "hub_devices_skipped": [
+          "Trident/7.0 | Windows 10 | ie 11.0 for desktop | 1920x1080"
+        ]
+      },
+      {
+        "shared_email_domains": []
+      },
+      {
+        "hub_email_domains_skipped": []
+      }
+    ]
+  }
+}

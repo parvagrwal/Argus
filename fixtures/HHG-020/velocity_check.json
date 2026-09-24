@@ -1,0 +1,80 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:35Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "velocity_check",
+  "params": {
+    "card": "C12265-K2",
+    "window_start": "2016-11-30 06:04:26",
+    "window_end": "2016-12-03 12:04:26"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C12265-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C12265-K2",
+              "Start.customer_id": "C12265"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-30 06:04:26",
+        "window_end": "2016-12-03 12:04:26",
+        "n_txns_in_window": 3,
+        "small_amount": 5,
+        "burst_minutes": 60,
+        "min_small_auths": 3,
+        "large_amount": 100,
+        "followup_hours": 24,
+        "max_online_in_burst_window": 1,
+        "max_small_online_in_burst_window": 0,
+        "n_micro_auth_bursts": 0,
+        "card_testing_sequence_detected": false,
+        "max_amount_in_window": 141.07
+      },
+      {
+        "micro_auth_txn_ids": []
+      },
+      {
+        "followup_large_txn_ids": []
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-30 22:37:41",
+            "txn_id": "3501882",
+            "amount": 141.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-30 22:39:30",
+            "txn_id": "3501890",
+            "amount": 141.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-12-03 06:04:26",
+            "txn_id": "3509359",
+            "amount": 125.08,
+            "channel": "online",
+            "product_cd": "R"
+          }
+        ]
+      }
+    ]
+  }
+}

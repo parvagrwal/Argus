@@ -1,0 +1,505 @@
+{
+  "answer": {
+    "case_id": "HHG-014",
+    "case": {
+      "status": "closed_fraud",
+      "verdict": "fraud",
+      "fraud_probability": 0.996,
+      "pattern": "undocumented",
+      "pattern_description": "Activity on C13487-K1 shows shared proxy device profile across cards with confirmed fraud. It affects the cardholder C13487 and 19 connected cards. Found through card_window, device_neighbors on the graph.",
+      "affected_txn_ids": [
+        "3478561"
+      ],
+      "first_suspicious_txn_id": "3478561",
+      "connected_card_ids": [
+        "C01289-K1",
+        "C01996-K2",
+        "C02910-K1",
+        "C02975-K1",
+        "C03676-K2",
+        "C04108-K2",
+        "C04274-K1",
+        "C05448-K2",
+        "C06710-K1",
+        "C08168-K1",
+        "C09049-K1",
+        "C09906-K1",
+        "C09975-K1",
+        "C10193-K2",
+        "C10326-K1",
+        "C11082-K1",
+        "C11670-K2",
+        "C12796-K1",
+        "C13291-K1"
+      ],
+      "connected_device_profiles": [
+        "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+      ],
+      "exposure_usd": 74.96,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C13487-K1",
+          "source": "graph",
+          "ref": "query:card_window(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00, max_rows=500)",
+          "entity_ids": [
+            "C13487-K1"
+          ]
+        },
+        {
+          "claim": "device_neighbors returned graph facts for card C13487-K1",
+          "source": "graph",
+          "ref": "query:device_neighbors(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00)",
+          "entity_ids": [
+            "C13487-K1"
+          ]
+        }
+      ],
+      "similar_prior_cases": [
+        "CC-5345",
+        "CC-3908",
+        "CC-2734",
+        "CC-4022",
+        "CC-2818",
+        "CC-4808",
+        "CC-4952",
+        "CC-4332",
+        "CC-3696",
+        "CC-2736",
+        "CC-0118",
+        "CC-4820",
+        "CC-2245",
+        "CC-1947",
+        "CC-5155",
+        "CC-3623",
+        "CC-1622",
+        "CC-4085",
+        "CC-2940",
+        "CC-3419",
+        "CC-1102",
+        "CC-3878",
+        "CC-5410",
+        "CC-0462",
+        "CC-2503",
+        "CC-4131",
+        "CC-5256",
+        "CC-4752",
+        "CC-4172",
+        "CC-3976",
+        "CC-3805",
+        "CC-0100",
+        "CC-0020",
+        "CC-0422",
+        "CC-5177",
+        "CC-2047",
+        "CC-3599",
+        "CC-4647",
+        "CC-0359",
+        "CC-3508"
+      ],
+      "summary": "Case HHG-014 on card C13487-K1: verdict fraud at probability 1.00 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Pattern: shared proxy device profile across cards with confirmed fraud (R9; not forced into a known category). Actions follow 3a, R6, R9, probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied).",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        },
+        {
+          "action": "FILE_REPORT",
+          "route": "L2",
+          "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+        },
+        {
+          "action": "MONITOR_CONNECTED_CARDS",
+          "route": "auto",
+          "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+        },
+        {
+          "action": "ESCALATE_TO_ANALYST",
+          "route": "auto",
+          "reason": "R9: undocumented pattern described in own words; analyst review"
+        }
+      ],
+      "final": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        },
+        {
+          "action": "FILE_REPORT",
+          "route": "L2",
+          "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+        },
+        {
+          "action": "MONITOR_CONNECTED_CARDS",
+          "route": "auto",
+          "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+        },
+        {
+          "action": "ESCALATE_TO_ANALYST",
+          "route": "auto",
+          "reason": "R9: undocumented pattern described in own words; analyst review"
+        }
+      ],
+      "what_changed": "nothing"
+    },
+    "sar": {
+      "file": true,
+      "reason": "3a/R2: activity connects to a shared device profile or another customer's fraud (3a, R6); pattern is coordinated or undocumented (3a, R9)",
+      "narrative": "Customer C13487, card C13487-K1 was used for 1 transaction(s) totalling $74.96 between 2016-11-22 and 2016-11-22. The flagged transaction 3478561 was online in billing region 191. The device profile SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080 was marked New for this account. The same device profile links to cards C01289-K1, C01996-K2, C02910-K1, C02975-K1, C03676-K2. The pattern identified is undocumented: shared proxy device profile across cards with confirmed fraud. The activity is suspicious because probability 1.00 rests on 2 independent graph evidence sources. Recommended: BLOCK_CARD, CREATE_CASE, FILE_REPORT, MONITOR_CONNECTED_CARDS, ESCALATE_TO_ANALYST.",
+      "subjects": [
+        "C13487",
+        "C13487-K1",
+        "C01289-K1",
+        "C01996-K2",
+        "C02910-K1",
+        "C02975-K1",
+        "C03676-K2",
+        "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+      ],
+      "total_amount_usd": 74.96,
+      "activity_dates": [
+        "2016-11-22",
+        "2016-11-22"
+      ]
+    },
+    "stop_reason": "\u00a76 hard stop: probability 1.00 beyond 0.85/0.15 with 2 independent graph evidence sources",
+    "tool_calls": 2,
+    "tokens": 0,
+    "latency_s": 0.003
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-014",
+      "case": {
+        "status": "closed_fraud",
+        "verdict": "fraud",
+        "fraud_probability": 0.996,
+        "pattern": "undocumented",
+        "pattern_description": "Activity on C13487-K1 shows shared proxy device profile across cards with confirmed fraud. It affects the cardholder C13487 and 19 connected cards. Found through card_window, device_neighbors on the graph.",
+        "affected_txn_ids": [
+          "3478561"
+        ],
+        "first_suspicious_txn_id": "3478561",
+        "connected_card_ids": [
+          "C01289-K1",
+          "C01996-K2",
+          "C02910-K1",
+          "C02975-K1",
+          "C03676-K2",
+          "C04108-K2",
+          "C04274-K1",
+          "C05448-K2",
+          "C06710-K1",
+          "C08168-K1",
+          "C09049-K1",
+          "C09906-K1",
+          "C09975-K1",
+          "C10193-K2",
+          "C10326-K1",
+          "C11082-K1",
+          "C11670-K2",
+          "C12796-K1",
+          "C13291-K1"
+        ],
+        "connected_device_profiles": [
+          "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+        ],
+        "exposure_usd": 74.96,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C13487-K1",
+            "source": "graph",
+            "ref": "query:card_window(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00, max_rows=500)",
+            "entity_ids": [
+              "C13487-K1"
+            ]
+          },
+          {
+            "claim": "device_neighbors returned graph facts for card C13487-K1",
+            "source": "graph",
+            "ref": "query:device_neighbors(card=C13487-K1, window_start=2016-10-23 20:11:00, window_end=2016-11-22 20:11:00)",
+            "entity_ids": [
+              "C13487-K1"
+            ]
+          }
+        ],
+        "similar_prior_cases": [
+          "CC-5345",
+          "CC-3908",
+          "CC-2734",
+          "CC-4022",
+          "CC-2818",
+          "CC-4808",
+          "CC-4952",
+          "CC-4332",
+          "CC-3696",
+          "CC-2736",
+          "CC-0118",
+          "CC-4820",
+          "CC-2245",
+          "CC-1947",
+          "CC-5155",
+          "CC-3623",
+          "CC-1622",
+          "CC-4085",
+          "CC-2940",
+          "CC-3419",
+          "CC-1102",
+          "CC-3878",
+          "CC-5410",
+          "CC-0462",
+          "CC-2503",
+          "CC-4131",
+          "CC-5256",
+          "CC-4752",
+          "CC-4172",
+          "CC-3976",
+          "CC-3805",
+          "CC-0100",
+          "CC-0020",
+          "CC-0422",
+          "CC-5177",
+          "CC-2047",
+          "CC-3599",
+          "CC-4647",
+          "CC-0359",
+          "CC-3508"
+        ],
+        "summary": "Case HHG-014 on card C13487-K1: verdict fraud at probability 1.00 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Pattern: shared proxy device profile across cards with confirmed fraud (R9; not forced into a known category). Actions follow 3a, R6, R9, probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied).",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          },
+          {
+            "action": "FILE_REPORT",
+            "route": "L2",
+            "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+          },
+          {
+            "action": "MONITOR_CONNECTED_CARDS",
+            "route": "auto",
+            "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+          },
+          {
+            "action": "ESCALATE_TO_ANALYST",
+            "route": "auto",
+            "reason": "R9: undocumented pattern described in own words; analyst review"
+          }
+        ],
+        "final": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 1.00 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          },
+          {
+            "action": "FILE_REPORT",
+            "route": "L2",
+            "reason": "3a: activity connects to a shared device profile or another customer's fraud (3a, R6)"
+          },
+          {
+            "action": "MONITOR_CONNECTED_CARDS",
+            "route": "auto",
+            "reason": "R6: cards sharing the device profile / region cluster / recipient email"
+          },
+          {
+            "action": "ESCALATE_TO_ANALYST",
+            "route": "auto",
+            "reason": "R9: undocumented pattern described in own words; analyst review"
+          }
+        ],
+        "what_changed": "nothing"
+      },
+      "sar": {
+        "file": true,
+        "reason": "3a/R2: activity connects to a shared device profile or another customer's fraud (3a, R6); pattern is coordinated or undocumented (3a, R9)",
+        "narrative": "Customer C13487, card C13487-K1 was used for 1 transaction(s) totalling $74.96 between 2016-11-22 and 2016-11-22. The flagged transaction 3478561 was online in billing region 191. The device profile SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080 was marked New for this account. The same device profile links to cards C01289-K1, C01996-K2, C02910-K1, C02975-K1, C03676-K2. The pattern identified is undocumented: shared proxy device profile across cards with confirmed fraud. The activity is suspicious because probability 1.00 rests on 2 independent graph evidence sources. Recommended: BLOCK_CARD, CREATE_CASE, FILE_REPORT, MONITOR_CONNECTED_CARDS, ESCALATE_TO_ANALYST.",
+        "subjects": [
+          "C13487",
+          "C13487-K1",
+          "C01289-K1",
+          "C01996-K2",
+          "C02910-K1",
+          "C02975-K1",
+          "C03676-K2",
+          "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080"
+        ],
+        "total_amount_usd": 74.96,
+        "activity_dates": [
+          "2016-11-22",
+          "2016-11-22"
+        ]
+      },
+      "stop_reason": "\u00a76 hard stop: probability 1.00 beyond 0.85/0.15 with 2 independent graph evidence sources",
+      "tool_calls": 2,
+      "tokens": 0,
+      "latency_s": 0.003
+    },
+    "trigger_type": "analyst_request",
+    "trigger_text": "Analyst request: several cards this month show purchases from the same unusual device profile. Review transaction 3478561 on card C13487-K1 and look for related activity.",
+    "opened_at": "2016-11-22 20:11:00",
+    "flagged_txn_id": "3478561",
+    "card_id": "C13487-K1",
+    "customer_id": "C13487",
+    "flagged_risk_score": null,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C13487-K1",
+          "window_start": "2016-10-23 20:11:00",
+          "window_end": "2016-11-22 20:11:00",
+          "max_rows": 500
+        },
+        "rows": 28,
+        "latency_ms": 0.012,
+        "ts": "2026-09-24T19:32:00.233+00:00"
+      },
+      {
+        "step": 2,
+        "agent": "graph",
+        "tool": "device_neighbors",
+        "args": {
+          "card": "C13487-K1",
+          "window_start": "2016-10-23 20:11:00",
+          "window_end": "2016-11-22 20:11:00"
+        },
+        "rows": 27,
+        "latency_ms": 0.008,
+        "ts": "2026-09-24T19:32:00.235+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.05,
+        "customer_report": 0.0,
+        "online": 1.0,
+        "new_device": 1.0,
+        "proxy": 1.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 0.0,
+        "amount_ratio_log": 0.7362173424359334,
+        "out_of_region": 0.0,
+        "region_history": 0.0,
+        "trip_pattern": 0.0,
+        "mixed_channel": 1.0,
+        "prior_fraud_log": 0.0,
+        "prior_cleared": 0.0,
+        "shared_device_cards_log": 2.995732273553991,
+        "neighbor_prior_fraud": 1.0,
+        "ring": 0.0,
+        "structuring": 0.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 0.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": 5.52469449006116,
+      "probability": 0.996,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.8615,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 1,
+        "probability": 0.996,
+        "independent_evidence": 2,
+        "rule_fired": "device_neighbors",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=undocumented_ring; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.996,
+    "exposure_usd": 74.96,
+    "at_risk_usd": 74.66,
+    "next_query": "velocity_check",
+    "expected_logit_gain": 0.0038,
+    "expected_probability_shift": 0.0,
+    "value_of_information_usd": 0.0,
+    "cost_of_delay_gate_usd": 0.01,
+    "continue_gathering": false,
+    "reading": "Next best query velocity_check: expected information value \u2248 $0.00 vs cost-of-delay gate \u2248 $0.01 \u2192 stop and act."
+  },
+  "counterfactual": {
+    "flips": false,
+    "sentence": "No single evidence change flips this decision \u2014 the verdict is robust to any one feature."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

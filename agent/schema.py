@@ -237,7 +237,7 @@ class NextBestActions(_Strict):
 # The answer file — cases/<case_id>.json
 # --------------------------------------------------------------------------------------
 
-_CASE_ID_RE = re.compile(r"^HHG-\d{3}$")
+_CASE_ID_RE = re.compile(r"^(HHG-\d{3}|BONUS_\d{3})$")
 
 
 class AnswerFile(_Strict):
@@ -255,7 +255,7 @@ class AnswerFile(_Strict):
     @classmethod
     def _case_id_format(cls, v: str) -> str:
         if not _CASE_ID_RE.match(v):
-            raise ValueError("case_id must look like HHG-001 (from case_pack.csv)")
+            raise ValueError("case_id must look like HHG-001 (from case_pack.csv) or BONUS_001")
         return v
 
     @model_validator(mode="after")

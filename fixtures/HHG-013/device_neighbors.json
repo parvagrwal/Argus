@@ -1,0 +1,112 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:33Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "device_neighbors",
+  "params": {
+    "card": "C07671-K2",
+    "window_start": "2016-11-09 05:39:29",
+    "window_end": "2016-12-09 05:39:29"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C07671-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C07671-K2",
+              "Start.customer_id": "C07671"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-09 05:39:29",
+        "window_end": "2016-12-09 05:39:29",
+        "n_devices": 3,
+        "n_devices_expanded": 1,
+        "n_hub_devices_skipped": 2,
+        "n_connected_cards": 0
+      },
+      {
+        "devices": [
+          {
+            "v_id": "SAMSUNG SM-G950U Build/NRD90M | Android 7.0 | samsung browser 6.4 | 2220x1080",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SAMSUNG SM-G950U Build/NRD90M | Android 7.0 | samsung browser 6.4 | 2220x1080",
+              "Devices.device_info": "SAMSUNG SM-G950U Build/NRD90M",
+              "Devices.os": "Android 7.0",
+              "Devices.browser": "samsung browser 6.4",
+              "Devices.screen": "2220x1080",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1050",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1050",
+              "Devices.device_info": "Trident/7.0",
+              "Devices.os": "Windows 7",
+              "Devices.browser": "ie 11.0 for desktop",
+              "Devices.screen": "1680x1050",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                "IP_PROXY:ANONYMOUS"
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "Windows |  | chrome 66.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | chrome 66.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          }
+        ]
+      },
+      {
+        "connected_cards": []
+      },
+      {
+        "hub_devices_skipped": [
+          "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1050",
+          "Windows |  | chrome 66.0 | "
+        ]
+      }
+    ]
+  }
+}

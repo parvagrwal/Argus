@@ -1,0 +1,104 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "region_profile",
+  "params": {
+    "card": "C08106-K1",
+    "window_start": "2016-11-29 07:53:54",
+    "window_end": "2016-12-29 07:53:54",
+    "flagged_region": ""
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C08106-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C08106-K1",
+              "Start.customer_id": "C08106"
+            }
+          }
+        ]
+      },
+      {
+        "flagged_region": "",
+        "window_start": "2016-11-29 07:53:54",
+        "window_end": "2016-12-29 07:53:54",
+        "baseline_txns": 168,
+        "baseline_txns_without_region": 161,
+        "window_txns": 42,
+        "home_region": "284",
+        "home_region_baseline_txns": 3,
+        "home_region_window_txns": 0,
+        "home_activity_continued_in_window": false,
+        "flagged_region_baseline_txns": 0,
+        "flagged_region_baseline_in_person_txns": 0,
+        "flagged_region_has_history": false,
+        "flagged_region_first_seen": "1970-01-01 00:00:00",
+        "flagged_region_last_seen": "1970-01-01 00:00:00",
+        "flagged_region_window_txns": 0,
+        "distinct_window_days_in_flagged_region": 0,
+        "flagged_region_is_home": false
+      },
+      {
+        "baseline_by_region": {
+          "161": 1,
+          "465": 2,
+          "284": 3,
+          "431": 1
+        }
+      },
+      {
+        "baseline_in_person_by_region": {}
+      },
+      {
+        "baseline_amount_by_region": {
+          "161": 20.51,
+          "465": 24.84,
+          "284": 112.67,
+          "431": 93.6
+        }
+      },
+      {
+        "baseline_first_seen": {
+          "161": "2016-07-13 17:10:26",
+          "465": "2016-07-13 16:45:49",
+          "284": "2016-10-18 16:51:15",
+          "431": "2016-07-14 03:52:32"
+        }
+      },
+      {
+        "baseline_last_seen": {
+          "161": "2016-07-13 17:10:26",
+          "465": "2016-07-18 00:30:15",
+          "284": "2016-10-30 17:50:36",
+          "431": "2016-07-14 03:52:32"
+        }
+      },
+      {
+        "window_by_region": {}
+      },
+      {
+        "window_in_person_by_region": {}
+      },
+      {
+        "baseline_by_country": {
+          "60": 7
+        }
+      },
+      {
+        "window_by_country": {}
+      }
+    ]
+  }
+}

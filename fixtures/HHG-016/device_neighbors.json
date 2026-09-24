@@ -1,0 +1,109 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "device_neighbors",
+  "params": {
+    "card": "C09988-K1",
+    "window_start": "2016-11-12 01:39:08",
+    "window_end": "2016-12-12 01:39:08"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C09988-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C09988-K1",
+              "Start.customer_id": "C09988"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-12 01:39:08",
+        "window_end": "2016-12-12 01:39:08",
+        "n_devices": 2,
+        "n_devices_expanded": 1,
+        "n_hub_devices_skipped": 1,
+        "n_connected_cards": 1
+      },
+      {
+        "devices": [
+          {
+            "v_id": "SAMSUNG SM-A310F Build/NRD90M |  | samsung browser 6.4 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SAMSUNG SM-A310F Build/NRD90M |  | samsung browser 6.4 | ",
+              "Devices.device_info": "SAMSUNG SM-A310F Build/NRD90M",
+              "Devices.os": "",
+              "Devices.browser": "samsung browser 6.4",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C03938-K1"
+              ]
+            }
+          },
+          {
+            "v_id": "Windows |  | edge 16.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | edge 16.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "edge 16.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          }
+        ]
+      },
+      {
+        "connected_cards": [
+          {
+            "v_id": "C03938-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03938-K1",
+              "Neighbors.customer_id": "C03938",
+              "Neighbors.@via_devices": [
+                "SAMSUNG SM-A310F Build/NRD90M |  | samsung browser 6.4 | "
+              ],
+              "Neighbors.@shared_txns": 7,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          }
+        ]
+      },
+      {
+        "hub_devices_skipped": [
+          "Windows |  | edge 16.0 | "
+        ]
+      }
+    ]
+  }
+}

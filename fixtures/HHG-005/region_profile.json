@@ -1,0 +1,117 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "region_profile",
+  "params": {
+    "card": "C02923-K1",
+    "window_start": "2016-11-08 03:38:37",
+    "window_end": "2016-12-08 03:38:37",
+    "flagged_region": "330"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C02923-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C02923-K1",
+              "Start.customer_id": "C02923"
+            }
+          }
+        ]
+      },
+      {
+        "flagged_region": "330",
+        "window_start": "2016-11-08 03:38:37",
+        "window_end": "2016-12-08 03:38:37",
+        "baseline_txns": 74,
+        "baseline_txns_without_region": 0,
+        "window_txns": 17,
+        "home_region": "330",
+        "home_region_baseline_txns": 69,
+        "home_region_window_txns": 17,
+        "home_activity_continued_in_window": true,
+        "flagged_region_baseline_txns": 69,
+        "flagged_region_baseline_in_person_txns": 53,
+        "flagged_region_has_history": true,
+        "flagged_region_first_seen": "2016-07-02 16:06:18",
+        "flagged_region_last_seen": "2016-11-07 18:39:30",
+        "flagged_region_window_txns": 17,
+        "distinct_window_days_in_flagged_region": 9,
+        "flagged_region_is_home": true
+      },
+      {
+        "baseline_by_region": {
+          "126": 1,
+          "330": 69,
+          "324": 1,
+          "272": 2,
+          "299": 1
+        }
+      },
+      {
+        "baseline_in_person_by_region": {
+          "330": 53,
+          "324": 1
+        }
+      },
+      {
+        "baseline_amount_by_region": {
+          "126": 39.97,
+          "330": 13505.34000000001,
+          "324": 226.07,
+          "272": 150.02,
+          "299": 75.04
+        }
+      },
+      {
+        "baseline_first_seen": {
+          "126": "2016-09-05 00:56:23",
+          "330": "2016-07-02 16:06:18",
+          "324": "2016-09-29 02:40:38",
+          "272": "2016-07-16 21:58:19",
+          "299": "2016-07-17 22:52:16"
+        }
+      },
+      {
+        "baseline_last_seen": {
+          "126": "2016-09-05 00:56:23",
+          "330": "2016-11-07 18:39:30",
+          "324": "2016-09-29 02:40:38",
+          "272": "2016-07-16 22:10:41",
+          "299": "2016-07-17 22:52:16"
+        }
+      },
+      {
+        "window_by_region": {
+          "330": 17
+        }
+      },
+      {
+        "window_in_person_by_region": {
+          "330": 15
+        }
+      },
+      {
+        "baseline_by_country": {
+          "87": 74
+        }
+      },
+      {
+        "window_by_country": {
+          "87": 17
+        }
+      }
+    ]
+  }
+}

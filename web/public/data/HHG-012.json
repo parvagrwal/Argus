@@ -1,0 +1,284 @@
+{
+  "answer": {
+    "case_id": "HHG-012",
+    "case": {
+      "status": "closed_legitimate",
+      "verdict": "legitimate",
+      "fraud_probability": 0.0454,
+      "pattern": "none",
+      "pattern_description": "",
+      "affected_txn_ids": [],
+      "first_suspicious_txn_id": "",
+      "connected_card_ids": [],
+      "connected_device_profiles": [],
+      "exposure_usd": 0.0,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C05876-K2",
+          "source": "graph",
+          "ref": "query:card_window(card=C05876-K2, window_start=2016-11-18 05:00:31, window_end=2016-12-18 05:00:31, max_rows=500)",
+          "entity_ids": [
+            "C05876-K2"
+          ]
+        },
+        {
+          "claim": "region_profile returned graph facts for card C05876-K2",
+          "source": "graph",
+          "ref": "query:region_profile(card=C05876-K2, window_start=2016-11-18 05:00:31, window_end=2016-12-18 05:00:31, flagged_region=494)",
+          "entity_ids": [
+            "C05876-K2"
+          ]
+        }
+      ],
+      "similar_prior_cases": [
+        "CC-2370",
+        "CC-0003"
+      ],
+      "summary": "Case HHG-012 on card C05876-K2: verdict legitimate at probability 0.05 (false_positive_trap playbook). The card carries prior confirmed-fraud cases (CC-2370, CC-0003). The card has prior history in the flagged billing region while home activity continued. Actions follow probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76).",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "CLOSE_NO_FRAUD",
+          "route": "auto",
+          "reason": "probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76)"
+        }
+      ],
+      "final": [
+        {
+          "action": "CLOSE_NO_FRAUD",
+          "route": "auto",
+          "reason": "probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76)"
+        }
+      ],
+      "what_changed": "nothing"
+    },
+    "sar": {
+      "file": false,
+      "reason": "3a: fraud not confirmed or strongly suspected",
+      "narrative": "",
+      "subjects": [],
+      "total_amount_usd": 0.0,
+      "activity_dates": []
+    },
+    "stop_reason": "\u00a76 hard stop: probability 0.05 beyond 0.85/0.15 with 2 independent graph evidence sources",
+    "tool_calls": 2,
+    "tokens": 0,
+    "latency_s": 0.007
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-012",
+      "case": {
+        "status": "closed_legitimate",
+        "verdict": "legitimate",
+        "fraud_probability": 0.0454,
+        "pattern": "none",
+        "pattern_description": "",
+        "affected_txn_ids": [],
+        "first_suspicious_txn_id": "",
+        "connected_card_ids": [],
+        "connected_device_profiles": [],
+        "exposure_usd": 0.0,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C05876-K2",
+            "source": "graph",
+            "ref": "query:card_window(card=C05876-K2, window_start=2016-11-18 05:00:31, window_end=2016-12-18 05:00:31, max_rows=500)",
+            "entity_ids": [
+              "C05876-K2"
+            ]
+          },
+          {
+            "claim": "region_profile returned graph facts for card C05876-K2",
+            "source": "graph",
+            "ref": "query:region_profile(card=C05876-K2, window_start=2016-11-18 05:00:31, window_end=2016-12-18 05:00:31, flagged_region=494)",
+            "entity_ids": [
+              "C05876-K2"
+            ]
+          }
+        ],
+        "similar_prior_cases": [
+          "CC-2370",
+          "CC-0003"
+        ],
+        "summary": "Case HHG-012 on card C05876-K2: verdict legitimate at probability 0.05 (false_positive_trap playbook). The card carries prior confirmed-fraud cases (CC-2370, CC-0003). The card has prior history in the flagged billing region while home activity continued. Actions follow probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76).",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "CLOSE_NO_FRAUD",
+            "route": "auto",
+            "reason": "probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76)"
+          }
+        ],
+        "final": [
+          {
+            "action": "CLOSE_NO_FRAUD",
+            "route": "auto",
+            "reason": "probability 0.05 at or below the 0.30 case threshold with exonerating evidence (\u00a73a, \u00a76)"
+          }
+        ],
+        "what_changed": "nothing"
+      },
+      "sar": {
+        "file": false,
+        "reason": "3a: fraud not confirmed or strongly suspected",
+        "narrative": "",
+        "subjects": [],
+        "total_amount_usd": 0.0,
+        "activity_dates": []
+      },
+      "stop_reason": "\u00a76 hard stop: probability 0.05 beyond 0.85/0.15 with 2 independent graph evidence sources",
+      "tool_calls": 2,
+      "tokens": 0,
+      "latency_s": 0.007
+    },
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3553342 ($30.91, in billing region 494.0) at 0.55. Review and decide.",
+    "opened_at": "2016-12-18 05:00:31",
+    "flagged_txn_id": "3553342",
+    "card_id": "C05876-K2",
+    "customer_id": "C05876",
+    "flagged_risk_score": 0.55,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C05876-K2",
+          "window_start": "2016-11-18 05:00:31",
+          "window_end": "2016-12-18 05:00:31",
+          "max_rows": 500
+        },
+        "rows": 221,
+        "latency_ms": 0.009,
+        "ts": "2026-09-24T19:32:00.215+00:00"
+      },
+      {
+        "step": 2,
+        "agent": "graph",
+        "tool": "region_profile",
+        "args": {
+          "card": "C05876-K2",
+          "window_start": "2016-11-18 05:00:31",
+          "window_end": "2016-12-18 05:00:31",
+          "flagged_region": "494"
+        },
+        "rows": 281,
+        "latency_ms": 0.018,
+        "ts": "2026-09-24T19:32:00.218+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.55,
+        "customer_report": 0.0,
+        "online": 0.0,
+        "new_device": 0.0,
+        "proxy": 0.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 0.0,
+        "amount_ratio_log": -0.46114862195594164,
+        "out_of_region": 0.0,
+        "region_history": 1.0,
+        "trip_pattern": 1.0,
+        "mixed_channel": 1.0,
+        "prior_fraud_log": 0.6931471805599453,
+        "prior_cleared": 1.0,
+        "shared_device_cards_log": 0.0,
+        "neighbor_prior_fraud": 0.0,
+        "ring": 0.0,
+        "structuring": 0.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 0.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": -3.0467418484740203,
+      "probability": 0.0454,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.4386,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 1,
+        "probability": 0.0454,
+        "independent_evidence": 2,
+        "rule_fired": "region_profile",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=false_positive_trap; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.0454,
+    "exposure_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "next_query": "velocity_check",
+    "expected_logit_gain": 0.0436,
+    "expected_probability_shift": 0.0019,
+    "value_of_information_usd": 0.0,
+    "cost_of_delay_gate_usd": 0.0,
+    "continue_gathering": true,
+    "reading": "Next best query velocity_check: expected information value \u2248 $0.00 vs cost-of-delay gate \u2248 $0.00 \u2192 gather more evidence."
+  },
+  "counterfactual": {
+    "flips": true,
+    "feature": "customer_denied",
+    "old_value": 0.0,
+    "new_value": 1,
+    "old_probability": 0.0454,
+    "new_probability": 0.3003,
+    "boundary": 0.15,
+    "sentence": "If customer_denied were 1 instead of 0, fraud probability would move from 0.05 to 0.30, crossing the 0.15 decision boundary \u2014 the verdict would become uncertain."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

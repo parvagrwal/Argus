@@ -118,13 +118,19 @@ class Investigation:
     stop_reason: str = ""
     backend: str = "mock"
     results: dict[str, dict[str, Any]] = field(default_factory=dict)
+    memory: bool = True
 
 
-def run_case(case_id: str, client: Any = None, trace: TraceRecorder | None = None, weights: dict[str, float] | None = None) -> tuple[Investigation, TraceRecorder]:
-    case = CaseInput.load(case_id)
-    trace = trace or TraceRecorder(case_id=case_id)
+def run_input(
+    case: CaseInput,
+    client: Any = None,
+    trace: TraceRecorder | None = None,
+    weights: dict[str, float] | None = None,
+    memory: bool = True,
+) -> tuple[Investigation, TraceRecorder]:
+    trace = trace or TraceRecorder(case_id=case.case_id)
     client = client or get_client(trace)
-    inv = Investigation(case=case, backend=getattr(client, "backend", "mock"))
+    inv = Investigation(case=case, backend=getattr(client, "backend", "mock"), memory=memory)
     w = weights or S.DEFAULT_WEIGHTS
     end = case.opened_at
     start = (datetime.strptime(end, "%Y-%m-%d %H:%M:%S") - timedelta(days=30)).strftime("%Y-%m-%d %H:%M:%S")
@@ -155,6 +161,9 @@ def run_case(case_id: str, client: Any = None, trace: TraceRecorder | None = Non
     try:
         res = call("card_window", card=case.card_id, window_start=start, window_end=end, max_rows=500)
         S.apply_card_window(inv.features, res, case.flagged_txn_id, end)
+        if not memory:
+            inv.features.prior_fraud_log = 0.0
+            inv.features.prior_cleared = 0.0
         _harvest_card_window(inv, res)
         rescore("card_window")
         inv.archetype = choose_archetype(inv.features, case.trigger_type)
@@ -189,10 +198,24 @@ def run_case(case_id: str, client: Any = None, trace: TraceRecorder | None = Non
     return inv, trace
 
 
+def run_case(
+    case_id: str,
+    client: Any = None,
+    trace: TraceRecorder | None = None,
+    weights: dict[str, float] | None = None,
+    memory: bool = True,
+) -> tuple[Investigation, TraceRecorder]:
+    case = CaseInput.load(case_id)
+    return run_input(case, client=client, trace=trace, weights=weights, memory=memory)
+
+
 def _harvest_card_window(inv: Investigation, res: dict[str, Any]) -> None:
-    m = S.merge_blocks(res)
-    priors = [S.attrs(p) for p in m.get("prior_cases", [])]
-    inv.similar_prior_cases = [p["case_id"] for p in sorted(priors, key=lambda p: p.get("opened_at", ""), reverse=True)[:5]]
+    if getattr(inv, "memory", True):
+        m = S.merge_blocks(res)
+        priors = [S.attrs(p) for p in m.get("prior_cases", [])]
+        inv.similar_prior_cases = [p["case_id"] for p in sorted(priors, key=lambda p: p.get("opened_at", ""), reverse=True)[:5]]
+    else:
+        inv.similar_prior_cases = []
     f = inv.features.flagged
     if f:
         inv.affected_txn_ids = [inv.case.flagged_txn_id]
@@ -209,10 +232,11 @@ def _harvest(inv: Investigation, q: str, res: dict[str, Any]) -> None:
         rows = [S.attrs(c) for c in m.get("connected_cards", []) + m.get("component", [])]
         cards = {c["card_id"] for c in rows if c.get("card_id") and c["card_id"] != inv.case.card_id}
         inv.connected_card_ids = sorted(set(inv.connected_card_ids) | cards)
-        for c in rows:
-            for prior in c.get("prior_fraud_cases") or []:
-                if prior not in inv.similar_prior_cases:
-                    inv.similar_prior_cases.append(prior)
+        if getattr(inv, "memory", True):
+            for c in rows:
+                for prior in c.get("prior_fraud_cases") or []:
+                    if prior not in inv.similar_prior_cases:
+                        inv.similar_prior_cases.append(prior)
         devs = {S.attrs(d).get("profile") for d in m.get("devices", [])} | set(m.get("shared_devices") or [])
         inv.connected_device_profiles = sorted(set(inv.connected_device_profiles) | {d for d in devs if d})
 
@@ -266,6 +290,8 @@ def decide(inv: Investigation) -> dict[str, Any]:
 def write_back(inv: Investigation, client: Any, answer_payload: dict[str, Any], summary: str, d: dict[str, Any]) -> tuple[bool, str]:
     """write_fraud_case then get_case_with_evidence; emit only after payload read-back equality (AGENTS.md §8).
     Uses the allow-listed token path; the mock backend never counts as written."""
+    if not getattr(inv, "memory", True):
+        return False, ""
     if Action.CREATE_CASE.value not in {a["action"] for a in d["final"]}:
         return False, ""
     gid = f"ARGUS-{inv.case.case_id}-{int(time.time())}"

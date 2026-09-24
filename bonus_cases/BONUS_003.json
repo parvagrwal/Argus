@@ -1,0 +1,87 @@
+{
+  "case_id": "BONUS_003",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.984,
+    "pattern": "card_not_present_new_device",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3469573"
+    ],
+    "first_suspicious_txn_id": "3469573",
+    "connected_card_ids": [],
+    "connected_device_profiles": [
+      "ALP-L09 Build/HUAWEIALP-L09 |  | chrome 65.0 for android | "
+    ],
+    "exposure_usd": 38.41,
+    "evidence": [
+      {
+        "claim": "card_window returned graph facts for card C06464-K1",
+        "source": "graph",
+        "ref": "query:card_window(card=C06464-K1, window_start=2016-10-20 01:52:00, window_end=2016-11-19 01:52:00, max_rows=500)",
+        "entity_ids": [
+          "C06464-K1"
+        ]
+      },
+      {
+        "claim": "Case written to the graph as ARGUS-BONUS_003-1790275278 and read back byte-equal",
+        "source": "graph",
+        "ref": "query:get_case_with_evidence(graph_case_id=ARGUS-BONUS_003-1790275278)",
+        "entity_ids": [
+          "ARGUS-BONUS_003-1790275278"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-5513",
+      "CC-5415",
+      "CC-5219",
+      "CC-4910",
+      "CC-4780"
+    ],
+    "summary": "Case BONUS_003 on card C06464-K1: verdict fraud at probability 0.98 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5513, CC-5415, CC-5219). The flagged online transaction came from a device marked New for this account. Actions follow 3a, R1.",
+    "written_to_graph": true,
+    "graph_case_id": "ARGUS-BONUS_003-1790275278"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: probability 0.98 rests on a single signal or is below 0.70; verify before any block"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+      }
+    ],
+    "final": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: probability 0.98 rests on a single signal or is below 0.70; verify before any block"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "fraud_heavy_priors: deciding evidence found (region_profile / device_neighbors: does the flagged activity repeat the card's confirmed-fraud typology); further queries would not change the decision",
+  "tool_calls": 3,
+  "tokens": 0,
+  "latency_s": 0.723
+}

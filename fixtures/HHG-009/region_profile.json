@@ -1,0 +1,126 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:32Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "region_profile",
+  "params": {
+    "card": "C08299-K1",
+    "window_start": "2016-11-28 17:10:53",
+    "window_end": "2016-12-28 17:10:53",
+    "flagged_region": "203"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C08299-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C08299-K1",
+              "Start.customer_id": "C08299"
+            }
+          }
+        ]
+      },
+      {
+        "flagged_region": "203",
+        "window_start": "2016-11-28 17:10:53",
+        "window_end": "2016-12-28 17:10:53",
+        "baseline_txns": 39,
+        "baseline_txns_without_region": 0,
+        "window_txns": 8,
+        "home_region": "330",
+        "home_region_baseline_txns": 24,
+        "home_region_window_txns": 6,
+        "home_activity_continued_in_window": true,
+        "flagged_region_baseline_txns": 1,
+        "flagged_region_baseline_in_person_txns": 1,
+        "flagged_region_has_history": true,
+        "flagged_region_first_seen": "2016-07-27 23:01:57",
+        "flagged_region_last_seen": "2016-07-27 23:01:57",
+        "flagged_region_window_txns": 1,
+        "distinct_window_days_in_flagged_region": 1,
+        "flagged_region_is_home": false
+      },
+      {
+        "baseline_by_region": {
+          "204": 4,
+          "325": 1,
+          "203": 1,
+          "184": 2,
+          "441": 4,
+          "330": 24,
+          "337": 3
+        }
+      },
+      {
+        "baseline_in_person_by_region": {
+          "337": 1,
+          "203": 1,
+          "441": 4
+        }
+      },
+      {
+        "baseline_amount_by_region": {
+          "204": 200.11,
+          "325": 30.04,
+          "203": 92.05,
+          "184": 105.01,
+          "441": 289.4299999999999,
+          "330": 1449.88,
+          "337": 468.81
+        }
+      },
+      {
+        "baseline_first_seen": {
+          "204": "2016-10-04 14:10:39",
+          "325": "2016-10-07 18:39:24",
+          "203": "2016-07-27 23:01:57",
+          "184": "2016-07-20 13:37:20",
+          "441": "2016-07-12 13:09:36",
+          "330": "2016-07-04 20:30:37",
+          "337": "2016-08-06 01:12:00"
+        }
+      },
+      {
+        "baseline_last_seen": {
+          "204": "2016-10-23 16:17:04",
+          "325": "2016-10-07 18:39:24",
+          "203": "2016-07-27 23:01:57",
+          "184": "2016-07-23 16:42:23",
+          "441": "2016-09-01 19:45:31",
+          "330": "2016-11-24 11:50:48",
+          "337": "2016-11-07 14:40:50"
+        }
+      },
+      {
+        "window_by_region": {
+          "204": 1,
+          "203": 1,
+          "330": 6
+        }
+      },
+      {
+        "window_in_person_by_region": {}
+      },
+      {
+        "baseline_by_country": {
+          "87": 39
+        }
+      },
+      {
+        "window_by_country": {
+          "87": 8
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "answer": {
+    "case_id": "HHG-017",
+    "case": {
+      "status": "closed_legitimate",
+      "verdict": "legitimate",
+      "fraud_probability": 0.0898,
+      "pattern": "none",
+      "pattern_description": "",
+      "affected_txn_ids": [],
+      "first_suspicious_txn_id": "",
+      "connected_card_ids": [],
+      "connected_device_profiles": [
+        "Windows | Windows 10 | chrome 65.0 | 1920x1080"
+      ],
+      "exposure_usd": 0.0,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C04570-K1",
+          "source": "graph",
+          "ref": "query:card_window(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, max_rows=500)",
+          "entity_ids": [
+            "C04570-K1"
+          ]
+        },
+        {
+          "claim": "device_neighbors returned graph facts for card C04570-K1",
+          "source": "graph",
+          "ref": "query:device_neighbors(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+          "entity_ids": [
+            "C04570-K1"
+          ]
+        },
+        {
+          "claim": "detect_fraud_ring returned graph facts for card C04570-K1",
+          "source": "graph",
+          "ref": "query:detect_fraud_ring(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+          "entity_ids": [
+            "C04570-K1"
+          ]
+        },
+        {
+          "claim": "velocity_check returned graph facts for card C04570-K1",
+          "source": "graph",
+          "ref": "query:velocity_check(card=C04570-K1, window_start=2016-11-08 18:46:24, window_end=2016-11-12 00:46:24)",
+          "entity_ids": [
+            "C04570-K1"
+          ]
+        },
+        {
+          "claim": "region_profile returned graph facts for card C04570-K1",
+          "source": "graph",
+          "ref": "query:region_profile(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, flagged_region=204)",
+          "entity_ids": [
+            "C04570-K1"
+          ]
+        },
+        {
+          "claim": "Simulated customer_validation response: confirmed",
+          "source": "customer",
+          "ref": "evidence_request:1",
+          "entity_ids": []
+        }
+      ],
+      "similar_prior_cases": [
+        "CC-1383"
+      ],
+      "summary": "Case HHG-017 on card C04570-K1: verdict legitimate at probability 0.09 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Actions follow R3.",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [
+      {
+        "type": "customer_validation",
+        "asked_after_step": 5,
+        "assumed_response": "SIMULATED cardholder reply (customer_validation): 'Yes, that purchase was mine.'"
+      }
+    ],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "VERIFY_WITH_CUSTOMER",
+          "route": "auto",
+          "reason": "R1: probability 0.66 rests on a single signal or is below 0.70; verify before any block"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+        }
+      ],
+      "final": [
+        {
+          "action": "CLOSE_NO_FRAUD",
+          "route": "auto",
+          "reason": "R3: customer confirmed the transaction; confirmation noted in the case file"
+        }
+      ],
+      "what_changed": "The simulated evidence response (confirmed) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to CLOSE_NO_FRAUD."
+    },
+    "sar": {
+      "file": false,
+      "reason": "3a: fraud not confirmed or strongly suspected",
+      "narrative": "",
+      "subjects": [],
+      "total_amount_usd": 0.0,
+      "activity_dates": []
+    },
+    "stop_reason": "undocumented_ring playbook exhausted (5 graph queries); no further query has expected gain above the gate",
+    "tool_calls": 5,
+    "tokens": 0,
+    "latency_s": 0.004
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-017",
+      "case": {
+        "status": "closed_legitimate",
+        "verdict": "legitimate",
+        "fraud_probability": 0.0898,
+        "pattern": "none",
+        "pattern_description": "",
+        "affected_txn_ids": [],
+        "first_suspicious_txn_id": "",
+        "connected_card_ids": [],
+        "connected_device_profiles": [
+          "Windows | Windows 10 | chrome 65.0 | 1920x1080"
+        ],
+        "exposure_usd": 0.0,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C04570-K1",
+            "source": "graph",
+            "ref": "query:card_window(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, max_rows=500)",
+            "entity_ids": [
+              "C04570-K1"
+            ]
+          },
+          {
+            "claim": "device_neighbors returned graph facts for card C04570-K1",
+            "source": "graph",
+            "ref": "query:device_neighbors(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+            "entity_ids": [
+              "C04570-K1"
+            ]
+          },
+          {
+            "claim": "detect_fraud_ring returned graph facts for card C04570-K1",
+            "source": "graph",
+            "ref": "query:detect_fraud_ring(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+            "entity_ids": [
+              "C04570-K1"
+            ]
+          },
+          {
+            "claim": "velocity_check returned graph facts for card C04570-K1",
+            "source": "graph",
+            "ref": "query:velocity_check(card=C04570-K1, window_start=2016-11-08 18:46:24, window_end=2016-11-12 00:46:24)",
+            "entity_ids": [
+              "C04570-K1"
+            ]
+          },
+          {
+            "claim": "region_profile returned graph facts for card C04570-K1",
+            "source": "graph",
+            "ref": "query:region_profile(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, flagged_region=204)",
+            "entity_ids": [
+              "C04570-K1"
+            ]
+          },
+          {
+            "claim": "Simulated customer_validation response: confirmed",
+            "source": "customer",
+            "ref": "evidence_request:1",
+            "entity_ids": []
+          }
+        ],
+        "similar_prior_cases": [
+          "CC-1383"
+        ],
+        "summary": "Case HHG-017 on card C04570-K1: verdict legitimate at probability 0.09 (undocumented_ring playbook). The flagged online transaction came from a device marked New for this account behind a proxy. Actions follow R3.",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [
+        {
+          "type": "customer_validation",
+          "asked_after_step": 5,
+          "assumed_response": "SIMULATED cardholder reply (customer_validation): 'Yes, that purchase was mine.'"
+        }
+      ],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "VERIFY_WITH_CUSTOMER",
+            "route": "auto",
+            "reason": "R1: probability 0.66 rests on a single signal or is below 0.70; verify before any block"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+          }
+        ],
+        "final": [
+          {
+            "action": "CLOSE_NO_FRAUD",
+            "route": "auto",
+            "reason": "R3: customer confirmed the transaction; confirmation noted in the case file"
+          }
+        ],
+        "what_changed": "The simulated evidence response (confirmed) changed the recommendation from VERIFY_WITH_CUSTOMER, CREATE_CASE to CLOSE_NO_FRAUD."
+      },
+      "sar": {
+        "file": false,
+        "reason": "3a: fraud not confirmed or strongly suspected",
+        "narrative": "",
+        "subjects": [],
+        "total_amount_usd": 0.0,
+        "activity_dates": []
+      },
+      "stop_reason": "undocumented_ring playbook exhausted (5 graph queries); no further query has expected gain above the gate",
+      "tool_calls": 5,
+      "tokens": 0,
+      "latency_s": 0.004
+    },
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3450629 ($100.09, online) at 0.57. Review and decide.",
+    "opened_at": "2016-11-12 00:46:24",
+    "flagged_txn_id": "3450629",
+    "card_id": "C04570-K1",
+    "customer_id": "C04570",
+    "flagged_risk_score": 0.57,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C04570-K1",
+          "window_start": "2016-10-13 00:46:24",
+          "window_end": "2016-11-12 00:46:24",
+          "max_rows": 500
+        },
+        "rows": 17,
+        "latency_ms": 0.008,
+        "ts": "2026-09-24T19:32:00.267+00:00"
+      },
+      {
+        "step": 2,
+        "agent": "graph",
+        "tool": "device_neighbors",
+        "args": {
+          "card": "C04570-K1",
+          "window_start": "2016-10-13 00:46:24",
+          "window_end": "2016-11-12 00:46:24"
+        },
+        "rows": 9,
+        "latency_ms": 0.006,
+        "ts": "2026-09-24T19:32:00.268+00:00"
+      },
+      {
+        "step": 3,
+        "agent": "graph",
+        "tool": "detect_fraud_ring",
+        "args": {
+          "card": "C04570-K1",
+          "window_start": "2016-10-13 00:46:24",
+          "window_end": "2016-11-12 00:46:24"
+        },
+        "rows": 11,
+        "latency_ms": 0.007,
+        "ts": "2026-09-24T19:32:00.269+00:00"
+      },
+      {
+        "step": 4,
+        "agent": "graph",
+        "tool": "velocity_check",
+        "args": {
+          "card": "C04570-K1",
+          "window_start": "2016-11-08 18:46:24",
+          "window_end": "2016-11-12 00:46:24"
+        },
+        "rows": 17,
+        "latency_ms": 0.007,
+        "ts": "2026-09-24T19:32:00.269+00:00"
+      },
+      {
+        "step": 5,
+        "agent": "graph",
+        "tool": "region_profile",
+        "args": {
+          "card": "C04570-K1",
+          "window_start": "2016-10-13 00:46:24",
+          "window_end": "2016-11-12 00:46:24",
+          "flagged_region": "204"
+        },
+        "rows": 88,
+        "latency_ms": 0.009,
+        "ts": "2026-09-24T19:32:00.270+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.57,
+        "customer_report": 0.0,
+        "online": 1.0,
+        "new_device": 0.0,
+        "proxy": 1.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 1.0,
+        "amount_ratio_log": 0.0,
+        "out_of_region": 0.0,
+        "region_history": 0.0,
+        "trip_pattern": 0.0,
+        "mixed_channel": 0.0,
+        "prior_fraud_log": 0.0,
+        "prior_cleared": 1.0,
+        "shared_device_cards_log": 0.0,
+        "neighbor_prior_fraud": 0.0,
+        "ring": 0.0,
+        "structuring": 0.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 1.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": -2.316,
+      "probability": 0.0898,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.6646,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 1,
+        "probability": 0.6646,
+        "independent_evidence": 2,
+        "rule_fired": "device_neighbors",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 2,
+        "probability": 0.6646,
+        "independent_evidence": 3,
+        "rule_fired": "detect_fraud_ring",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 3,
+        "probability": 0.6646,
+        "independent_evidence": 4,
+        "rule_fired": "velocity_check",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 4,
+        "probability": 0.6646,
+        "independent_evidence": 5,
+        "rule_fired": "region_profile",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=undocumented_ring; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.0898,
+    "exposure_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "next_query": null,
+    "expected_logit_gain": 0.0,
+    "expected_probability_shift": 0.0,
+    "value_of_information_usd": 0.0,
+    "cost_of_delay_gate_usd": 0.0,
+    "continue_gathering": false,
+    "reading": "All evidence gathered \u2014 decision made on complete information."
+  },
+  "counterfactual": {
+    "flips": true,
+    "feature": "customer_confirmed",
+    "old_value": 1.0,
+    "new_value": 0,
+    "old_probability": 0.0898,
+    "new_probability": 0.6646,
+    "boundary": 0.15,
+    "sentence": "If customer_confirmed were 0 instead of 1, fraud probability would move from 0.09 to 0.66, crossing the 0.15 decision boundary \u2014 the verdict would become uncertain."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

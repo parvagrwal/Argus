@@ -1,0 +1,63 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "detect_fraud_ring",
+  "params": {
+    "card": "C04570-K1",
+    "window_start": "2016-10-13 00:46:24",
+    "window_end": "2016-11-12 00:46:24"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "window_start": "2016-10-13 00:46:24",
+        "window_end": "2016-11-12 00:46:24",
+        "hops_expanded": 1,
+        "component_size": 1,
+        "cards_with_prior_confirmed_fraud": 0,
+        "n_shared_devices": 0,
+        "n_hub_devices_skipped": 1,
+        "include_email": false,
+        "n_shared_email_domains": 0
+      },
+      {
+        "component": [
+          {
+            "v_id": "C04570-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Component.card_id": "C04570-K1",
+              "Component.customer_id": "C04570",
+              "Component.@hop": 0,
+              "Component.@linked_via": [],
+              "Component.@prior_fraud_cases": [],
+              "Component.@prior_fraud_patterns": []
+            }
+          }
+        ]
+      },
+      {
+        "shared_devices": []
+      },
+      {
+        "hub_devices_skipped": [
+          "Windows | Windows 10 | chrome 65.0 | 1920x1080"
+        ]
+      },
+      {
+        "shared_email_domains": []
+      },
+      {
+        "hub_email_domains_skipped": []
+      }
+    ]
+  }
+}

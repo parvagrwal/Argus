@@ -1,0 +1,150 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:35Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "velocity_check",
+  "params": {
+    "card": "C06464-K1",
+    "window_start": "2016-11-15 19:52:00",
+    "window_end": "2016-11-19 01:52:00"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C06464-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C06464-K1",
+              "Start.customer_id": "C06464"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-15 19:52:00",
+        "window_end": "2016-11-19 01:52:00",
+        "n_txns_in_window": 13,
+        "small_amount": 5,
+        "burst_minutes": 60,
+        "min_small_auths": 3,
+        "large_amount": 100,
+        "followup_hours": 24,
+        "max_online_in_burst_window": 2,
+        "max_small_online_in_burst_window": 1,
+        "n_micro_auth_bursts": 0,
+        "card_testing_sequence_detected": false,
+        "max_amount_in_window": 86.31
+      },
+      {
+        "micro_auth_txn_ids": []
+      },
+      {
+        "followup_large_txn_ids": []
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-15 20:34:47",
+            "txn_id": "3460656",
+            "amount": 46.99,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-15 20:41:11",
+            "txn_id": "3460672",
+            "amount": 47,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-15 23:15:22",
+            "txn_id": "3461153",
+            "amount": 86.31,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-16 09:53:10",
+            "txn_id": "3461991",
+            "amount": 36.02,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-16 15:41:23",
+            "txn_id": "3462501",
+            "amount": 4.02,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-16 18:10:05",
+            "txn_id": "3462937",
+            "amount": 83.92,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-17 01:14:00",
+            "txn_id": "3464155",
+            "amount": 15.92,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-17 13:11:08",
+            "txn_id": "3464767",
+            "amount": 29.32,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-18 01:12:13",
+            "txn_id": "3466863",
+            "amount": 36,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-18 13:46:43",
+            "txn_id": "3467576",
+            "amount": 41.75,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-18 14:21:45",
+            "txn_id": "3467650",
+            "amount": 15.99,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-18 23:12:19",
+            "txn_id": "3469147",
+            "amount": 43,
+            "channel": "online",
+            "product_cd": "C"
+          },
+          {
+            "ts": "2016-11-19 01:52:00",
+            "txn_id": "3469573",
+            "amount": 38.41,
+            "channel": "online",
+            "product_cd": "C"
+          }
+        ]
+      }
+    ]
+  }
+}

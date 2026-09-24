@@ -63,12 +63,18 @@ def sar_draft(inv: L.Investigation, d: dict[str, Any]) -> dict[str, Any]:
     return {"narrative": narrative, "subjects": list(dict.fromkeys(subjects)), "activity_dates": [dates[0], dates[-1]]}
 
 
-def build(case_id: str, client: Any = None, write_graph: bool = True, tokens: int = 0) -> tuple[AnswerFile, InternalCaseRecord]:
+def build(case_id: str | L.CaseInput, client: Any = None, write_graph: bool = True, tokens: int = 0, memory: bool = True) -> tuple[AnswerFile, InternalCaseRecord]:
+    if isinstance(case_id, L.CaseInput):
+        case_input = case_id
+        cid = case_input.case_id
+    else:
+        cid = case_id
+        case_input = L.CaseInput.load(cid)
     t0 = time.perf_counter()
-    trace = TraceRecorder(case_id=case_id)
+    trace = TraceRecorder(case_id=cid)
     client = client or L.get_client(trace)
     client.trace = trace  # one recorder per case, whichever backend the caller injected
-    inv, trace = L.run_case(case_id, client, trace)
+    inv, trace = L.run_input(case_input, client, trace, memory=memory)
     d = L.decide(inv)
     sar = P.zero_out(P.sar_fields(d["final"], inv.probability, d["flags"], d["exposure"], sar_draft(inv, d)))
     summary = template_summary(inv, d)
@@ -80,10 +86,10 @@ def build(case_id: str, client: Any = None, write_graph: bool = True, tokens: in
         "exposure_usd": d["exposure"], "evidence": inv.evidence, "similar_prior_cases": inv.similar_prior_cases,
         "summary": summary, "written_to_graph": False, "graph_case_id": "",
     }
-    payload = {"case_id": case_id, "case": case_obj, "evidence_requests": d["requests"],
+    payload = {"case_id": cid, "case": case_obj, "evidence_requests": d["requests"],
                "next_best_actions": {"initial": d["initial"], "final": d["final"], "what_changed": d["what_changed"]}, "sar": sar,
                "stop_reason": inv.stop_reason}
-    if write_graph:
+    if write_graph and memory:
         ok, gid = L.write_back(inv, client, payload, summary, d)
         case_obj["written_to_graph"], case_obj["graph_case_id"] = ok, gid
         case_obj["evidence"] = inv.evidence

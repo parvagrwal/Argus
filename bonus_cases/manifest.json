@@ -1,0 +1,52 @@
+[
+  {
+    "case_id": "BONUS_001",
+    "opened_at": "2016-12-16 23:40:18",
+    "trigger_type": "risk_score",
+    "trigger_text": "Autonomous monitor: risk_score 0.99 on txn 3549837 during exam period",
+    "flagged_txn_id": "3549837",
+    "card_id": "C00750-K2",
+    "customer_id": "C00750",
+    "risk_score": 0.99
+  },
+  {
+    "case_id": "BONUS_002",
+    "opened_at": "2016-11-19 23:42:32",
+    "trigger_type": "risk_score",
+    "trigger_text": "Autonomous monitor: risk_score 0.99 on txn 3471965 during exam period",
+    "flagged_txn_id": "3471965",
+    "card_id": "C06962-K2",
+    "customer_id": "C06962",
+    "risk_score": 0.99
+  },
+  {
+    "case_id": "BONUS_003",
+    "opened_at": "2016-11-19 01:52:00",
+    "trigger_type": "risk_score",
+    "trigger_text": "Autonomous monitor: risk_score 0.99 on txn 3469573 during exam period",
+    "flagged_txn_id": "3469573",
+    "card_id": "C06464-K1",
+    "customer_id": "C06464",
+    "risk_score": 0.99
+  },
+  {
+    "case_id": "BONUS_004",
+    "opened_at": "2016-11-06 22:43:38",
+    "trigger_type": "risk_score",
+    "trigger_text": "Autonomous monitor: risk_score 0.99 on txn 3436706 during exam period",
+    "flagged_txn_id": "3436706",
+    "card_id": "C01154-K1",
+    "customer_id": "C01154",
+    "risk_score": 0.99
+  },
+  {
+    "case_id": "BONUS_005",
+    "opened_at": "2016-12-14 14:37:08",
+    "trigger_type": "risk_score",
+    "trigger_text": "Autonomous monitor: risk_score 0.98 on txn 3542004 during exam period",
+    "flagged_txn_id": "3542004",
+    "card_id": "C02716-K2",
+    "customer_id": "C02716",
+    "risk_score": 0.98
+  }
+]

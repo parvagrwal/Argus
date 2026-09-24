@@ -1,0 +1,51 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:30Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "device_neighbors",
+  "params": {
+    "card": "C12382-K1",
+    "window_start": "2016-11-05 01:55:28",
+    "window_end": "2016-12-05 01:55:28"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C12382-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C12382-K1",
+              "Start.customer_id": "C12382"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-05 01:55:28",
+        "window_end": "2016-12-05 01:55:28",
+        "n_devices": 0,
+        "n_devices_expanded": 0,
+        "n_hub_devices_skipped": 0,
+        "n_connected_cards": 0
+      },
+      {
+        "devices": []
+      },
+      {
+        "connected_cards": []
+      },
+      {
+        "hub_devices_skipped": []
+      }
+    ]
+  }
+}

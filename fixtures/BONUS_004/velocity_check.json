@@ -1,0 +1,80 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:36Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "velocity_check",
+  "params": {
+    "card": "C01154-K1",
+    "window_start": "2016-11-03 16:43:38",
+    "window_end": "2016-11-06 22:43:38"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C01154-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C01154-K1",
+              "Start.customer_id": "C01154"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-03 16:43:38",
+        "window_end": "2016-11-06 22:43:38",
+        "n_txns_in_window": 3,
+        "small_amount": 5,
+        "burst_minutes": 60,
+        "min_small_auths": 3,
+        "large_amount": 100,
+        "followup_hours": 24,
+        "max_online_in_burst_window": -9223372036854775808,
+        "max_small_online_in_burst_window": -9223372036854775808,
+        "n_micro_auth_bursts": 0,
+        "card_testing_sequence_detected": false,
+        "max_amount_in_window": 554.03
+      },
+      {
+        "micro_auth_txn_ids": []
+      },
+      {
+        "followup_large_txn_ids": []
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-04 01:40:30",
+            "txn_id": "3428112",
+            "amount": 58.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-06 13:57:35",
+            "txn_id": "3435017",
+            "amount": 553.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-06 22:43:38",
+            "txn_id": "3436706",
+            "amount": 554.03,
+            "channel": "in_person",
+            "product_cd": "W"
+          }
+        ]
+      }
+    ]
+  }
+}

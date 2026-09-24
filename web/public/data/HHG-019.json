@@ -1,0 +1,278 @@
+{
+  "answer": {
+    "case_id": "HHG-019",
+    "case": {
+      "status": "closed_fraud",
+      "verdict": "fraud",
+      "fraud_probability": 0.8721,
+      "pattern": "account_takeover",
+      "pattern_description": "",
+      "affected_txn_ids": [
+        "3503878"
+      ],
+      "first_suspicious_txn_id": "3503878",
+      "connected_card_ids": [],
+      "connected_device_profiles": [
+        "Windows | other | chrome 61.0 | 1280x720"
+      ],
+      "exposure_usd": 99.92,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C07987-K2",
+          "source": "graph",
+          "ref": "query:card_window(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, max_rows=500)",
+          "entity_ids": [
+            "C07987-K2"
+          ]
+        }
+      ],
+      "similar_prior_cases": [
+        "CC-5026",
+        "CC-2860",
+        "CC-2087",
+        "CC-2011"
+      ],
+      "summary": "Case HHG-019 on card C07987-K2: verdict fraud at probability 0.87 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5026, CC-2860, CC-2087). The flagged online transaction came from a device marked New for this account. Actions follow 3a, R1.",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "VERIFY_WITH_CUSTOMER",
+          "route": "auto",
+          "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+        }
+      ],
+      "final": [
+        {
+          "action": "VERIFY_WITH_CUSTOMER",
+          "route": "auto",
+          "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+        }
+      ],
+      "what_changed": "nothing"
+    },
+    "sar": {
+      "file": false,
+      "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+      "narrative": "",
+      "subjects": [],
+      "total_amount_usd": 0.0,
+      "activity_dates": []
+    },
+    "stop_reason": "fraud_heavy_priors: deciding evidence found (region_profile / device_neighbors: does the flagged activity repeat the card's confirmed-fraud typology); further queries would not change the decision",
+    "tool_calls": 1,
+    "tokens": 0,
+    "latency_s": 0.002
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-019",
+      "case": {
+        "status": "closed_fraud",
+        "verdict": "fraud",
+        "fraud_probability": 0.8721,
+        "pattern": "account_takeover",
+        "pattern_description": "",
+        "affected_txn_ids": [
+          "3503878"
+        ],
+        "first_suspicious_txn_id": "3503878",
+        "connected_card_ids": [],
+        "connected_device_profiles": [
+          "Windows | other | chrome 61.0 | 1280x720"
+        ],
+        "exposure_usd": 99.92,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C07987-K2",
+            "source": "graph",
+            "ref": "query:card_window(card=C07987-K2, window_start=2016-11-01 22:28:53, window_end=2016-12-01 22:28:53, max_rows=500)",
+            "entity_ids": [
+              "C07987-K2"
+            ]
+          }
+        ],
+        "similar_prior_cases": [
+          "CC-5026",
+          "CC-2860",
+          "CC-2087",
+          "CC-2011"
+        ],
+        "summary": "Case HHG-019 on card C07987-K2: verdict fraud at probability 0.87 (fraud_heavy_priors playbook). The card carries prior confirmed-fraud cases (CC-5026, CC-2860, CC-2087). The flagged online transaction came from a device marked New for this account. Actions follow 3a, R1.",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "VERIFY_WITH_CUSTOMER",
+            "route": "auto",
+            "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+          }
+        ],
+        "final": [
+          {
+            "action": "VERIFY_WITH_CUSTOMER",
+            "route": "auto",
+            "reason": "R1: probability 0.87 rests on a single signal or is below 0.70; verify before any block"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30 / evidence requested / customer dispute"
+          }
+        ],
+        "what_changed": "nothing"
+      },
+      "sar": {
+        "file": false,
+        "reason": "3a: none of the report triggers holds (exposure <= $1,000, no shared origin, documented pattern)",
+        "narrative": "",
+        "subjects": [],
+        "total_amount_usd": 0.0,
+        "activity_dates": []
+      },
+      "stop_reason": "fraud_heavy_priors: deciding evidence found (region_profile / device_neighbors: does the flagged activity repeat the card's confirmed-fraud typology); further queries would not change the decision",
+      "tool_calls": 1,
+      "tokens": 0,
+      "latency_s": 0.002
+    },
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3503878 ($99.92, online) at 0.90. Review and decide.",
+    "opened_at": "2016-12-01 22:28:53",
+    "flagged_txn_id": "3503878",
+    "card_id": "C07987-K2",
+    "customer_id": "C07987",
+    "flagged_risk_score": 0.9,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C07987-K2",
+          "window_start": "2016-11-01 22:28:53",
+          "window_end": "2016-12-01 22:28:53",
+          "max_rows": 500
+        },
+        "rows": 41,
+        "latency_ms": 0.009,
+        "ts": "2026-09-24T19:32:00.296+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.9,
+        "customer_report": 0.0,
+        "online": 1.0,
+        "new_device": 1.0,
+        "proxy": 0.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 0.0,
+        "amount_ratio_log": -0.8162978680081749,
+        "out_of_region": 0.0,
+        "region_history": 0.0,
+        "trip_pattern": 0.0,
+        "mixed_channel": 1.0,
+        "prior_fraud_log": 1.3862943611198906,
+        "prior_cleared": 1.0,
+        "shared_device_cards_log": 0.0,
+        "neighbor_prior_fraud": 0.0,
+        "ring": 0.0,
+        "structuring": 0.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 0.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": 1.9195159910038142,
+      "probability": 0.8721,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.8721,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=fraud_heavy_priors; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.8721,
+    "exposure_usd": 99.92,
+    "at_risk_usd": 87.14,
+    "next_query": "velocity_check",
+    "expected_logit_gain": 0.1228,
+    "expected_probability_shift": 0.0137,
+    "value_of_information_usd": 1.37,
+    "cost_of_delay_gate_usd": 0.45,
+    "continue_gathering": true,
+    "reading": "Next best query velocity_check: expected information value \u2248 $1.37 vs cost-of-delay gate \u2248 $0.45 \u2192 gather more evidence."
+  },
+  "counterfactual": {
+    "flips": true,
+    "feature": "risk_score",
+    "old_value": 0.9,
+    "new_value": 0.7458,
+    "old_probability": 0.8721,
+    "new_probability": 0.85,
+    "boundary": 0.85,
+    "sentence": "If risk_score were 0.75 instead of 0.90, fraud probability would move from 0.87 to 0.85, crossing the 0.85 decision boundary \u2014 the verdict would become uncertain."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

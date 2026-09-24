@@ -1,0 +1,238 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C03042-K1",
+    "window_start": "2016-10-18 19:03:36",
+    "window_end": "2016-11-17 19:03:36",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C03042-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C03042-K1",
+              "Start.customer_id": "C03042",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-10-18 19:03:36",
+        "window_end": "2016-11-17 19:03:36",
+        "n_txns": 10,
+        "total_amount": 3060.860000000001,
+        "n_online": 6,
+        "n_in_person": 4,
+        "n_new_device": 3,
+        "n_proxy": 0,
+        "n_prior_cases": 3,
+        "n_prior_confirmed_fraud": 2,
+        "n_prior_cleared": 1
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-10-20 15:42:19",
+            "txn_id": "3381585",
+            "amount": 74.94,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "225",
+            "addr2": "87",
+            "risk_score": 0.07,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 7 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": "cox.net"
+          },
+          {
+            "ts": "2016-10-25 00:24:49",
+            "txn_id": "3395339",
+            "amount": 99.92,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.57,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 7 | chrome 65.0 | 1920x1080",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-10-28 13:27:22",
+            "txn_id": "3405413",
+            "amount": 50.05,
+            "product_cd": "H",
+            "channel": "online",
+            "addr1": "485",
+            "addr2": "87",
+            "risk_score": 0.57,
+            "device_status": "Unknown",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | firefox 59.0 | 1920x1080",
+            "p_emaildomain": "aol.com",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-01 15:07:48",
+            "txn_id": "3418766",
+            "amount": 150.05,
+            "product_cd": "H",
+            "channel": "online",
+            "addr1": "126",
+            "addr2": "87",
+            "risk_score": 0.04,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 7 | chrome 65.0 | 1280x1024",
+            "p_emaildomain": "comcast.net",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-07 02:48:35",
+            "txn_id": "3437403",
+            "amount": 99.99,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "184",
+            "addr2": "87",
+            "risk_score": 0.39,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 8.1 | ie 11.0 for desktop | 1366x768",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-09 17:48:51",
+            "txn_id": "3444271",
+            "amount": 444.97,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "325",
+            "addr2": "87",
+            "risk_score": 0.02,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-16 14:57:45",
+            "txn_id": "3462385",
+            "amount": 440.96,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "299",
+            "addr2": "87",
+            "risk_score": 0.07,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-16 14:59:34",
+            "txn_id": "3462387",
+            "amount": 550.03,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "299",
+            "addr2": "87",
+            "risk_score": 0.64,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-16 15:09:17",
+            "txn_id": "3462404",
+            "amount": 550.01,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "299",
+            "addr2": "87",
+            "risk_score": 0.67,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-17 14:03:36",
+            "txn_id": "3464869",
+            "amount": 599.94,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "327",
+            "addr2": "87",
+            "risk_score": 0.77,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 | Windows 8.1 | ie 11.0 for desktop | 1680x1050",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": [
+          {
+            "opened_at": "2016-09-24 10:19:55",
+            "case_id": "CC-3886",
+            "outcome": "confirmed_fraud",
+            "pattern": "card_not_present_new_device",
+            "exposure_usd": 175.05,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-3886: cardholder C03042 reported unrecognized activity on card C03042-K1. 1 transaction(s) between 2016-09-23 and 2016-09-23 totaling $175.05 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a iOS Device on mobile safari generic. Card blocked and reissued. Customer reimbursed."
+          },
+          {
+            "opened_at": "2016-07-28 00:03:51",
+            "case_id": "CC-1313",
+            "outcome": "cleared",
+            "pattern": "",
+            "exposure_usd": 0,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-1313: model scored a $100.08 transaction at 0.87. Cardholder confirmed travel to the billing region in question. Alert cleared."
+          },
+          {
+            "opened_at": "2016-07-16 19:03:49",
+            "case_id": "CC-0615",
+            "outcome": "confirmed_fraud",
+            "pattern": "card_not_present_new_device",
+            "exposure_usd": 174.99,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-0615: cardholder C03042 reported unrecognized activity on card C03042-K1. 1 transaction(s) between 2016-07-16 and 2016-07-16 totaling $174.99 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a iOS Device on mobile safari 11.0. Card blocked and reissued. Customer reimbursed."
+          }
+        ]
+      }
+    ]
+  }
+}

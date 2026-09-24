@@ -1,0 +1,297 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:33Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C13487-K1",
+    "window_start": "2016-10-23 20:11:00",
+    "window_end": "2016-11-22 20:11:00",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C13487-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C13487-K1",
+              "Start.customer_id": "C13487",
+              "Start.card6": "debit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-10-23 20:11:00",
+        "window_end": "2016-11-22 20:11:00",
+        "n_txns": 16,
+        "total_amount": 764.4099999999999,
+        "n_online": 2,
+        "n_in_person": 14,
+        "n_new_device": 2,
+        "n_proxy": 2,
+        "n_prior_cases": 0,
+        "n_prior_confirmed_fraud": 0,
+        "n_prior_cleared": 0
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-10-27 16:33:48",
+            "txn_id": "3402749",
+            "amount": 30.9,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "272",
+            "addr2": "87",
+            "risk_score": 0.15,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-10-27 21:03:30",
+            "txn_id": "3403715",
+            "amount": 35.88,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.13,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-10-30 16:50:32",
+            "txn_id": "3412468",
+            "amount": 57.9,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.18,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-02 13:28:31",
+            "txn_id": "3421895",
+            "amount": 25.92,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "272",
+            "addr2": "87",
+            "risk_score": 0.23,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-05 16:01:45",
+            "txn_id": "3432321",
+            "amount": 26.03,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.01,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-07 17:38:15",
+            "txn_id": "3438604",
+            "amount": 55.98,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.01,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-09 15:50:16",
+            "txn_id": "3443869",
+            "amount": 30.88,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "272",
+            "addr2": "87",
+            "risk_score": 0.13,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-11 13:46:12",
+            "txn_id": "3448940",
+            "amount": 107.99,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.09,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-14 18:09:35",
+            "txn_id": "3457509",
+            "amount": 35.92,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.15,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-14 21:10:40",
+            "txn_id": "3458103",
+            "amount": 35.9,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.31,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-15 01:33:32",
+            "txn_id": "3458865",
+            "amount": 35.86,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.18,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-15 20:30:00",
+            "txn_id": "3460634",
+            "amount": 112.37,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.1,
+            "device_status": "New",
+            "proxy_flag": "IP_PROXY:ANONYMOUS",
+            "device_profile": "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080",
+            "p_emaildomain": "yahoo.com",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-16 16:32:54",
+            "txn_id": "3462636",
+            "amount": 30.88,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "272",
+            "addr2": "87",
+            "risk_score": 0.25,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-21 23:39:05",
+            "txn_id": "3477218",
+            "amount": 36.04,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.06,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-22 16:11:00",
+            "txn_id": "3478561",
+            "amount": 74.96,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "191",
+            "addr2": "87",
+            "risk_score": 0.05,
+            "device_status": "New",
+            "proxy_flag": "IP_PROXY:ANONYMOUS",
+            "device_profile": "SM-G935F Build/NRD90M | Android 7.0 | chrome 62.0 for android | 1920x1080",
+            "p_emaildomain": "yahoo.com",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-22 18:04:15",
+            "txn_id": "3478886",
+            "amount": 31,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "272",
+            "addr2": "87",
+            "risk_score": 0.34,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          }
+        ]
+      },
+      {
+        "prior_cases": []
+      }
+    ]
+  }
+}

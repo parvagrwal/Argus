@@ -1,0 +1,1881 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "device_neighbors",
+  "params": {
+    "card": "C08106-K1",
+    "window_start": "2016-11-29 07:53:54",
+    "window_end": "2016-12-29 07:53:54"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C08106-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C08106-K1",
+              "Start.customer_id": "C08106"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-29 07:53:54",
+        "window_end": "2016-12-29 07:53:54",
+        "n_devices": 21,
+        "n_devices_expanded": 14,
+        "n_hub_devices_skipped": 7,
+        "n_connected_cards": 49
+      },
+      {
+        "devices": [
+          {
+            "v_id": "SM-A320Y Build/NRD90M |  | chrome generic for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SM-A320Y Build/NRD90M |  | chrome generic for android | ",
+              "Devices.device_info": "SM-A320Y Build/NRD90M",
+              "Devices.os": "",
+              "Devices.browser": "chrome generic for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "Windows |  | chrome generic | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | chrome generic | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "chrome generic",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 6,
+              "Devices.@seed_statuses": [
+                "Found",
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "SM-J500M Build/MMB29M |  | chrome 61.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SM-J500M Build/MMB29M |  | chrome 61.0 for android | ",
+              "Devices.device_info": "SM-J500M Build/MMB29M",
+              "Devices.os": "",
+              "Devices.browser": "chrome 61.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "SM-T810 Build/NRD90M |  | chrome generic for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SM-T810 Build/NRD90M |  | chrome generic for android | ",
+              "Devices.device_info": "SM-T810 Build/NRD90M",
+              "Devices.os": "",
+              "Devices.browser": "chrome generic for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 4,
+              "Devices.@seed_statuses": [
+                "New",
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": " |  | mobile safari 11.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | mobile safari 11.0 | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "mobile safari 11.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Unknown"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "Windows |  | chrome 65.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | chrome 65.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "chrome 65.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 4,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "E2306 Build/26.1.A.3.111 |  | chrome 66.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "E2306 Build/26.1.A.3.111 |  | chrome 66.0 for android | ",
+              "Devices.device_info": "E2306 Build/26.1.A.3.111",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C11923-K2"
+              ]
+            }
+          },
+          {
+            "v_id": " |  | chrome 65.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | chrome 65.0 | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "chrome 65.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "Windows |  | chrome 66.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | chrome 66.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 4,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": " |  | chrome 66.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | chrome 66.0 | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 4,
+              "Devices.@seed_statuses": [
+                "Found",
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "SAMSUNG |  | samsung browser 4.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SAMSUNG |  | samsung browser 4.0 | ",
+              "Devices.device_info": "SAMSUNG",
+              "Devices.os": "",
+              "Devices.browser": "samsung browser 4.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C05245-K2"
+              ]
+            }
+          },
+          {
+            "v_id": " |  | firefox 47.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | firefox 47.0 | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "firefox 47.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "8050G Build/LMY47I |  | chrome 65.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "8050G Build/LMY47I |  | chrome 65.0 for android | ",
+              "Devices.device_info": "8050G Build/LMY47I",
+              "Devices.os": "",
+              "Devices.browser": "chrome 65.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+              "Devices.device_info": "SM-J730GM Build/NRD90M",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C02689-K1",
+                "C11509-K2",
+                "C11923-K2",
+                "C11444-K1",
+                "C08537-K1",
+                "C09657-K2",
+                "C04597-K2",
+                "C08962-K2",
+                "C05381-K2",
+                "C12258-K2",
+                "C06224-K2",
+                "C00426-K2",
+                "C05031-K2",
+                "C02851-K2"
+              ]
+            }
+          },
+          {
+            "v_id": "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | ",
+              "Devices.device_info": "CAM-L03 Build/HUAWEICAM-L03",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 2,
+              "Devices.@seed_statuses": [
+                "New",
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C13171-K2",
+                "C11923-K2",
+                "C11509-K2",
+                "C06940-K1"
+              ]
+            }
+          },
+          {
+            "v_id": "LG-M700 Build/NMF26X |  | chrome 66.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "LG-M700 Build/NMF26X |  | chrome 66.0 for android | ",
+              "Devices.device_info": "LG-M700 Build/NMF26X",
+              "Devices.os": "",
+              "Devices.browser": "chrome 66.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 2,
+              "Devices.@seed_statuses": [
+                "Unknown"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C06630-K2",
+                "C04248-K2",
+                "C00466-K1",
+                "C11923-K2",
+                "C13171-K2",
+                "C05031-K2",
+                "C00854-K2",
+                "C11509-K2",
+                "C00294-K2",
+                "C11597-K2",
+                "C05307-K2",
+                "C05381-K2",
+                "C08962-K2"
+              ]
+            }
+          },
+          {
+            "v_id": "Windows |  | firefox 60.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | firefox 60.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "firefox 60.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C06797-K1",
+                "C01525-K2",
+                "C13364-K1",
+                "C03828-K1",
+                "C06744-K2",
+                "C02639-K1",
+                "C08962-K2",
+                "C05677-K1",
+                "C03470-K1",
+                "C06663-K2",
+                "C02147-K2",
+                "C07855-K1",
+                "C09657-K2",
+                "C13147-K1",
+                "C07002-K1",
+                "C11923-K2",
+                "C11750-K1",
+                "C07562-K2",
+                "C10957-K2",
+                "C05031-K2",
+                "C08924-K2",
+                "C00426-K2",
+                "C09228-K1",
+                "C06243-K1",
+                "C07925-K1",
+                "C04597-K2",
+                "C11724-K1",
+                "C02095-K1"
+              ]
+            }
+          },
+          {
+            "v_id": "SM-G355M Build/KOT49H |  | chrome 65.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "SM-G355M Build/KOT49H |  | chrome 65.0 for android | ",
+              "Devices.device_info": "SM-G355M Build/KOT49H",
+              "Devices.os": "",
+              "Devices.browser": "chrome 65.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C05307-K2"
+              ]
+            }
+          },
+          {
+            "v_id": "Windows |  | edge 16.0 | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "Windows |  | edge 16.0 | ",
+              "Devices.device_info": "Windows",
+              "Devices.os": "",
+              "Devices.browser": "edge 16.0",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 2,
+              "Devices.@seed_statuses": [
+                "New",
+                "Found"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          },
+          {
+            "v_id": " |  | chrome | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": " |  | chrome | ",
+              "Devices.device_info": "",
+              "Devices.os": "",
+              "Devices.browser": "chrome",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "Unknown"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": [
+                "C04034-K2",
+                "C11509-K2",
+                "C05381-K2",
+                "C12396-K2",
+                "C09657-K2",
+                "C11923-K1",
+                "C06744-K2",
+                "C05307-K2"
+              ]
+            }
+          },
+          {
+            "v_id": "HUAWEI Y520-U03 Build/HUAWEIY520-U03 |  | chrome 65.0 for android | ",
+            "v_type": "DeviceProfile",
+            "attributes": {
+              "Devices.profile": "HUAWEI Y520-U03 Build/HUAWEIY520-U03 |  | chrome 65.0 for android | ",
+              "Devices.device_info": "HUAWEI Y520-U03 Build/HUAWEIY520-U03",
+              "Devices.os": "",
+              "Devices.browser": "chrome 65.0 for android",
+              "Devices.screen": "",
+              "Devices.@seed_txns": 1,
+              "Devices.@seed_statuses": [
+                "New"
+              ],
+              "Devices.@seed_proxy_flags": [
+                ""
+              ],
+              "Devices.@other_cards": []
+            }
+          }
+        ]
+      },
+      {
+        "connected_cards": [
+          {
+            "v_id": "C00854-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00854-K2",
+              "Neighbors.customer_id": "C00854",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3607",
+                "CC-1562",
+                "CC-1783",
+                "CC-0720",
+                "CC-0090",
+                "CC-4826",
+                "CC-0387",
+                "CC-4902",
+                "CC-0813",
+                "CC-4053",
+                "CC-3093",
+                "CC-3743",
+                "CC-4207",
+                "CC-5363"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C02639-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02639-K1",
+              "Neighbors.customer_id": "C02639",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2320",
+                "CC-2402",
+                "CC-2891"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C12396-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12396-K2",
+              "Neighbors.customer_id": "C12396",
+              "Neighbors.@via_devices": [
+                " |  | chrome | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C04597-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04597-K2",
+              "Neighbors.customer_id": "C04597",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 9,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4880",
+                "CC-2593",
+                "CC-1495",
+                "CC-2480",
+                "CC-1611",
+                "CC-3597",
+                "CC-4800",
+                "CC-2393",
+                "CC-5171",
+                "CC-0206",
+                "CC-3123",
+                "CC-0073",
+                "CC-0829",
+                "CC-5541",
+                "CC-4058",
+                "CC-3358",
+                "CC-5075",
+                "CC-2838",
+                "CC-3796",
+                "CC-2154"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device",
+                "card_testing"
+              ]
+            }
+          },
+          {
+            "v_id": "C05381-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05381-K2",
+              "Neighbors.customer_id": "C05381",
+              "Neighbors.@via_devices": [
+                " |  | chrome | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 8,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2560",
+                "CC-1948",
+                "CC-2437",
+                "CC-4497",
+                "CC-3653",
+                "CC-4225",
+                "CC-5370",
+                "CC-3288",
+                "CC-4772",
+                "CC-2821",
+                "CC-2634",
+                "CC-3855",
+                "CC-1367",
+                "CC-1195",
+                "CC-0700"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_testing",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C00426-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00426-K2",
+              "Neighbors.customer_id": "C00426",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0446",
+                "CC-5553",
+                "CC-1415",
+                "CC-1864",
+                "CC-4142",
+                "CC-4285",
+                "CC-5226",
+                "CC-4761",
+                "CC-2022",
+                "CC-2259",
+                "CC-2153",
+                "CC-0730",
+                "CC-3849",
+                "CC-1661",
+                "CC-5439",
+                "CC-0230",
+                "CC-2595",
+                "CC-4546"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C05677-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05677-K1",
+              "Neighbors.customer_id": "C05677",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C02147-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02147-K2",
+              "Neighbors.customer_id": "C02147",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2797",
+                "CC-3968",
+                "CC-4119",
+                "CC-4944",
+                "CC-4658",
+                "CC-5099",
+                "CC-4840",
+                "CC-5300",
+                "CC-1390",
+                "CC-5012",
+                "CC-2300",
+                "CC-4519",
+                "CC-2997",
+                "CC-1538",
+                "CC-1951",
+                "CC-3250",
+                "CC-2603",
+                "CC-5176",
+                "CC-0328",
+                "CC-2117",
+                "CC-1667",
+                "CC-2396",
+                "CC-3564"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C13364-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13364-K1",
+              "Neighbors.customer_id": "C13364",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4837",
+                "CC-4941",
+                "CC-0706",
+                "CC-1038",
+                "CC-1961",
+                "CC-1181",
+                "CC-5526",
+                "CC-4657",
+                "CC-1799",
+                "CC-3768",
+                "CC-3060",
+                "CC-2398",
+                "CC-3397"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C03470-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03470-K1",
+              "Neighbors.customer_id": "C03470",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C08924-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08924-K2",
+              "Neighbors.customer_id": "C08924",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C05031-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05031-K2",
+              "Neighbors.customer_id": "C05031",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | ",
+                "Windows |  | firefox 60.0 | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 6,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4479",
+                "CC-3553",
+                "CC-3847",
+                "CC-4710",
+                "CC-4982",
+                "CC-4065",
+                "CC-3221"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C02689-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02689-K1",
+              "Neighbors.customer_id": "C02689",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C01525-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C01525-K2",
+              "Neighbors.customer_id": "C01525",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2733",
+                "CC-3767",
+                "CC-4537",
+                "CC-5079",
+                "CC-1701",
+                "CC-2626",
+                "CC-2996",
+                "CC-5417",
+                "CC-3929",
+                "CC-0434",
+                "CC-0855",
+                "CC-4310",
+                "CC-4825",
+                "CC-0671",
+                "CC-3198"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C06663-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06663-K2",
+              "Neighbors.customer_id": "C06663",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3814",
+                "CC-1815",
+                "CC-1099",
+                "CC-5535",
+                "CC-2607",
+                "CC-2475",
+                "CC-1997",
+                "CC-4917",
+                "CC-5202",
+                "CC-1273",
+                "CC-3237",
+                "CC-4766",
+                "CC-0266"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C10957-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C10957-K2",
+              "Neighbors.customer_id": "C10957",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2791",
+                "CC-2212",
+                "CC-4919",
+                "CC-5239",
+                "CC-0913",
+                "CC-1252",
+                "CC-1572",
+                "CC-4337"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C13171-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13171-K2",
+              "Neighbors.customer_id": "C13171",
+              "Neighbors.@via_devices": [
+                "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4163",
+                "CC-3566",
+                "CC-1715",
+                "CC-5010",
+                "CC-2454",
+                "CC-1925",
+                "CC-2059",
+                "CC-3422",
+                "CC-4485",
+                "CC-3728",
+                "CC-0467",
+                "CC-2716",
+                "CC-3928",
+                "CC-0772",
+                "CC-3079",
+                "CC-0056",
+                "CC-2244",
+                "CC-1293"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C02095-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02095-K1",
+              "Neighbors.customer_id": "C02095",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07855-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07855-K1",
+              "Neighbors.customer_id": "C07855",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1913",
+                "CC-0110",
+                "CC-2301",
+                "CC-2852",
+                "CC-3844",
+                "CC-3252",
+                "CC-1640",
+                "CC-4767",
+                "CC-0437",
+                "CC-4661",
+                "CC-3524",
+                "CC-4223",
+                "CC-1243",
+                "CC-4075",
+                "CC-0584",
+                "CC-3642"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C11724-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11724-K1",
+              "Neighbors.customer_id": "C11724",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C11597-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11597-K2",
+              "Neighbors.customer_id": "C11597",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 14,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1974",
+                "CC-3347",
+                "CC-3739",
+                "CC-4984",
+                "CC-3555",
+                "CC-5552",
+                "CC-4072",
+                "CC-2363",
+                "CC-1593",
+                "CC-1448",
+                "CC-2103",
+                "CC-1300",
+                "CC-0199",
+                "CC-0380",
+                "CC-5400",
+                "CC-2633",
+                "CC-3119",
+                "CC-0520",
+                "CC-0755",
+                "CC-4879",
+                "CC-5215"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C13147-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C13147-K1",
+              "Neighbors.customer_id": "C13147",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3898",
+                "CC-2333",
+                "CC-4336",
+                "CC-2730",
+                "CC-3714",
+                "CC-5286",
+                "CC-2886",
+                "CC-1485",
+                "CC-4871",
+                "CC-0993"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C06224-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06224-K2",
+              "Neighbors.customer_id": "C06224",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3765",
+                "CC-3940",
+                "CC-4633",
+                "CC-2800",
+                "CC-4309",
+                "CC-5430",
+                "CC-4132",
+                "CC-4431",
+                "CC-0291",
+                "CC-3319",
+                "CC-0475",
+                "CC-0145",
+                "CC-4904",
+                "CC-5248"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "account_takeover",
+                "out_of_region_use",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C08537-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08537-K1",
+              "Neighbors.customer_id": "C08537",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 4,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C11923-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11923-K2",
+              "Neighbors.customer_id": "C11923",
+              "Neighbors.@via_devices": [
+                "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | ",
+                "Windows |  | firefox 60.0 | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+                "E2306 Build/26.1.A.3.111 |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 15,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1056",
+                "CC-3905",
+                "CC-2799",
+                "CC-0290",
+                "CC-4501",
+                "CC-2247",
+                "CC-2673",
+                "CC-3039",
+                "CC-3206",
+                "CC-0031"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_testing",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C03828-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C03828-K1",
+              "Neighbors.customer_id": "C03828",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C06744-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06744-K2",
+              "Neighbors.customer_id": "C06744",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | ",
+                " |  | chrome | "
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1730",
+                "CC-4438",
+                "CC-1832",
+                "CC-0738",
+                "CC-0960",
+                "CC-3576",
+                "CC-4181",
+                "CC-0469",
+                "CC-0307",
+                "CC-1376",
+                "CC-3174",
+                "CC-4547",
+                "CC-3871",
+                "CC-3984",
+                "CC-2451",
+                "CC-4768",
+                "CC-2264",
+                "CC-4886",
+                "CC-3100"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C08962-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C08962-K2",
+              "Neighbors.customer_id": "C08962",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+                "Windows |  | firefox 60.0 | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 7,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3749",
+                "CC-2394",
+                "CC-5536",
+                "CC-5187",
+                "CC-2844",
+                "CC-0429",
+                "CC-2928",
+                "CC-1235",
+                "CC-3933",
+                "CC-4156",
+                "CC-1401"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_testing",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C11750-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11750-K1",
+              "Neighbors.customer_id": "C11750",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-5307"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C11509-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11509-K2",
+              "Neighbors.customer_id": "C11509",
+              "Neighbors.@via_devices": [
+                " |  | chrome | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | ",
+                "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 10,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2721",
+                "CC-2125",
+                "CC-0404",
+                "CC-5027",
+                "CC-2415",
+                "CC-0928",
+                "CC-1385",
+                "CC-4099",
+                "CC-2826",
+                "CC-3827",
+                "CC-2222",
+                "CC-0750",
+                "CC-4832",
+                "CC-3551",
+                "CC-0211",
+                "CC-1747",
+                "CC-4533"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C05245-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05245-K2",
+              "Neighbors.customer_id": "C05245",
+              "Neighbors.@via_devices": [
+                "SAMSUNG |  | samsung browser 4.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2149",
+                "CC-1907",
+                "CC-2760",
+                "CC-4362",
+                "CC-1074",
+                "CC-0115",
+                "CC-3473",
+                "CC-3744",
+                "CC-0398",
+                "CC-1574",
+                "CC-4927",
+                "CC-2010",
+                "CC-4200",
+                "CC-0274",
+                "CC-2949",
+                "CC-1237",
+                "CC-4686",
+                "CC-3088",
+                "CC-0753",
+                "CC-5121",
+                "CC-0495"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "out_of_region_use",
+                "account_takeover",
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C11923-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11923-K1",
+              "Neighbors.customer_id": "C11923",
+              "Neighbors.@via_devices": [
+                " |  | chrome | "
+              ],
+              "Neighbors.@shared_txns": 5,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C04248-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04248-K2",
+              "Neighbors.customer_id": "C04248",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4113",
+                "CC-5144",
+                "CC-0055",
+                "CC-0842",
+                "CC-0197",
+                "CC-4829",
+                "CC-4264",
+                "CC-2896",
+                "CC-5393",
+                "CC-1735",
+                "CC-2202",
+                "CC-0625"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C07002-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07002-K1",
+              "Neighbors.customer_id": "C07002",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C09228-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09228-K1",
+              "Neighbors.customer_id": "C09228",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C07925-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07925-K1",
+              "Neighbors.customer_id": "C07925",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0927",
+                "CC-2419",
+                "CC-3112",
+                "CC-4140",
+                "CC-3663",
+                "CC-4382"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C04034-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C04034-K2",
+              "Neighbors.customer_id": "C04034",
+              "Neighbors.@via_devices": [
+                " |  | chrome | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4120",
+                "CC-3251",
+                "CC-1217",
+                "CC-2761",
+                "CC-1514",
+                "CC-5040",
+                "CC-3139",
+                "CC-3741",
+                "CC-0463",
+                "CC-4384",
+                "CC-3961",
+                "CC-2390",
+                "CC-3075",
+                "CC-3440",
+                "CC-3644",
+                "CC-2069",
+                "CC-1734",
+                "CC-4515",
+                "CC-4774",
+                "CC-4950",
+                "CC-5434"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C06940-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06940-K1",
+              "Neighbors.customer_id": "C06940",
+              "Neighbors.@via_devices": [
+                "CAM-L03 Build/HUAWEICAM-L03 |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1918",
+                "CC-2517",
+                "CC-2650",
+                "CC-4740",
+                "CC-0891",
+                "CC-2116",
+                "CC-1298",
+                "CC-4992",
+                "CC-3774",
+                "CC-3510",
+                "CC-3848",
+                "CC-2214",
+                "CC-3586",
+                "CC-4150",
+                "CC-0081",
+                "CC-2842",
+                "CC-3205",
+                "CC-5318"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C09657-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C09657-K2",
+              "Neighbors.customer_id": "C09657",
+              "Neighbors.@via_devices": [
+                " |  | chrome | ",
+                "Windows |  | firefox 60.0 | ",
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3632",
+                "CC-1064",
+                "CC-2525",
+                "CC-5311",
+                "CC-2646",
+                "CC-4548",
+                "CC-0331",
+                "CC-3149",
+                "CC-2395",
+                "CC-3921",
+                "CC-3054",
+                "CC-3285",
+                "CC-5029",
+                "CC-4036",
+                "CC-0453",
+                "CC-2271"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C06243-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06243-K1",
+              "Neighbors.customer_id": "C06243",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C06797-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06797-K1",
+              "Neighbors.customer_id": "C06797",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 2,
+              "Neighbors.@prior_fraud_cases": [],
+              "Neighbors.@prior_fraud_patterns": []
+            }
+          },
+          {
+            "v_id": "C06630-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C06630-K2",
+              "Neighbors.customer_id": "C06630",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4394",
+                "CC-2505",
+                "CC-2167",
+                "CC-3256",
+                "CC-3111",
+                "CC-4195",
+                "CC-2862",
+                "CC-5432",
+                "CC-1643",
+                "CC-0541",
+                "CC-5118",
+                "CC-3450",
+                "CC-4777",
+                "CC-4953",
+                "CC-0223",
+                "CC-2345",
+                "CC-4632",
+                "CC-1069",
+                "CC-3859",
+                "CC-0697",
+                "CC-0365",
+                "CC-1308",
+                "CC-1962",
+                "CC-4849",
+                "CC-1772",
+                "CC-5266"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C05307-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C05307-K2",
+              "Neighbors.customer_id": "C05307",
+              "Neighbors.@via_devices": [
+                "SM-G355M Build/KOT49H |  | chrome 65.0 for android | ",
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | ",
+                " |  | chrome | "
+              ],
+              "Neighbors.@shared_txns": 5,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0975",
+                "CC-4991",
+                "CC-2883",
+                "CC-4029",
+                "CC-4707",
+                "CC-4850",
+                "CC-0784",
+                "CC-1915",
+                "CC-1104",
+                "CC-0542",
+                "CC-2106",
+                "CC-3134",
+                "CC-1771",
+                "CC-1586",
+                "CC-1504",
+                "CC-0086",
+                "CC-2643",
+                "CC-1288"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud",
+                "card_testing"
+              ]
+            }
+          },
+          {
+            "v_id": "C00294-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00294-K2",
+              "Neighbors.customer_id": "C00294",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3271",
+                "CC-1998",
+                "CC-3720",
+                "CC-4856",
+                "CC-3415",
+                "CC-3999",
+                "CC-4594",
+                "CC-4293",
+                "CC-4936",
+                "CC-5122",
+                "CC-0535",
+                "CC-2198",
+                "CC-2506",
+                "CC-2307",
+                "CC-0976",
+                "CC-1296",
+                "CC-5461",
+                "CC-4472",
+                "CC-2849",
+                "CC-0724",
+                "CC-2729"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C11444-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C11444-K1",
+              "Neighbors.customer_id": "C11444",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-0943",
+                "CC-1492",
+                "CC-2890",
+                "CC-2547",
+                "CC-1088",
+                "CC-3157",
+                "CC-5285",
+                "CC-4831",
+                "CC-1756",
+                "CC-4717",
+                "CC-4943"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_new_device",
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C02851-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C02851-K2",
+              "Neighbors.customer_id": "C02851",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-4823",
+                "CC-4211"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud"
+              ]
+            }
+          },
+          {
+            "v_id": "C12258-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C12258-K2",
+              "Neighbors.customer_id": "C12258",
+              "Neighbors.@via_devices": [
+                "SM-J730GM Build/NRD90M |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-2111",
+                "CC-3611",
+                "CC-3229",
+                "CC-2806",
+                "CC-4319",
+                "CC-5038",
+                "CC-0507",
+                "CC-1859"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C07562-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C07562-K2",
+              "Neighbors.customer_id": "C07562",
+              "Neighbors.@via_devices": [
+                "Windows |  | firefox 60.0 | "
+              ],
+              "Neighbors.@shared_txns": 3,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-3919",
+                "CC-0496",
+                "CC-2404",
+                "CC-2248",
+                "CC-3491",
+                "CC-3783",
+                "CC-5339",
+                "CC-2590",
+                "CC-4189",
+                "CC-4100"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_testing",
+                "card_not_present_new_device"
+              ]
+            }
+          },
+          {
+            "v_id": "C00466-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Neighbors.card_id": "C00466-K1",
+              "Neighbors.customer_id": "C00466",
+              "Neighbors.@via_devices": [
+                "LG-M700 Build/NMF26X |  | chrome 66.0 for android | "
+              ],
+              "Neighbors.@shared_txns": 1,
+              "Neighbors.@prior_fraud_cases": [
+                "CC-1035",
+                "CC-4662",
+                "CC-4272",
+                "CC-1708",
+                "CC-2680",
+                "CC-1400",
+                "CC-4011",
+                "CC-1568"
+              ],
+              "Neighbors.@prior_fraud_patterns": [
+                "card_not_present_fraud",
+                "card_not_present_new_device"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "hub_devices_skipped": [
+          "Windows |  | chrome generic | ",
+          "Windows |  | edge 16.0 | ",
+          " |  | chrome 66.0 | ",
+          "Windows |  | chrome 65.0 | ",
+          "Windows |  | chrome 66.0 | ",
+          " |  | mobile safari 11.0 | ",
+          " |  | chrome 65.0 | "
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "answer": {
+    "case_id": "HHG-006",
+    "case": {
+      "status": "closed_fraud",
+      "verdict": "fraud",
+      "fraud_probability": 0.9938,
+      "pattern": "undocumented",
+      "pattern_description": "Activity on C07297-K1 shows repeated online purchases just under a $500 threshold within 40 minutes. It affects the cardholder C07297. Found through card_window, velocity_check on the graph.",
+      "affected_txn_ids": [
+        "3476682"
+      ],
+      "first_suspicious_txn_id": "3476682",
+      "connected_card_ids": [],
+      "connected_device_profiles": [
+        "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080"
+      ],
+      "exposure_usd": 482.12,
+      "evidence": [
+        {
+          "claim": "card_window returned graph facts for card C07297-K1",
+          "source": "graph",
+          "ref": "query:card_window(card=C07297-K1, window_start=2016-10-23 02:30:00, window_end=2016-11-22 02:30:00, max_rows=500)",
+          "entity_ids": [
+            "C07297-K1"
+          ]
+        },
+        {
+          "claim": "velocity_check returned graph facts for card C07297-K1",
+          "source": "graph",
+          "ref": "query:velocity_check(card=C07297-K1, window_start=2016-11-18 20:30:00, window_end=2016-11-22 02:30:00)",
+          "entity_ids": [
+            "C07297-K1"
+          ]
+        }
+      ],
+      "similar_prior_cases": [],
+      "summary": "Case HHG-006 on card C07297-K1: verdict fraud at probability 0.99 (cnp_default playbook). The flagged online transaction came from a device marked New for this account. Pattern: repeated online purchases just under a $500 threshold within 40 minutes (R9; not forced into a known category). Actions follow 3a, R9, probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied).",
+      "written_to_graph": false,
+      "graph_case_id": ""
+    },
+    "evidence_requests": [],
+    "next_best_actions": {
+      "initial": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        },
+        {
+          "action": "FILE_REPORT",
+          "route": "L2",
+          "reason": "3a: pattern is coordinated or undocumented (3a, R9)"
+        },
+        {
+          "action": "ESCALATE_TO_ANALYST",
+          "route": "auto",
+          "reason": "R9: undocumented pattern described in own words; analyst review"
+        }
+      ],
+      "final": [
+        {
+          "action": "BLOCK_CARD",
+          "route": "L1",
+          "reason": "probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied)"
+        },
+        {
+          "action": "CREATE_CASE",
+          "route": "auto",
+          "reason": "3a: probability at or above 0.30"
+        },
+        {
+          "action": "FILE_REPORT",
+          "route": "L2",
+          "reason": "3a: pattern is coordinated or undocumented (3a, R9)"
+        },
+        {
+          "action": "ESCALATE_TO_ANALYST",
+          "route": "auto",
+          "reason": "R9: undocumented pattern described in own words; analyst review"
+        }
+      ],
+      "what_changed": "nothing"
+    },
+    "sar": {
+      "file": true,
+      "reason": "3a/R2: pattern is coordinated or undocumented (3a, R9)",
+      "narrative": "Customer C07297, card C07297-K1 was used for 1 transaction(s) totalling $482.12 between 2016-11-21 and 2016-11-21. The flagged transaction 3476682 was online in billing region 264. The device profile Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080 was marked New for this account. The pattern identified is undocumented: repeated online purchases just under a $500 threshold within 40 minutes. The activity is suspicious because probability 0.99 rests on 2 independent graph evidence sources. Recommended: BLOCK_CARD, CREATE_CASE, FILE_REPORT, ESCALATE_TO_ANALYST.",
+      "subjects": [
+        "C07297",
+        "C07297-K1",
+        "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080"
+      ],
+      "total_amount_usd": 482.12,
+      "activity_dates": [
+        "2016-11-21",
+        "2016-11-21"
+      ]
+    },
+    "stop_reason": "\u00a76 hard stop: probability 0.99 beyond 0.85/0.15 with 2 independent graph evidence sources",
+    "tool_calls": 2,
+    "tokens": 0,
+    "latency_s": 0.005
+  },
+  "internal_record": {
+    "schema_version": "1.0.0-frozen-2026-09-24",
+    "answer": {
+      "case_id": "HHG-006",
+      "case": {
+        "status": "closed_fraud",
+        "verdict": "fraud",
+        "fraud_probability": 0.9938,
+        "pattern": "undocumented",
+        "pattern_description": "Activity on C07297-K1 shows repeated online purchases just under a $500 threshold within 40 minutes. It affects the cardholder C07297. Found through card_window, velocity_check on the graph.",
+        "affected_txn_ids": [
+          "3476682"
+        ],
+        "first_suspicious_txn_id": "3476682",
+        "connected_card_ids": [],
+        "connected_device_profiles": [
+          "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080"
+        ],
+        "exposure_usd": 482.12,
+        "evidence": [
+          {
+            "claim": "card_window returned graph facts for card C07297-K1",
+            "source": "graph",
+            "ref": "query:card_window(card=C07297-K1, window_start=2016-10-23 02:30:00, window_end=2016-11-22 02:30:00, max_rows=500)",
+            "entity_ids": [
+              "C07297-K1"
+            ]
+          },
+          {
+            "claim": "velocity_check returned graph facts for card C07297-K1",
+            "source": "graph",
+            "ref": "query:velocity_check(card=C07297-K1, window_start=2016-11-18 20:30:00, window_end=2016-11-22 02:30:00)",
+            "entity_ids": [
+              "C07297-K1"
+            ]
+          }
+        ],
+        "similar_prior_cases": [],
+        "summary": "Case HHG-006 on card C07297-K1: verdict fraud at probability 0.99 (cnp_default playbook). The flagged online transaction came from a device marked New for this account. Pattern: repeated online purchases just under a $500 threshold within 40 minutes (R9; not forced into a known category). Actions follow 3a, R9, probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied).",
+        "written_to_graph": false,
+        "graph_case_id": ""
+      },
+      "evidence_requests": [],
+      "next_best_actions": {
+        "initial": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          },
+          {
+            "action": "FILE_REPORT",
+            "route": "L2",
+            "reason": "3a: pattern is coordinated or undocumented (3a, R9)"
+          },
+          {
+            "action": "ESCALATE_TO_ANALYST",
+            "route": "auto",
+            "reason": "R9: undocumented pattern described in own words; analyst review"
+          }
+        ],
+        "final": [
+          {
+            "action": "BLOCK_CARD",
+            "route": "L1",
+            "reason": "probability 0.99 >= 0.70 on more than one independent signal (R1 satisfied)"
+          },
+          {
+            "action": "CREATE_CASE",
+            "route": "auto",
+            "reason": "3a: probability at or above 0.30"
+          },
+          {
+            "action": "FILE_REPORT",
+            "route": "L2",
+            "reason": "3a: pattern is coordinated or undocumented (3a, R9)"
+          },
+          {
+            "action": "ESCALATE_TO_ANALYST",
+            "route": "auto",
+            "reason": "R9: undocumented pattern described in own words; analyst review"
+          }
+        ],
+        "what_changed": "nothing"
+      },
+      "sar": {
+        "file": true,
+        "reason": "3a/R2: pattern is coordinated or undocumented (3a, R9)",
+        "narrative": "Customer C07297, card C07297-K1 was used for 1 transaction(s) totalling $482.12 between 2016-11-21 and 2016-11-21. The flagged transaction 3476682 was online in billing region 264. The device profile Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080 was marked New for this account. The pattern identified is undocumented: repeated online purchases just under a $500 threshold within 40 minutes. The activity is suspicious because probability 0.99 rests on 2 independent graph evidence sources. Recommended: BLOCK_CARD, CREATE_CASE, FILE_REPORT, ESCALATE_TO_ANALYST.",
+        "subjects": [
+          "C07297",
+          "C07297-K1",
+          "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1920x1080"
+        ],
+        "total_amount_usd": 482.12,
+        "activity_dates": [
+          "2016-11-21",
+          "2016-11-21"
+        ]
+      },
+      "stop_reason": "\u00a76 hard stop: probability 0.99 beyond 0.85/0.15 with 2 independent graph evidence sources",
+      "tool_calls": 2,
+      "tokens": 0,
+      "latency_s": 0.005
+    },
+    "trigger_type": "customer_report",
+    "trigger_text": "Customer C07297 message: 'I never made this $482.12 purchase. Please check my card.' Refers to 3476682.",
+    "opened_at": "2016-11-22 02:30:00",
+    "flagged_txn_id": "3476682",
+    "card_id": "C07297-K1",
+    "customer_id": "C07297",
+    "flagged_risk_score": null,
+    "tool_trace": [
+      {
+        "step": 1,
+        "agent": "graph",
+        "tool": "card_window",
+        "args": {
+          "card": "C07297-K1",
+          "window_start": "2016-10-23 02:30:00",
+          "window_end": "2016-11-22 02:30:00",
+          "max_rows": 500
+        },
+        "rows": 63,
+        "latency_ms": 0.007,
+        "ts": "2026-09-24T19:32:00.124+00:00"
+      },
+      {
+        "step": 2,
+        "agent": "graph",
+        "tool": "velocity_check",
+        "args": {
+          "card": "C07297-K1",
+          "window_start": "2016-11-18 20:30:00",
+          "window_end": "2016-11-22 02:30:00"
+        },
+        "rows": 22,
+        "latency_ms": 0.016,
+        "ts": "2026-09-24T19:32:00.126+00:00"
+      }
+    ],
+    "confidence_breakdown": {
+      "features": {
+        "risk_score": 0.25,
+        "customer_report": 1.0,
+        "online": 1.0,
+        "new_device": 1.0,
+        "proxy": 0.0,
+        "micro_auth_burst": 0.0,
+        "testing_then_purchase": 0.0,
+        "online_burst_48h": 1.0,
+        "amount_ratio_log": 1.7595934308154209,
+        "out_of_region": 0.0,
+        "region_history": 0.0,
+        "trip_pattern": 0.0,
+        "mixed_channel": 1.0,
+        "prior_fraud_log": 0.0,
+        "prior_cleared": 0.0,
+        "shared_device_cards_log": 0.0,
+        "neighbor_prior_fraud": 0.0,
+        "ring": 0.0,
+        "structuring": 1.0,
+        "customer_denied": 0.0,
+        "customer_confirmed": 0.0,
+        "cold_start": 0.0
+      },
+      "weights": {
+        "risk_score": 1.2,
+        "customer_report": 0.9,
+        "online": 0.2,
+        "new_device": 1.1,
+        "proxy": 1.0,
+        "micro_auth_burst": 1.4,
+        "testing_then_purchase": 1.6,
+        "online_burst_48h": 0.8,
+        "amount_ratio_log": 0.5,
+        "out_of_region": 1.3,
+        "region_history": -1.6,
+        "trip_pattern": -1.2,
+        "mixed_channel": 0.7,
+        "prior_fraud_log": 0.9,
+        "prior_cleared": -0.4,
+        "shared_device_cards_log": 0.8,
+        "neighbor_prior_fraud": 1.3,
+        "ring": 1.8,
+        "structuring": 1.8,
+        "customer_denied": 2.2,
+        "customer_confirmed": -3.0,
+        "cold_start": -0.3
+      },
+      "bias": -1.6,
+      "logit": 5.07979671540771,
+      "probability": 0.9938,
+      "cold_start_capped": false
+    },
+    "decisions": [
+      {
+        "round": 0,
+        "probability": 0.9637,
+        "independent_evidence": 1,
+        "rule_fired": "card_window",
+        "continue_investigating": true,
+        "note": ""
+      },
+      {
+        "round": 1,
+        "probability": 0.9938,
+        "independent_evidence": 2,
+        "rule_fired": "velocity_check",
+        "continue_investigating": true,
+        "note": ""
+      }
+    ],
+    "uncertainty": "archetype=cnp_default; backend=fixture",
+    "simulated_evidence": true
+  },
+  "economics": {
+    "probability": 0.9938,
+    "exposure_usd": 482.12,
+    "at_risk_usd": 479.13,
+    "next_query": "region_profile",
+    "expected_logit_gain": 0.0051,
+    "expected_probability_shift": 0.0,
+    "value_of_information_usd": 0.02,
+    "cost_of_delay_gate_usd": 0.12,
+    "continue_gathering": false,
+    "reading": "Next best query region_profile: expected information value \u2248 $0.02 vs cost-of-delay gate \u2248 $0.12 \u2192 stop and act."
+  },
+  "counterfactual": {
+    "flips": false,
+    "sentence": "No single evidence change flips this decision \u2014 the verdict is robust to any one feature."
+  },
+  "meta": {
+    "fixture": true,
+    "recorded_at": "2026-09-24T19:32:00Z",
+    "source": "fixture replay of live TigerGraph run through the real pipeline",
+    "pipeline": "run_input"
+  }
+}

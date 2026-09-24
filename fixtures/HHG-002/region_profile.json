@@ -1,0 +1,92 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "region_profile",
+  "params": {
+    "card": "C11891-K1",
+    "window_start": "2016-10-23 23:27:07",
+    "window_end": "2016-11-22 23:27:07",
+    "flagged_region": ""
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C11891-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C11891-K1",
+              "Start.customer_id": "C11891"
+            }
+          }
+        ]
+      },
+      {
+        "flagged_region": "",
+        "window_start": "2016-10-23 23:27:07",
+        "window_end": "2016-11-22 23:27:07",
+        "baseline_txns": 26,
+        "baseline_txns_without_region": 25,
+        "window_txns": 10,
+        "home_region": "375",
+        "home_region_baseline_txns": 1,
+        "home_region_window_txns": 0,
+        "home_activity_continued_in_window": false,
+        "flagged_region_baseline_txns": 0,
+        "flagged_region_baseline_in_person_txns": 0,
+        "flagged_region_has_history": false,
+        "flagged_region_first_seen": "1970-01-01 00:00:00",
+        "flagged_region_last_seen": "1970-01-01 00:00:00",
+        "flagged_region_window_txns": 0,
+        "distinct_window_days_in_flagged_region": 0,
+        "flagged_region_is_home": false
+      },
+      {
+        "baseline_by_region": {
+          "375": 1
+        }
+      },
+      {
+        "baseline_in_person_by_region": {}
+      },
+      {
+        "baseline_amount_by_region": {
+          "375": 93.43
+        }
+      },
+      {
+        "baseline_first_seen": {
+          "375": "2016-07-13 18:15:03"
+        }
+      },
+      {
+        "baseline_last_seen": {
+          "375": "2016-07-13 18:15:03"
+        }
+      },
+      {
+        "window_by_region": {}
+      },
+      {
+        "window_in_person_by_region": {}
+      },
+      {
+        "baseline_by_country": {
+          "60": 1
+        }
+      },
+      {
+        "window_by_country": {}
+      }
+    ]
+  }
+}

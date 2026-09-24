@@ -1,0 +1,73 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:33Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "detect_fraud_ring",
+  "params": {
+    "card": "C07671-K2",
+    "window_start": "2016-11-09 05:39:29",
+    "window_end": "2016-12-09 05:39:29"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "window_start": "2016-11-09 05:39:29",
+        "window_end": "2016-12-09 05:39:29",
+        "hops_expanded": 1,
+        "component_size": 1,
+        "cards_with_prior_confirmed_fraud": 1,
+        "n_shared_devices": 1,
+        "n_hub_devices_skipped": 2,
+        "include_email": false,
+        "n_shared_email_domains": 0
+      },
+      {
+        "component": [
+          {
+            "v_id": "C07671-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Component.card_id": "C07671-K2",
+              "Component.customer_id": "C07671",
+              "Component.@hop": 0,
+              "Component.@linked_via": [],
+              "Component.@prior_fraud_cases": [
+                "CC-3216",
+                "CC-4294",
+                "CC-1475"
+              ],
+              "Component.@prior_fraud_patterns": [
+                "account_takeover",
+                "card_not_present_new_device"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "shared_devices": [
+          "SAMSUNG SM-G950U Build/NRD90M | Android 7.0 | samsung browser 6.4 | 2220x1080"
+        ]
+      },
+      {
+        "hub_devices_skipped": [
+          "Trident/7.0 | Windows 7 | ie 11.0 for desktop | 1680x1050",
+          "Windows |  | chrome 66.0 | "
+        ]
+      },
+      {
+        "shared_email_domains": []
+      },
+      {
+        "hub_email_domains_skipped": []
+      }
+    ]
+  }
+}

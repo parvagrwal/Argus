@@ -1,0 +1,177 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:32Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C08299-K1",
+    "window_start": "2016-11-28 17:10:53",
+    "window_end": "2016-12-28 17:10:53",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C08299-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C08299-K1",
+              "Start.customer_id": "C08299",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-28 17:10:53",
+        "window_end": "2016-12-28 17:10:53",
+        "n_txns": 8,
+        "total_amount": 429.8200000000001,
+        "n_online": 8,
+        "n_in_person": 0,
+        "n_new_device": 3,
+        "n_proxy": 0,
+        "n_prior_cases": 0,
+        "n_prior_confirmed_fraud": 0,
+        "n_prior_cleared": 0
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-29 14:03:43",
+            "txn_id": "3497063",
+            "amount": 49.93,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "204",
+            "addr2": "87",
+            "risk_score": 0.62,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | chrome generic | 1680x1050",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-02 19:27:09",
+            "txn_id": "3507659",
+            "amount": 50.07,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.71,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | firefox 59.0 | 1600x900",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-02 19:27:30",
+            "txn_id": "3507660",
+            "amount": 39.91,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.43,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | firefox 59.0 | 1600x900",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-02 19:30:35",
+            "txn_id": "3507672",
+            "amount": 49.92,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.26,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 10 | firefox 59.0 | 1600x900",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-13 14:53:53",
+            "txn_id": "3539034",
+            "amount": 99.98,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.33,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": " | Android | chrome 66.0 | 1280x720",
+            "p_emaildomain": "",
+            "r_emaildomain": "yahoo.com"
+          },
+          {
+            "ts": "2016-12-15 16:07:11",
+            "txn_id": "3545489",
+            "amount": 29.97,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.23,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "iOS Device | iOS 9.3.5 | mobile safari 9.0 | 1024x768",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-12-26 12:02:32",
+            "txn_id": "3576079",
+            "amount": 80.02,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.01,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 | Windows 10 | ie 11.0 for desktop | 1366x768",
+            "p_emaildomain": "",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-12-28 12:10:53",
+            "txn_id": "3581141",
+            "amount": 30.02,
+            "product_cd": "S",
+            "channel": "online",
+            "addr1": "203",
+            "addr2": "87",
+            "risk_score": 0.28,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": "gmail.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": []
+      }
+    ]
+  }
+}

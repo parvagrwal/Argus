@@ -1,0 +1,1074 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:34Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "velocity_check",
+  "params": {
+    "card": "C02354-K2",
+    "window_start": "2016-11-24 08:41:26",
+    "window_end": "2016-11-27 14:41:26"
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C02354-K2",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C02354-K2",
+              "Start.customer_id": "C02354"
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-24 08:41:26",
+        "window_end": "2016-11-27 14:41:26",
+        "n_txns_in_window": 145,
+        "small_amount": 5,
+        "burst_minutes": 60,
+        "min_small_auths": 3,
+        "large_amount": 100,
+        "followup_hours": 24,
+        "max_online_in_burst_window": 3,
+        "max_small_online_in_burst_window": 0,
+        "n_micro_auth_bursts": 0,
+        "card_testing_sequence_detected": false,
+        "max_amount_in_window": 2156.86
+      },
+      {
+        "micro_auth_txn_ids": []
+      },
+      {
+        "followup_large_txn_ids": []
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-24 10:51:29",
+            "txn_id": "3483152",
+            "amount": 117.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 12:33:50",
+            "txn_id": "3483233",
+            "amount": 108.52,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 13:54:39",
+            "txn_id": "3483355",
+            "amount": 226.06,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 14:12:47",
+            "txn_id": "3483390",
+            "amount": 107.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 14:36:19",
+            "txn_id": "3483447",
+            "amount": 712.06,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 15:40:43",
+            "txn_id": "3483592",
+            "amount": 33.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 16:34:15",
+            "txn_id": "3483742",
+            "amount": 312.93,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 16:45:36",
+            "txn_id": "3483772",
+            "amount": 44.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 16:45:48",
+            "txn_id": "3483774",
+            "amount": 87.86,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:13:51",
+            "txn_id": "3483869",
+            "amount": 47.87,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:16:01",
+            "txn_id": "3483877",
+            "amount": 77.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:19:57",
+            "txn_id": "3483892",
+            "amount": 76.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:22:18",
+            "txn_id": "3483903",
+            "amount": 116.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:28:38",
+            "txn_id": "3483921",
+            "amount": 40.96,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:45:36",
+            "txn_id": "3483969",
+            "amount": 116.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 17:58:46",
+            "txn_id": "3484013",
+            "amount": 19.91,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-24 18:01:44",
+            "txn_id": "3484023",
+            "amount": 76.91,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 18:01:46",
+            "txn_id": "3484024",
+            "amount": 19.95,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-24 18:06:49",
+            "txn_id": "3484045",
+            "amount": 20.05,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-24 18:12:23",
+            "txn_id": "3484065",
+            "amount": 107.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 18:32:31",
+            "txn_id": "3484128",
+            "amount": 68.48,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 18:50:59",
+            "txn_id": "3484197",
+            "amount": 117.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 18:52:34",
+            "txn_id": "3484203",
+            "amount": 58.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 19:05:38",
+            "txn_id": "3484249",
+            "amount": 25,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 19:06:12",
+            "txn_id": "3484251",
+            "amount": 170.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 19:58:13",
+            "txn_id": "3484403",
+            "amount": 44.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 20:24:32",
+            "txn_id": "3484469",
+            "amount": 62.9,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 20:37:05",
+            "txn_id": "3484506",
+            "amount": 48.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 20:57:47",
+            "txn_id": "3484572",
+            "amount": 117.03,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 21:16:37",
+            "txn_id": "3484634",
+            "amount": 140.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 21:21:13",
+            "txn_id": "3484649",
+            "amount": 58.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 21:34:20",
+            "txn_id": "3484689",
+            "amount": 83.45,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 22:20:36",
+            "txn_id": "3484830",
+            "amount": 48.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 22:21:35",
+            "txn_id": "3484834",
+            "amount": 209.91,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 22:58:26",
+            "txn_id": "3484949",
+            "amount": 32.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 23:24:00",
+            "txn_id": "3485025",
+            "amount": 295.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-24 23:53:15",
+            "txn_id": "3485108",
+            "amount": 14.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 00:07:05",
+            "txn_id": "3485143",
+            "amount": 48.93,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 02:56:34",
+            "txn_id": "3485560",
+            "amount": 23.5,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 03:24:37",
+            "txn_id": "3485603",
+            "amount": 107.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 10:58:33",
+            "txn_id": "3485803",
+            "amount": 25.91,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 11:04:02",
+            "txn_id": "3485810",
+            "amount": 116.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 11:49:42",
+            "txn_id": "3485848",
+            "amount": 212.93,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 12:17:47",
+            "txn_id": "3485877",
+            "amount": 92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 12:50:31",
+            "txn_id": "3485933",
+            "amount": 28.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 13:26:35",
+            "txn_id": "3485990",
+            "amount": 40.96,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 13:31:12",
+            "txn_id": "3485997",
+            "amount": 24.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 13:32:40",
+            "txn_id": "3485998",
+            "amount": 57.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 13:54:21",
+            "txn_id": "3486046",
+            "amount": 249.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 14:10:19",
+            "txn_id": "3486080",
+            "amount": 226.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 14:50:22",
+            "txn_id": "3486178",
+            "amount": 234.96,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 14:55:02",
+            "txn_id": "3486190",
+            "amount": 59.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 14:55:19",
+            "txn_id": "3486192",
+            "amount": 129.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 15:29:21",
+            "txn_id": "3486266",
+            "amount": 117.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 15:59:31",
+            "txn_id": "3486341",
+            "amount": 92.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 16:40:50",
+            "txn_id": "3486462",
+            "amount": 59.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 16:55:57",
+            "txn_id": "3486507",
+            "amount": 24.52,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 17:13:42",
+            "txn_id": "3486559",
+            "amount": 131.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 18:12:12",
+            "txn_id": "3486744",
+            "amount": 117,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 18:19:32",
+            "txn_id": "3486755",
+            "amount": 57.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 19:21:08",
+            "txn_id": "3486949",
+            "amount": 116.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 19:24:43",
+            "txn_id": "3486963",
+            "amount": 49.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 19:26:12",
+            "txn_id": "3486966",
+            "amount": 117.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 19:49:10",
+            "txn_id": "3487032",
+            "amount": 205.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 21:28:08",
+            "txn_id": "3487364",
+            "amount": 87.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 21:42:40",
+            "txn_id": "3487401",
+            "amount": 86.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 21:51:25",
+            "txn_id": "3487425",
+            "amount": 140.96,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 21:57:38",
+            "txn_id": "3487444",
+            "amount": 160.53,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:12:00",
+            "txn_id": "3487493",
+            "amount": 140.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:16:11",
+            "txn_id": "3487509",
+            "amount": 88.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:28:55",
+            "txn_id": "3487549",
+            "amount": 31.03,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:31:47",
+            "txn_id": "3487557",
+            "amount": 96.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:35:06",
+            "txn_id": "3487573",
+            "amount": 2156.86,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:44:05",
+            "txn_id": "3487604",
+            "amount": 335.03,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:52:58",
+            "txn_id": "3487632",
+            "amount": 31.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 22:57:14",
+            "txn_id": "3487659",
+            "amount": 99.97,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-25 23:06:46",
+            "txn_id": "3487685",
+            "amount": 30.91,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 23:11:04",
+            "txn_id": "3487694",
+            "amount": 28.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-25 23:55:58",
+            "txn_id": "3487810",
+            "amount": 29.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 00:29:18",
+            "txn_id": "3487905",
+            "amount": 225.93,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 00:49:39",
+            "txn_id": "3487973",
+            "amount": 226.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 00:52:25",
+            "txn_id": "3487985",
+            "amount": 86.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 00:54:57",
+            "txn_id": "3487994",
+            "amount": 58.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 00:56:41",
+            "txn_id": "3488000",
+            "amount": 86.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:01:04",
+            "txn_id": "3488006",
+            "amount": 146.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:03:54",
+            "txn_id": "3488015",
+            "amount": 86.91,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:06:06",
+            "txn_id": "3488023",
+            "amount": 58.96,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:12:28",
+            "txn_id": "3488044",
+            "amount": 87.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:19:51",
+            "txn_id": "3488056",
+            "amount": 117.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:22:25",
+            "txn_id": "3488061",
+            "amount": 58.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:39:12",
+            "txn_id": "3488103",
+            "amount": 146.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 01:45:51",
+            "txn_id": "3488116",
+            "amount": 146,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 04:06:10",
+            "txn_id": "3488325",
+            "amount": 138.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 04:58:33",
+            "txn_id": "3488371",
+            "amount": 107.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 08:26:05",
+            "txn_id": "3488433",
+            "amount": 171.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 10:36:15",
+            "txn_id": "3488476",
+            "amount": 29.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 11:02:33",
+            "txn_id": "3488490",
+            "amount": 113,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 11:16:07",
+            "txn_id": "3488502",
+            "amount": 43.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 12:32:25",
+            "txn_id": "3488570",
+            "amount": 49.98,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-26 12:50:05",
+            "txn_id": "3488601",
+            "amount": 226.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 13:26:58",
+            "txn_id": "3488661",
+            "amount": 117.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 14:06:00",
+            "txn_id": "3488749",
+            "amount": 77.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 14:08:26",
+            "txn_id": "3488755",
+            "amount": 49.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 14:55:15",
+            "txn_id": "3488852",
+            "amount": 226.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:06:30",
+            "txn_id": "3488866",
+            "amount": 216.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:17:04",
+            "txn_id": "3488893",
+            "amount": 225.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:26:50",
+            "txn_id": "3488922",
+            "amount": 225.93,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:38:55",
+            "txn_id": "3488954",
+            "amount": 59,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:45:03",
+            "txn_id": "3488967",
+            "amount": 116.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 15:51:08",
+            "txn_id": "3488986",
+            "amount": 38.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 16:43:06",
+            "txn_id": "3489157",
+            "amount": 97.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 17:30:49",
+            "txn_id": "3489290",
+            "amount": 214.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 17:59:44",
+            "txn_id": "3489383",
+            "amount": 116.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 18:16:53",
+            "txn_id": "3489428",
+            "amount": 50.09,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-26 18:43:10",
+            "txn_id": "3489497",
+            "amount": 96.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 18:49:02",
+            "txn_id": "3489509",
+            "amount": 97.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 18:49:34",
+            "txn_id": "3489515",
+            "amount": 97.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 19:39:15",
+            "txn_id": "3489676",
+            "amount": 294.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 19:46:02",
+            "txn_id": "3489691",
+            "amount": 34.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 19:49:58",
+            "txn_id": "3489703",
+            "amount": 129.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 19:55:41",
+            "txn_id": "3489721",
+            "amount": 77.09,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 20:08:50",
+            "txn_id": "3489767",
+            "amount": 210.03,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 20:10:09",
+            "txn_id": "3489772",
+            "amount": 88.01,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 20:23:36",
+            "txn_id": "3489813",
+            "amount": 145.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 20:54:45",
+            "txn_id": "3489904",
+            "amount": 25,
+            "channel": "online",
+            "product_cd": "H"
+          },
+          {
+            "ts": "2016-11-26 21:31:43",
+            "txn_id": "3490019",
+            "amount": 295.05,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 21:46:20",
+            "txn_id": "3490069",
+            "amount": 145.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 22:02:08",
+            "txn_id": "3490114",
+            "amount": 116.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 22:22:54",
+            "txn_id": "3490180",
+            "amount": 117.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 22:40:19",
+            "txn_id": "3490239",
+            "amount": 161.02,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 23:04:28",
+            "txn_id": "3490305",
+            "amount": 59.07,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 23:36:17",
+            "txn_id": "3490411",
+            "amount": 116.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-26 23:45:04",
+            "txn_id": "3490444",
+            "amount": 554.04,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 00:05:06",
+            "txn_id": "3490511",
+            "amount": 553.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 00:28:37",
+            "txn_id": "3490585",
+            "amount": 58.94,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 00:48:38",
+            "txn_id": "3490630",
+            "amount": 116.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 00:55:26",
+            "txn_id": "3490655",
+            "amount": 102.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 01:32:15",
+            "txn_id": "3490727",
+            "amount": 86.97,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 03:39:32",
+            "txn_id": "3490961",
+            "amount": 58.98,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 04:07:45",
+            "txn_id": "3490982",
+            "amount": 48.99,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 09:25:03",
+            "txn_id": "3491104",
+            "amount": 311.88,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 12:40:20",
+            "txn_id": "3491265",
+            "amount": 51.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 13:41:26",
+            "txn_id": "3491361",
+            "amount": 39.08,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 13:49:17",
+            "txn_id": "3491379",
+            "amount": 553.92,
+            "channel": "in_person",
+            "product_cd": "W"
+          },
+          {
+            "ts": "2016-11-27 14:22:01",
+            "txn_id": "3491469",
+            "amount": 170.95,
+            "channel": "in_person",
+            "product_cd": "W"
+          }
+        ]
+      }
+    ]
+  }
+}

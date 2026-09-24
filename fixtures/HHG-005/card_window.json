@@ -1,0 +1,343 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C02923-K1",
+    "window_start": "2016-11-08 03:38:37",
+    "window_end": "2016-12-08 03:38:37",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C02923-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C02923-K1",
+              "Start.customer_id": "C02923",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-11-08 03:38:37",
+        "window_end": "2016-12-08 03:38:37",
+        "n_txns": 17,
+        "total_amount": 2080.11,
+        "n_online": 2,
+        "n_in_person": 15,
+        "n_new_device": 1,
+        "n_proxy": 0,
+        "n_prior_cases": 3,
+        "n_prior_confirmed_fraud": 3,
+        "n_prior_cleared": 0
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-11-08 09:45:36",
+            "txn_id": "3440505",
+            "amount": 116.94,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.14,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-08 10:36:11",
+            "txn_id": "3440526",
+            "amount": 117.01,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.2,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-08 11:02:38",
+            "txn_id": "3440543",
+            "amount": 116.94,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.07,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-08 11:16:39",
+            "txn_id": "3440556",
+            "amount": 116.91,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.02,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-10 16:10:06",
+            "txn_id": "3446608",
+            "amount": 150,
+            "product_cd": "H",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.01,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Windows | Windows 7 | chrome 64.0 | 1600x900",
+            "p_emaildomain": "verizon.net",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-11-21 12:00:51",
+            "txn_id": "3475471",
+            "amount": 117.02,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.06,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-23 08:14:32",
+            "txn_id": "3480457",
+            "amount": 116.99,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.21,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-25 08:27:44",
+            "txn_id": "3485762",
+            "amount": 130.58,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.12,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-25 08:58:12",
+            "txn_id": "3485765",
+            "amount": 141.08,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.07,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-25 09:00:29",
+            "txn_id": "3485766",
+            "amount": 130.41,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.09,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-25 17:19:53",
+            "txn_id": "3486581",
+            "amount": 141.07,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.02,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-11-28 04:06:43",
+            "txn_id": "3493799",
+            "amount": 117.09,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.21,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-12-02 01:43:24",
+            "txn_id": "3505579",
+            "amount": 116.96,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.12,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-12-02 01:44:31",
+            "txn_id": "3505582",
+            "amount": 117.01,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.15,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-12-03 10:49:59",
+            "txn_id": "3509441",
+            "amount": 117.07,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.15,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-12-03 11:05:50",
+            "txn_id": "3509459",
+            "amount": 116.96,
+            "product_cd": "W",
+            "channel": "in_person",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.09,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": ""
+          },
+          {
+            "ts": "2016-12-07 21:38:37",
+            "txn_id": "3523199",
+            "amount": 100.07,
+            "product_cd": "R",
+            "channel": "online",
+            "addr1": "330",
+            "addr2": "87",
+            "risk_score": 0.54,
+            "device_status": "New",
+            "proxy_flag": "",
+            "device_profile": "iOS Device | iOS 9.3.5 | mobile safari 9.0 | 1024x768",
+            "p_emaildomain": "icloud.com",
+            "r_emaildomain": "gmail.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": [
+          {
+            "opened_at": "2016-09-01 00:18:13",
+            "case_id": "CC-2857",
+            "outcome": "confirmed_fraud",
+            "pattern": "account_takeover",
+            "exposure_usd": 539.97,
+            "n_txns": 2,
+            "report_filed": false,
+            "analyst_notes": "Case CC-2857: cardholder C02923 reported unrecognized activity on card C02923-K1. 2 transaction(s) between 2016-08-30 and 2016-08-30 totaling $539.97 were confirmed fraudulent. Mixed-channel activity inconsistent with the cardholder; credentials and card data both used. Card blocked and reissued. Customer reimbursed."
+          },
+          {
+            "opened_at": "2016-08-28 16:04:23",
+            "case_id": "CC-2717",
+            "outcome": "confirmed_fraud",
+            "pattern": "account_takeover",
+            "exposure_usd": 896.08,
+            "n_txns": 6,
+            "report_filed": false,
+            "analyst_notes": "Case CC-2717: cardholder C02923 reported unrecognized activity on card C02923-K1. 6 transaction(s) between 2016-08-25 and 2016-08-27 totaling $896.08 were confirmed fraudulent. Mixed-channel activity inconsistent with the cardholder; credentials and card data both used. Online transactions came from a Windows on edge 15.0. Card blocked and reissued. Customer reimbursed."
+          },
+          {
+            "opened_at": "2016-08-20 20:57:31",
+            "case_id": "CC-2400",
+            "outcome": "confirmed_fraud",
+            "pattern": "account_takeover",
+            "exposure_usd": 350.99,
+            "n_txns": 3,
+            "report_filed": false,
+            "analyst_notes": "Case CC-2400: cardholder C02923 reported unrecognized activity on card C02923-K1. 3 transaction(s) between 2016-08-18 and 2016-08-19 totaling $350.99 were confirmed fraudulent. Mixed-channel activity inconsistent with the cardholder; credentials and card data both used. Card blocked and reissued. Customer reimbursed."
+          }
+        ]
+      }
+    ]
+  }
+}

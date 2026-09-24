@@ -1,0 +1,218 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T18:42:31Z",
+  "source": "live TigerGraph SENTINEL",
+  "query": "card_window",
+  "params": {
+    "card": "C11891-K1",
+    "window_start": "2016-10-23 23:27:07",
+    "window_end": "2016-11-22 23:27:07",
+    "max_rows": 500
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 1
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "card": [
+          {
+            "v_id": "C11891-K1",
+            "v_type": "Card",
+            "attributes": {
+              "Start.card_id": "C11891-K1",
+              "Start.customer_id": "C11891",
+              "Start.card6": "credit",
+              "Start.k_index": 1
+            }
+          }
+        ]
+      },
+      {
+        "window_start": "2016-10-23 23:27:07",
+        "window_end": "2016-11-22 23:27:07",
+        "n_txns": 10,
+        "total_amount": 709.56,
+        "n_online": 10,
+        "n_in_person": 0,
+        "n_new_device": 0,
+        "n_proxy": 0,
+        "n_prior_cases": 1,
+        "n_prior_confirmed_fraud": 1,
+        "n_prior_cleared": 0
+      },
+      {
+        "transactions": [
+          {
+            "ts": "2016-10-26 19:34:34",
+            "txn_id": "3400334",
+            "amount": 74.6,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.25,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 19:49:06",
+            "txn_id": "3400385",
+            "amount": 52.42,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.39,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 19:51:46",
+            "txn_id": "3400395",
+            "amount": 52.4,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.11,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 19:54:38",
+            "txn_id": "3400406",
+            "amount": 25.17,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.16,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 20:01:14",
+            "txn_id": "3400436",
+            "amount": 52.53,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.36,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 20:05:22",
+            "txn_id": "3400451",
+            "amount": 52.5,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.06,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 20:13:04",
+            "txn_id": "3400494",
+            "amount": 52.45,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.22,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-10-26 20:29:16",
+            "txn_id": "3400552",
+            "amount": 52.45,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.01,
+            "device_status": "Found",
+            "proxy_flag": "",
+            "device_profile": "Trident/7.0 |  | ie 11.0 for tablet | ",
+            "p_emaildomain": "anonymous.com",
+            "r_emaildomain": "anonymous.com"
+          },
+          {
+            "ts": "2016-11-05 23:32:56",
+            "txn_id": "3433977",
+            "amount": 2.68,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.07,
+            "device_status": "Unknown",
+            "proxy_flag": "",
+            "device_profile": " |  | mobile safari generic | ",
+            "p_emaildomain": "gmail.com",
+            "r_emaildomain": "gmail.com"
+          },
+          {
+            "ts": "2016-11-22 17:27:07",
+            "txn_id": "3478782",
+            "amount": 292.36,
+            "product_cd": "C",
+            "channel": "online",
+            "addr1": "",
+            "addr2": "",
+            "risk_score": 0.79,
+            "device_status": "",
+            "proxy_flag": "",
+            "device_profile": "",
+            "p_emaildomain": "hotmail.com",
+            "r_emaildomain": "hotmail.com"
+          }
+        ]
+      },
+      {
+        "prior_cases": [
+          {
+            "opened_at": "2016-09-30 08:59:51",
+            "case_id": "CC-4160",
+            "outcome": "confirmed_fraud",
+            "pattern": "card_not_present_fraud",
+            "exposure_usd": 90.54,
+            "n_txns": 1,
+            "report_filed": false,
+            "analyst_notes": "Case CC-4160: cardholder C11891 reported unrecognized activity on card C11891-K1. 1 transaction(s) between 2016-09-29 and 2016-09-29 totaling $90.54 were confirmed fraudulent. Online purchases inconsistent with the cardholder's usual merchants and amounts. Online transactions came from a MotoE2(4G-LTE on chrome generic. Card blocked and reissued. Customer reimbursed."
+          }
+        ]
+      }
+    ]
+  }
+}
