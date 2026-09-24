@@ -9,6 +9,8 @@ import os
 from pathlib import Path
 import sys
 
+from typing import Any
+
 ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -27,10 +29,16 @@ CASE_PACK_CSV = ROOT / "data" / "case_pack.csv"
 CASES_DIR = ROOT / "cases"
 ABLATION_REPORT = ROOT / "ablation_report.json"
 
+CRED_VARS = ("TG_HOST", "TG_SECRET", "TG_PASSWORD", "TIGERGRAPH_HOST", "TIGERGRAPH_SECRET", "TIGERGRAPH_PASSWORD")
+
+
+def _has_tg_credentials() -> bool:
+    return any(bool(os.environ.get(v)) for v in CRED_VARS)
+
 
 def run_single_demo(case_id: str, offline: bool = False) -> None:
     if offline:
-        for var in ("TG_HOST", "TG_SECRET", "TG_PASSWORD", "TIGERGRAPH_HOST", "TIGERGRAPH_SECRET", "TIGERGRAPH_PASSWORD"):
+        for var in CRED_VARS:
             if os.environ.get(var):
                 raise AssertionError(f"Offline mode requires {var} unset, but got {os.environ[var]!r}")
         client = FixtureClient(case_id)
@@ -77,18 +85,26 @@ def run_single_demo(case_id: str, offline: bool = False) -> None:
     print(f"{tag}==================================================")
 
 
-def run_ablation(case_id: str) -> None:
+def run_ablation(case_id: str, offline: bool = False) -> None:
+    if offline:
+        for var in CRED_VARS:
+            if os.environ.get(var):
+                raise AssertionError(f"Offline mode requires {var} unset, but got {os.environ[var]!r}")
+        client = FixtureClient(case_id)
+    else:
+        client = None
+
     case = CaseInput.load(case_id)
 
     # 1. With memory
-    inv_with, _ = run_input(case, memory=True)
+    inv_with, _ = run_input(case, client=client, memory=True)
     d_with = decide(inv_with)
     p_with = inv_with.probability
     v_with = d_with["verdict"]
     act_with = d_with["final"][0]["action"] if d_with["final"] else "NONE"
 
     # 2. Without memory
-    inv_without, _ = run_input(case, memory=False)
+    inv_without, _ = run_input(case, client=client, memory=False)
     d_without = decide(inv_without)
     p_without = inv_without.probability
     v_without = d_without["verdict"]
@@ -98,21 +114,35 @@ def run_ablation(case_id: str) -> None:
     changed = v_with != v_without
     sentence = f"Without case memory, fraud probability moves from {p_with:.2f} to {p_without:.2f} and the verdict {'changes from '+v_with+' to '+v_without if changed else 'is unchanged'}."
 
-    print("==================================================")
-    print(f"Memory Ablation Study for {case_id}")
-    print("==================================================")
-    print(f"{'Metric':<18} | {'With Memory':<15} | {'Without Memory':<15}")
-    print(f"{'-'*18}-+-{'-'*15}-+-{'-'*15}")
-    print(f"{'Probability':<18} | {p_with:<15.4f} | {p_without:<15.4f}")
-    print(f"{'Verdict':<18} | {v_with:<15} | {v_without:<15}")
-    print(f"{'Top Action':<18} | {act_with:<15} | {act_without:<15}")
-    print(f"{'|Δp|':<18} | {delta_p:<15.4f} |")
-    print("--------------------------------------------------")
-    print(sentence)
-    print("==================================================")
+    tag = "[fixture] " if offline else ""
+    print(f"{tag}==================================================")
+    print(f"{tag}Memory Ablation Study for {case_id}")
+    print(f"{tag}==================================================")
+    print(f"{tag}{'Metric':<18} | {'With Memory':<15} | {'Without Memory':<15}")
+    print(f"{tag}{'-'*18}-+-{'-'*15}-+-{'-'*15}")
+    print(f"{tag}{'Probability':<18} | {p_with:<15.4f} | {p_without:<15.4f}")
+    print(f"{tag}{'Verdict':<18} | {v_with:<15} | {v_without:<15}")
+    print(f"{tag}{'Top Action':<18} | {act_with:<15} | {act_without:<15}")
+    print(f"{tag}{'|Δp|':<18} | {delta_p:<15.4f} |")
+    print(f"{tag}--------------------------------------------------")
+    print(f"{tag}{sentence}")
+    print(f"{tag}==================================================")
 
 
-def run_ablation_sweep() -> None:
+def run_ablation_sweep(offline: bool = False) -> None:
+    if not offline and not _has_tg_credentials():
+        print("ERROR: ablation sweep needs live TigerGraph credentials or --offline; refusing to overwrite ablation_report.json")
+        sys.exit(2)
+
+    if not CASE_PACK_CSV.exists():
+        print(f"ERROR: case pack file not found at {CASE_PACK_CSV}")
+        sys.exit(2)
+
+    if offline:
+        for var in CRED_VARS:
+            if os.environ.get(var):
+                raise AssertionError(f"Offline mode requires {var} unset, but got {os.environ[var]!r}")
+
     print("Running memory ablation sweep over all 20 benchmark cases...")
     report: dict[str, Any] = {}
 
@@ -138,8 +168,9 @@ def run_ablation_sweep() -> None:
         p_with = existing_data["case"]["fraud_probability"]
         v_with = existing_data["case"]["verdict"]
 
-        # Run without memory live
-        inv_no_mem, _ = run_input(case, memory=False)
+        # Run without memory (offline fixture client if offline, else None)
+        client = FixtureClient(cid) if offline else None
+        inv_no_mem, _ = run_input(case, client=client, memory=False)
         d_no_mem = decide(inv_no_mem)
         p_without = inv_no_mem.probability
         v_without = d_no_mem["verdict"]
@@ -172,12 +203,15 @@ def main() -> None:
     parser.add_argument("--ablate-sweep", action="store_true", help="Run ablation sweep across all 20 cases")
     args = parser.parse_args()
 
+    case_id = args.case_id if "--case-id" in sys.argv else ("HHG-012" if args.ablate_memory else "HHG-014")
+
     if args.ablate_sweep:
-        run_ablation_sweep()
+        run_ablation_sweep(offline=args.offline)
     elif args.ablate_memory:
-        run_ablation(args.case_id)
+        offline = args.offline or not _has_tg_credentials()
+        run_ablation(case_id, offline=offline)
     else:
-        run_single_demo(args.case_id, offline=args.offline)
+        run_single_demo(case_id, offline=args.offline)
 
 
 if __name__ == "__main__":
