@@ -1,0 +1,95 @@
+{
+  "case_id": "HHG-017",
+  "case": {
+    "status": "closed_legitimate",
+    "verdict": "legitimate",
+    "fraud_probability": 0.2858,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [],
+    "first_suspicious_txn_id": "",
+    "connected_card_ids": [],
+    "connected_device_profiles": [
+      "Windows | Windows 10 | chrome 65.0 | 1920x1080"
+    ],
+    "exposure_usd": 0.0,
+    "evidence": [
+      {
+        "claim": "card_window returned graph facts for card C04570-K1",
+        "source": "graph",
+        "ref": "query:card_window(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, max_rows=500)",
+        "entity_ids": [
+          "C04570-K1"
+        ]
+      },
+      {
+        "claim": "device_neighbors returned graph facts for card C04570-K1",
+        "source": "graph",
+        "ref": "query:device_neighbors(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+        "entity_ids": [
+          "C04570-K1"
+        ]
+      },
+      {
+        "claim": "detect_fraud_ring returned graph facts for card C04570-K1",
+        "source": "graph",
+        "ref": "query:detect_fraud_ring(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24)",
+        "entity_ids": [
+          "C04570-K1"
+        ]
+      },
+      {
+        "claim": "velocity_check returned graph facts for card C04570-K1",
+        "source": "graph",
+        "ref": "query:velocity_check(card=C04570-K1, window_start=2016-11-08 18:46:24, window_end=2016-11-12 00:46:24)",
+        "entity_ids": [
+          "C04570-K1"
+        ]
+      },
+      {
+        "claim": "region_profile returned graph facts for card C04570-K1",
+        "source": "graph",
+        "ref": "query:region_profile(card=C04570-K1, window_start=2016-10-13 00:46:24, window_end=2016-11-12 00:46:24, flagged_region=204)",
+        "entity_ids": [
+          "C04570-K1"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-1383"
+    ],
+    "summary": "Case HHG-017 on card C04570-K1: verdict legitimate at probability 0.29 (undocumented_ring playbook). The card has prior history in the flagged billing region while home activity continued. The flagged online transaction came from a device marked New for this account behind a proxy. Actions follow probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6).",
+    "written_to_graph": false,
+    "graph_case_id": ""
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "CLOSE_NO_FRAUD",
+        "route": "auto",
+        "reason": "probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+      }
+    ],
+    "final": [
+      {
+        "action": "CLOSE_NO_FRAUD",
+        "route": "auto",
+        "reason": "probability 0.29 at or below the 0.30 case threshold with exonerating evidence (§3a, §6)"
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "3a: fraud not confirmed or strongly suspected",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "undocumented_ring playbook exhausted (5 graph queries); no further query has expected gain above the gate",
+  "tool_calls": 5,
+  "tokens": 0,
+  "latency_s": 0.176
+}
