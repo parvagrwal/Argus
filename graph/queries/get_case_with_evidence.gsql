@@ -1,0 +1,36 @@
+// -------------------------------------------------------------------------------------
+// Query:     get_case_with_evidence
+// Algorithm: Point lookup of one InvestigationCase by graph_case_id followed by 1-hop
+//            expansion along its four evidence edge types (INVESTIGATION_ON_CARD,
+//            INVESTIGATION_EVIDENCE_TXN, INVESTIGATION_EVIDENCE_DEVICE,
+//            INVESTIGATION_CITES_PRIOR). Returns the stored payload_json so the caller can
+//            assert byte-equality with what write_fraud_case was given (read-back check).
+// Pattern:   Memory verification (AGENTS.md §8: "the answer file is emitted only after
+//            read-back equality is asserted"). Also the retrieval path for
+//            similar_prior_cases across Argus-written cases.
+// Columns:   InvestigationCase.* (AnswerFile fields); Card.card_id; Transaction.txn_id;
+//            DeviceProfile.profile; ClosedCase.case_id
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY get_case_with_evidence(STRING graph_case_id)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  SetAccum<STRING> @@card_ids;
+  SetAccum<STRING> @@txn_ids;
+  SetAccum<STRING> @@device_profiles;
+  SetAccum<STRING> @@prior_case_ids;
+
+  Cases = {InvestigationCase.*};
+  Cases = SELECT s FROM Cases:s WHERE s.graph_case_id == graph_case_id;
+
+  Cards = SELECT c FROM Cases:s -(INVESTIGATION_ON_CARD>:e)- Card:c ACCUM @@card_ids += c.card_id;
+  Txns = SELECT t FROM Cases:s -(INVESTIGATION_EVIDENCE_TXN>:e)- Transaction:t ACCUM @@txn_ids += t.txn_id;
+  Devs = SELECT d FROM Cases:s -(INVESTIGATION_EVIDENCE_DEVICE>:e)- DeviceProfile:d ACCUM @@device_profiles += d.profile;
+  Priors = SELECT p FROM Cases:s -(INVESTIGATION_CITES_PRIOR>:e)- ClosedCase:p ACCUM @@prior_case_ids += p.case_id;
+
+  PRINT Cases.size() AS found;
+  PRINT Cases[Cases.graph_case_id, Cases.case_id, Cases.status, Cases.verdict, Cases.fraud_probability,
+              Cases.pattern, Cases.exposure_usd, Cases.summary, Cases.written_at, Cases.payload_json] AS investigation_case;
+  PRINT @@card_ids AS card_ids;
+  PRINT @@txn_ids AS affected_txn_ids;
+  PRINT @@device_profiles AS device_profiles;
+  PRINT @@prior_case_ids AS prior_case_ids;
+}

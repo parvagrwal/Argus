@@ -1,0 +1,76 @@
+// -------------------------------------------------------------------------------------
+// Query:     write_fraud_case
+// Algorithm: Idempotent upsert of one InvestigationCase vertex plus evidence edges to the
+//            Card, the affected Transactions, the linking DeviceProfiles and the cited
+//            ClosedCases. Every referenced ID is resolved against EXISTING vertices first
+//            (SELECT ... WHERE id IN set); an ID that does not exist in the graph is reported
+//            in the *_not_found lists and never creates a vertex, so a fabricated ID cannot
+//            enter the graph as a fact (AGENTS.md §1). Inserts are visible to the NEXT
+//            query, so read-back verification is done with get_case_with_evidence.
+// Pattern:   Memory (AGENTS.md §8, Policy 3a: "a case ... should be written into the graph so
+//            later investigations can find it"). No fraud pattern is inferred here; the
+//            caller supplies values already computed by deterministic code.
+// Columns:   InvestigationCase attributes are AnswerFile fields (data/ANSWER_FORMAT.md);
+//            edge targets are Card / Transaction / DeviceProfile / ClosedCase ids that exist.
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY write_fraud_case(STRING graph_case_id, STRING case_id, STRING card_id,
+                                         STRING status, STRING verdict, DOUBLE fraud_probability,
+                                         STRING pattern, DOUBLE exposure_usd, STRING summary,
+                                         SET<STRING> affected_txn_ids, SET<STRING> device_profiles,
+                                         SET<STRING> prior_case_ids, STRING payload_json)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  SetAccum<STRING> @@txns_found;
+  SetAccum<STRING> @@devices_found;
+  SetAccum<STRING> @@priors_found;
+  SetAccum<STRING> @@txns_not_found;
+  SetAccum<STRING> @@devices_not_found;
+  SetAccum<STRING> @@priors_not_found;
+  OrAccum @@card_found;
+
+  Cards = {Card.*};
+  Cards = SELECT c FROM Cards:c WHERE c.card_id == card_id ACCUM @@card_found += TRUE;
+
+  Txns = {Transaction.*};
+  Txns = SELECT t FROM Txns:t WHERE t.txn_id IN affected_txn_ids ACCUM @@txns_found += t.txn_id;
+
+  Devs = {DeviceProfile.*};
+  Devs = SELECT d FROM Devs:d WHERE d.profile IN device_profiles ACCUM @@devices_found += d.profile;
+
+  Priors = {ClosedCase.*};
+  Priors = SELECT p FROM Priors:p WHERE p.case_id IN prior_case_ids ACCUM @@priors_found += p.case_id;
+
+  FOREACH x IN affected_txn_ids DO
+    IF NOT @@txns_found.contains(x) THEN @@txns_not_found += x; END;
+  END;
+  FOREACH x IN device_profiles DO
+    IF NOT @@devices_found.contains(x) THEN @@devices_not_found += x; END;
+  END;
+  FOREACH x IN prior_case_ids DO
+    IF NOT @@priors_found.contains(x) THEN @@priors_not_found += x; END;
+  END;
+
+  INSERT INTO InvestigationCase (PRIMARY_ID, case_id, status, verdict, fraud_probability, pattern,
+                                 exposure_usd, summary, written_at, payload_json)
+    VALUES (graph_case_id, case_id, status, verdict, fraud_probability, pattern,
+            exposure_usd, summary, now(), payload_json);
+
+  IF @@card_found THEN
+    INSERT INTO INVESTIGATION_ON_CARD (FROM, TO) VALUES (graph_case_id InvestigationCase, card_id Card);
+  END;
+  FOREACH x IN @@txns_found DO
+    INSERT INTO INVESTIGATION_EVIDENCE_TXN (FROM, TO) VALUES (graph_case_id InvestigationCase, x Transaction);
+  END;
+  FOREACH x IN @@devices_found DO
+    INSERT INTO INVESTIGATION_EVIDENCE_DEVICE (FROM, TO) VALUES (graph_case_id InvestigationCase, x DeviceProfile);
+  END;
+  FOREACH x IN @@priors_found DO
+    INSERT INTO INVESTIGATION_CITES_PRIOR (FROM, TO) VALUES (graph_case_id InvestigationCase, x ClosedCase);
+  END;
+
+  PRINT graph_case_id, case_id, card_id, @@card_found AS card_found,
+        @@txns_found.size() AS n_txn_edges, @@devices_found.size() AS n_device_edges,
+        @@priors_found.size() AS n_prior_edges;
+  PRINT @@txns_not_found AS txns_not_found;
+  PRINT @@devices_not_found AS devices_not_found;
+  PRINT @@priors_not_found AS priors_not_found;
+}

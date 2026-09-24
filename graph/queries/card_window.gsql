@@ -1,0 +1,62 @@
+// -------------------------------------------------------------------------------------
+// Query:     card_window
+// Algorithm: 1-hop neighbourhood scan (Card -> Transaction via CARD_HAS_TRANS) with a
+//            DATETIME range filter, ordered by ts; plus the card's closed-case memory
+//            (Card -> ClosedCase via CARD_HAS_PRIOR_CASE).
+// Pattern:   Evidence base for every pattern. Card testing (R5: small online auths then a
+//            larger purchase), card-not-present bursts (pattern 2: 2-4 online purchases in
+//            48h), new-device use (pattern 3: device_status = New / proxy_flag), and the
+//            prior-case memory used for similar_prior_cases.
+// Columns:   Transaction.{txn_id,ts,amount,product_cd,channel,addr1,addr2,risk_score,
+//            device_status,proxy_flag,device_profile,p_emaildomain,r_emaildomain}
+//            <- transactions.csv / identity.csv; ClosedCase.* <- closed_cases_history.csv
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY card_window(VERTEX<Card> card, DATETIME window_start, DATETIME window_end, INT max_rows = 500)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  TYPEDEF TUPLE<DATETIME ts, STRING txn_id, DOUBLE amount, STRING product_cd, STRING channel,
+                STRING addr1, STRING addr2, DOUBLE risk_score, STRING device_status, STRING proxy_flag,
+                STRING device_profile, STRING p_emaildomain, STRING r_emaildomain> TxnRow;
+  TYPEDEF TUPLE<DATETIME opened_at, STRING case_id, STRING outcome, STRING pattern, DOUBLE exposure_usd,
+                INT n_txns, BOOL report_filed, STRING analyst_notes> PriorRow;
+
+  HeapAccum<TxnRow>(max_rows, ts ASC) @@rows;
+  HeapAccum<PriorRow>(200, opened_at DESC) @@priors;
+  SumAccum<DOUBLE> @@total_amount;
+  SumAccum<INT> @@n_online;
+  SumAccum<INT> @@n_in_person;
+  SumAccum<INT> @@n_new_device;
+  SumAccum<INT> @@n_proxy;
+  SumAccum<INT> @@n_prior_confirmed_fraud;
+  SumAccum<INT> @@n_prior_cleared;
+
+  Start = {card};
+
+  Txns = SELECT t
+         FROM Start:c -(CARD_HAS_TRANS>:e)- Transaction:t
+         WHERE t.ts >= window_start AND t.ts <= window_end
+         ACCUM
+           @@rows += TxnRow(t.ts, t.txn_id, t.amount, t.product_cd, t.channel, t.addr1, t.addr2,
+                            t.risk_score, t.device_status, t.proxy_flag, t.device_profile,
+                            t.p_emaildomain, t.r_emaildomain),
+           @@total_amount += t.amount,
+           CASE WHEN t.channel == "online" THEN @@n_online += 1 ELSE @@n_in_person += 1 END,
+           CASE WHEN t.device_status == "New" THEN @@n_new_device += 1 END,
+           CASE WHEN t.proxy_flag != "" THEN @@n_proxy += 1 END;
+
+  Priors = SELECT p
+           FROM Start:c -(CARD_HAS_PRIOR_CASE>:e)- ClosedCase:p
+           WHERE p.opened_at <= window_end
+           ACCUM
+             @@priors += PriorRow(p.opened_at, p.case_id, p.outcome, p.pattern, p.exposure_usd,
+                                  p.n_txns, p.report_filed, p.analyst_notes),
+             CASE WHEN p.outcome == "confirmed_fraud" THEN @@n_prior_confirmed_fraud += 1
+                  ELSE @@n_prior_cleared += 1 END;
+
+  PRINT Start[Start.card_id, Start.customer_id, Start.card6, Start.k_index] AS card;
+  PRINT window_start, window_end, Txns.size() AS n_txns, @@total_amount AS total_amount,
+        @@n_online AS n_online, @@n_in_person AS n_in_person, @@n_new_device AS n_new_device,
+        @@n_proxy AS n_proxy, Priors.size() AS n_prior_cases,
+        @@n_prior_confirmed_fraud AS n_prior_confirmed_fraud, @@n_prior_cleared AS n_prior_cleared;
+  PRINT @@rows AS transactions;
+  PRINT @@priors AS prior_cases;
+}

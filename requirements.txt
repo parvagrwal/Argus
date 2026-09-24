@@ -1,0 +1,6 @@
+# Argus - P1 graph foundation. Python 3.11+.
+pandas>=2.2
+pydantic>=2.6
+requests>=2.31
+python-dotenv>=1.0
+pytest>=8.0

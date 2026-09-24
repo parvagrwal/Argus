@@ -1,0 +1,93 @@
+// -------------------------------------------------------------------------------------
+// Query:     detect_fraud_ring
+// Algorithm: Seeded connected-component search (bounded BFS / WCC restricted to the seed's
+//            component) over the Card -(Transaction)- DeviceProfile -(Transaction)- Card
+//            projection, up to max_hops rounds and max_component cards. DeviceProfiles whose
+//            DEVICE_SEEN_ON degree exceeds max_device_txns are hubs and are not traversed
+//            (they would merge unrelated customers). Optionally also links cards through
+//            rare recipient e-mail domains (RECIPIENT_EMAIL) when include_email is TRUE and
+//            the domain's degree is <= max_email_txns; e-mail linking is OFF by default
+//            because only the domain is known (gmail.com is a hub, not a ring).
+//            Component cards are annotated with their confirmed-fraud closed cases so the
+//            caller can compute how many members already show fraud (R6 / R9).
+// Pattern:   Shared origin (R6), undocumented coordinated abuse (R9) such as the anonymous-
+//            proxy SM-G935F device ring in closed cases CC-2649/2971/2985/3035.
+// Columns:   DeviceProfile <- identity.csv DeviceInfo,id_30,id_31,id_33; Transaction.ts;
+//            EmailDomain <- transactions.csv R_emaildomain; ClosedCase.{outcome,pattern,case_id}
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY detect_fraud_ring(VERTEX<Card> card, DATETIME window_start, DATETIME window_end,
+                                          INT max_hops = 3, INT max_device_txns = 200,
+                                          INT max_component = 500, BOOL include_email = FALSE,
+                                          INT max_email_txns = 50)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  OrAccum @visited;
+  MinAccum<INT> @hop;
+  SetAccum<STRING> @linked_via;               // device profiles / email domains that linked this card
+  SetAccum<STRING> @prior_fraud_cases;
+  SetAccum<STRING> @prior_fraud_patterns;
+  SetAccum<STRING> @@hub_devices;
+  SetAccum<STRING> @@hub_emails;
+  SetAccum<STRING> @@shared_devices;
+  SetAccum<STRING> @@shared_emails;
+  SumAccum<INT> @@cards_with_prior_fraud;
+  INT cur_hop = 0;
+
+  Frontier = {card};
+  Frontier = SELECT c FROM Frontier:c ACCUM c.@visited += TRUE, c.@hop += 0;
+  Component = Frontier;
+
+  WHILE Frontier.size() > 0 AND cur_hop < max_hops AND Component.size() < max_component DO
+    cur_hop = cur_hop + 1;
+
+    Devs = SELECT d
+           FROM Frontier:c -(CARD_HAS_TRANS>:e1)- Transaction:t -(HAS_DEVICE>:e2)- DeviceProfile:d
+           WHERE t.ts >= window_start AND t.ts <= window_end
+           POST-ACCUM
+             CASE WHEN d.outdegree("DEVICE_SEEN_ON") > max_device_txns THEN @@hub_devices += d.profile
+                  ELSE @@shared_devices += d.profile END
+           HAVING d.outdegree("DEVICE_SEEN_ON") <= max_device_txns;
+
+    NextByDevice = SELECT c2
+                   FROM Devs:d -(DEVICE_SEEN_ON>:e3)- Transaction:t2 -(TRANS_ON_CARD>:e4)- Card:c2
+                   WHERE c2.@visited == FALSE AND t2.ts >= window_start AND t2.ts <= window_end
+                   ACCUM c2.@linked_via += d.profile
+                   POST-ACCUM c2.@visited += TRUE, c2.@hop += cur_hop;
+
+    // Frontier cards are all visited, so this yields an empty Card set (typed placeholder).
+    NextByEmail = SELECT c2 FROM Frontier:c2 WHERE c2.@visited == FALSE;
+    IF include_email THEN
+      Emails = SELECT m
+               FROM Frontier:c -(CARD_HAS_TRANS>:e1)- Transaction:t -(RECIPIENT_EMAIL>:e2)- EmailDomain:m
+               WHERE t.ts >= window_start AND t.ts <= window_end
+               POST-ACCUM
+                 CASE WHEN m.outdegree("EMAIL_RECEIVED_BY") > max_email_txns THEN @@hub_emails += m.domain
+                      ELSE @@shared_emails += m.domain END
+               HAVING m.outdegree("EMAIL_RECEIVED_BY") <= max_email_txns;
+      NextByEmail = SELECT c2
+                    FROM Emails:m -(EMAIL_RECEIVED_BY>:e3)- Transaction:t2 -(TRANS_ON_CARD>:e4)- Card:c2
+                    WHERE c2.@visited == FALSE AND t2.ts >= window_start AND t2.ts <= window_end
+                    ACCUM c2.@linked_via += ("email:" + m.domain)
+                    POST-ACCUM c2.@visited += TRUE, c2.@hop += cur_hop;
+    END;
+
+    Frontier = NextByDevice UNION NextByEmail;
+    Component = Component UNION Frontier;
+  END;
+
+  Annotated = SELECT c
+              FROM Component:c -(CARD_HAS_PRIOR_CASE>:e)- ClosedCase:p
+              WHERE p.outcome == "confirmed_fraud"
+              ACCUM c.@prior_fraud_cases += p.case_id, c.@prior_fraud_patterns += p.pattern
+              POST-ACCUM @@cards_with_prior_fraud += 1;
+
+  PRINT window_start, window_end, cur_hop AS hops_expanded, Component.size() AS component_size,
+        @@cards_with_prior_fraud AS cards_with_prior_confirmed_fraud,
+        @@shared_devices.size() AS n_shared_devices, @@hub_devices.size() AS n_hub_devices_skipped,
+        include_email, @@shared_emails.size() AS n_shared_email_domains;
+  PRINT Component[Component.card_id, Component.customer_id, Component.@hop, Component.@linked_via,
+                  Component.@prior_fraud_cases, Component.@prior_fraud_patterns] AS component;
+  PRINT @@shared_devices AS shared_devices;
+  PRINT @@hub_devices AS hub_devices_skipped;
+  PRINT @@shared_emails AS shared_email_domains;
+  PRINT @@hub_emails AS hub_email_domains_skipped;
+}

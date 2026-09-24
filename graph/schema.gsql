@@ -1,0 +1,112 @@
+// =====================================================================================
+// Argus — P1 graph schema for graph `FraudInvestigation` (env TG_GRAPHNAME) on cluster SENTINEL.
+//
+// NON-DESTRUCTIVE BY CONSTRUCTION. This file contains only ADD statements inside a
+// schema-change job. graph/setup_graph.py fetches the live schema first and emits ADD
+// statements only for vertex/edge types that do not exist yet; nothing is ever dropped.
+// graph/setup_graph.py substitutes the graph name from TG_GRAPHNAME when it differs.
+//
+// Every attribute is traceable to a real column (data/GRAPH_SCHEMA.md §2):
+//   transactions.csv : TransactionID, TransactionDT, TransactionAmt, ProductCD, card6, addr1,
+//                      addr2, P_emaildomain, R_emaildomain, customer_id, ts, channel, risk_score
+//   identity.csv     : TransactionID, id_15, id_23, id_30, id_31, id_33, id_34, DeviceType, DeviceInfo
+//   closed_cases_history.csv : all 15 columns
+//   derived          : card_id (graph/card_id.py), device profile string
+//                      "DeviceInfo | id_30 | id_31 | id_33" (README connected_device_profiles)
+// There is NO IP vertex and NO Merchant vertex: the data has neither field (D-13).
+// =====================================================================================
+
+CREATE GRAPH FraudInvestigation ()
+
+USE GRAPH FraudInvestigation
+
+CREATE SCHEMA_CHANGE JOB argus_p1_schema FOR GRAPH FraudInvestigation {
+
+  // ---- Vertices -----------------------------------------------------------------
+  // customer_id column (13,553 distinct). No other customer attributes exist in the data.
+  ADD VERTEX Customer (PRIMARY_ID customer_id STRING) WITH primary_id_as_attribute="true";
+
+  // Derived card: customer_id + rank of card6 within customer (graph/card_id.py).
+  ADD VERTEX Card (PRIMARY_ID card_id STRING, customer_id STRING, card6 STRING, k_index INT)
+    WITH primary_id_as_attribute="true";
+
+  // One vertex per transactions.csv row. Identity fields are blank when identity.csv has no row.
+  ADD VERTEX Transaction (
+    PRIMARY_ID txn_id STRING,
+    transaction_dt INT,          // TransactionDT (seconds offset, unnamed reference)
+    amount DOUBLE,               // TransactionAmt
+    product_cd STRING,           // ProductCD (W,C,H,R,S)
+    channel STRING,              // channel (in_person|online)
+    ts DATETIME,                 // ts
+    risk_score DOUBLE,           // risk_score (input signal, never a verdict)
+    addr1 STRING,                // addr1 = billing region code ("" when missing)
+    addr2 STRING,                // addr2 = billing country code (87 = home)
+    card_id STRING,              // derived
+    customer_id STRING,          // customer_id
+    p_emaildomain STRING,        // P_emaildomain
+    r_emaildomain STRING,        // R_emaildomain
+    device_status STRING,        // identity id_15 (New|Found|Unknown|"")
+    proxy_flag STRING,           // identity id_23 (IP_PROXY:TRANSPARENT|ANONYMOUS|HIDDEN|"")
+    device_type STRING,          // identity DeviceType (desktop|mobile|"")
+    match_status STRING,         // identity id_34 (match_status:n|"")
+    device_profile STRING        // "DeviceInfo | id_30 | id_31 | id_33" ("" when no identity row)
+  ) WITH primary_id_as_attribute="true";
+
+  // Device profile = README's connected_device_profiles string. All-blank profiles are not loaded.
+  ADD VERTEX DeviceProfile (PRIMARY_ID profile STRING, device_info STRING, os STRING, browser STRING, screen STRING)
+    WITH primary_id_as_attribute="true";
+
+  // P_emaildomain / R_emaildomain values (59 / 60 distinct). Domain only — never an address.
+  ADD VERTEX EmailDomain (PRIMARY_ID domain STRING) WITH primary_id_as_attribute="true";
+
+  // addr1 values (332 distinct). Region is the billing region code; no other geography exists.
+  ADD VERTEX BillingRegion (PRIMARY_ID region STRING) WITH primary_id_as_attribute="true";
+
+  // closed_cases_history.csv, one vertex per row (5,565). Memory for later investigations.
+  ADD VERTEX ClosedCase (
+    PRIMARY_ID case_id STRING,
+    customer_id STRING,
+    card_id STRING,
+    opened_at DATETIME,
+    closed_at DATETIME,
+    outcome STRING,              // confirmed_fraud|cleared
+    pattern STRING,              // five known patterns | undocumented | none
+    first_fraud_txn_id STRING,
+    n_txns INT,
+    exposure_usd DOUBLE,
+    actions_taken STRING,        // pipe-separated policy actions
+    report_filed BOOL,           // Yes/No -> true/false
+    analyst_notes STRING
+  ) WITH primary_id_as_attribute="true";
+
+  // Cases written by Argus itself (AGENTS.md §8). Attributes are AnswerFile fields only.
+  ADD VERTEX InvestigationCase (
+    PRIMARY_ID graph_case_id STRING,
+    case_id STRING,              // HHG-xxx
+    status STRING,
+    verdict STRING,
+    fraud_probability DOUBLE,
+    pattern STRING,
+    exposure_usd DOUBLE,
+    summary STRING,
+    written_at DATETIME,
+    payload_json STRING          // full AnswerFile JSON for byte-exact read-back
+  ) WITH primary_id_as_attribute="true";
+
+  // ---- Edges --------------------------------------------------------------------
+  ADD DIRECTED EDGE OWNS_CARD (FROM Customer, TO Card) WITH REVERSE_EDGE="CARD_OWNED_BY";
+  ADD DIRECTED EDGE TRANS_ON_CARD (FROM Transaction, TO Card) WITH REVERSE_EDGE="CARD_HAS_TRANS";
+  ADD DIRECTED EDGE HAS_DEVICE (FROM Transaction, TO DeviceProfile) WITH REVERSE_EDGE="DEVICE_SEEN_ON";
+  ADD DIRECTED EDGE USES_EMAIL (FROM Transaction, TO EmailDomain) WITH REVERSE_EDGE="EMAIL_USED_BY";           // P_emaildomain
+  ADD DIRECTED EDGE RECIPIENT_EMAIL (FROM Transaction, TO EmailDomain) WITH REVERSE_EDGE="EMAIL_RECEIVED_BY";  // R_emaildomain (R6)
+  ADD DIRECTED EDGE BILLED_IN (FROM Transaction, TO BillingRegion) WITH REVERSE_EDGE="REGION_BILLS";
+  ADD DIRECTED EDGE PRIOR_CASE_ON (FROM ClosedCase, TO Card) WITH REVERSE_EDGE="CARD_HAS_PRIOR_CASE";
+  ADD DIRECTED EDGE CASE_INCLUDES_TXN (FROM ClosedCase, TO Transaction) WITH REVERSE_EDGE="TXN_IN_CLOSED_CASE";      // txn_ids
+  ADD DIRECTED EDGE CASE_CONNECTED_CARD (FROM ClosedCase, TO Card) WITH REVERSE_EDGE="CARD_CONNECTED_TO_CASE";     // connected_card_ids
+  ADD DIRECTED EDGE INVESTIGATION_ON_CARD (FROM InvestigationCase, TO Card) WITH REVERSE_EDGE="CARD_HAS_INVESTIGATION";
+  ADD DIRECTED EDGE INVESTIGATION_EVIDENCE_TXN (FROM InvestigationCase, TO Transaction) WITH REVERSE_EDGE="TXN_IN_INVESTIGATION";
+  ADD DIRECTED EDGE INVESTIGATION_EVIDENCE_DEVICE (FROM InvestigationCase, TO DeviceProfile) WITH REVERSE_EDGE="DEVICE_IN_INVESTIGATION";
+  ADD DIRECTED EDGE INVESTIGATION_CITES_PRIOR (FROM InvestigationCase, TO ClosedCase) WITH REVERSE_EDGE="PRIOR_CITED_BY";
+}
+
+RUN SCHEMA_CHANGE JOB argus_p1_schema

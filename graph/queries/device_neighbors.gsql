@@ -1,0 +1,68 @@
+// -------------------------------------------------------------------------------------
+// Query:     device_neighbors
+// Algorithm: 2-hop Card -> DeviceProfile -> Card expansion (each hop is Card-Transaction-
+//            DeviceProfile through CARD_HAS_TRANS / HAS_DEVICE and their reverse edges),
+//            with hub suppression: a DeviceProfile whose DEVICE_SEEN_ON degree exceeds
+//            max_device_txns is reported as a hub and not expanded (generic profiles such
+//            as "Windows | Windows 10 | chrome 65.0 | 1920x1080" link thousands of cards
+//            and are not evidence of a shared actor). Neighbour cards are annotated with
+//            their confirmed-fraud closed cases (CARD_HAS_PRIOR_CASE).
+// Pattern:   card_not_present_new_device (pattern 3), shared-origin rule R6 ("several cards
+//            show fraud from the same device profile"), undocumented proxy-device rings
+//            (closed cases CC-2649/2971/2985/3035), and connected_card_ids /
+//            connected_device_profiles in the answer file.
+// Columns:   DeviceProfile.* <- identity.csv DeviceInfo, id_30, id_31, id_33;
+//            Transaction.{ts,device_status,proxy_flag} <- identity.csv id_15, id_23;
+//            ClosedCase.{outcome,pattern} <- closed_cases_history.csv
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY device_neighbors(VERTEX<Card> card, DATETIME window_start, DATETIME window_end,
+                                         INT max_device_txns = 200)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  OrAccum @is_seed;
+  SumAccum<INT> @seed_txns;                 // on DeviceProfile: seed-card txns in window
+  SetAccum<STRING> @seed_statuses;          // on DeviceProfile: id_15 values seen on the seed
+  SetAccum<STRING> @seed_proxy_flags;       // on DeviceProfile: id_23 values seen on the seed
+  SetAccum<STRING> @other_cards;            // on DeviceProfile: neighbour card ids
+  SetAccum<STRING> @via_devices;            // on neighbour Card: profiles that link it
+  SumAccum<INT> @shared_txns;               // on neighbour Card: txns on shared devices in window
+  SetAccum<STRING> @prior_fraud_cases;      // on neighbour Card: confirmed_fraud closed cases
+  SetAccum<STRING> @prior_fraud_patterns;   // on neighbour Card
+  SetAccum<STRING> @@hub_devices;
+
+  Start = {card};
+  Start = SELECT c FROM Start:c ACCUM c.@is_seed += TRUE;
+
+  Devices = SELECT d
+            FROM Start:c -(CARD_HAS_TRANS>:e1)- Transaction:t -(HAS_DEVICE>:e2)- DeviceProfile:d
+            WHERE t.ts >= window_start AND t.ts <= window_end
+            ACCUM d.@seed_txns += 1,
+                  d.@seed_statuses += t.device_status,
+                  d.@seed_proxy_flags += t.proxy_flag
+            POST-ACCUM
+              CASE WHEN d.outdegree("DEVICE_SEEN_ON") > max_device_txns THEN @@hub_devices += d.profile END;
+
+  Expandable = SELECT d FROM Devices:d WHERE d.outdegree("DEVICE_SEEN_ON") <= max_device_txns;
+
+  Neighbors = SELECT c2
+              FROM Expandable:d -(DEVICE_SEEN_ON>:e3)- Transaction:t2 -(TRANS_ON_CARD>:e4)- Card:c2
+              WHERE c2.@is_seed == FALSE AND t2.ts >= window_start AND t2.ts <= window_end
+              ACCUM d.@other_cards += c2.card_id,
+                    c2.@via_devices += d.profile,
+                    c2.@shared_txns += 1;
+
+  Priors = SELECT c2
+           FROM Neighbors:c2 -(CARD_HAS_PRIOR_CASE>:e5)- ClosedCase:p
+           WHERE p.outcome == "confirmed_fraud"
+           ACCUM c2.@prior_fraud_cases += p.case_id,
+                 c2.@prior_fraud_patterns += p.pattern;
+
+  PRINT Start[Start.card_id, Start.customer_id] AS card;
+  PRINT window_start, window_end, Devices.size() AS n_devices, Expandable.size() AS n_devices_expanded,
+        @@hub_devices.size() AS n_hub_devices_skipped, Neighbors.size() AS n_connected_cards;
+  PRINT Devices[Devices.profile, Devices.device_info, Devices.os, Devices.browser, Devices.screen,
+                Devices.@seed_txns, Devices.@seed_statuses, Devices.@seed_proxy_flags,
+                Devices.@other_cards] AS devices;
+  PRINT Neighbors[Neighbors.card_id, Neighbors.customer_id, Neighbors.@via_devices, Neighbors.@shared_txns,
+                  Neighbors.@prior_fraud_cases, Neighbors.@prior_fraud_patterns] AS connected_cards;
+  PRINT @@hub_devices AS hub_devices_skipped;
+}

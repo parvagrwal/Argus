@@ -1,0 +1,94 @@
+// -------------------------------------------------------------------------------------
+// Query:     velocity_check
+// Algorithm: Sliding-window burst detection over the card's transactions sorted by ts.
+//            For each online anchor transaction it counts (a) all online transactions and
+//            (b) small online authorizations (amount < small_amount) inside
+//            [anchor.ts, anchor.ts + burst_minutes]. When (b) >= min_small_auths it looks
+//            for the first later transaction with amount >= large_amount within
+//            followup_hours (the "then a larger purchase" step). O(n^2) over a bounded window.
+// Pattern:   card_testing (Policy R5: three or more small online authorizations within an
+//            hour, followed by a larger purchase); card_not_present_fraud bursts (pattern 2:
+//            two to four online purchases within 48 hours) via max_online_in_window.
+// Columns:   Transaction.{txn_id,ts,amount,channel,product_cd} <- transactions.csv
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY velocity_check(VERTEX<Card> card, DATETIME window_start, DATETIME window_end,
+                                       DOUBLE small_amount = 5.0, INT burst_minutes = 60,
+                                       INT min_small_auths = 3, DOUBLE large_amount = 100.0,
+                                       INT followup_hours = 24)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  TYPEDEF TUPLE<DATETIME ts, STRING txn_id, DOUBLE amount, STRING channel, STRING product_cd> Row;
+
+  HeapAccum<Row>(5000, ts ASC) @@heap;
+  ListAccum<Row> @@sorted;
+  SetAccum<STRING> @@micro_auth_txn_ids;
+  SetAccum<STRING> @@followup_large_txn_ids;
+  MaxAccum<INT> @@max_online_in_window;
+  MaxAccum<INT> @@max_small_online_in_window;
+  MaxAccum<DOUBLE> @@max_amount;
+  SumAccum<INT> @@n_bursts;
+  OrAccum @@card_testing_sequence;
+
+  Start = {card};
+  Txns = SELECT t
+         FROM Start:c -(CARD_HAS_TRANS>:e)- Transaction:t
+         WHERE t.ts >= window_start AND t.ts <= window_end
+         ACCUM @@heap += Row(t.ts, t.txn_id, t.amount, t.channel, t.product_cd),
+               @@max_amount += t.amount;
+
+  FOREACH r IN @@heap DO
+    @@sorted += r;
+  END;
+
+  INT n = @@sorted.size();
+  INT burst_seconds = burst_minutes * 60;
+  INT followup_seconds = followup_hours * 3600;
+
+  FOREACH i IN RANGE[0, n - 1] DO
+    IF @@sorted.get(i).channel == "online" THEN
+      INT cnt_online = 0;
+      INT cnt_small = 0;
+      DATETIME anchor_ts = @@sorted.get(i).ts;
+      DATETIME last_small_ts = anchor_ts;
+      FOREACH j IN RANGE[i, n - 1] DO
+        IF datetime_diff(@@sorted.get(j).ts, anchor_ts) <= burst_seconds
+           AND @@sorted.get(j).channel == "online" THEN
+          cnt_online = cnt_online + 1;
+          IF @@sorted.get(j).amount < small_amount THEN
+            cnt_small = cnt_small + 1;
+            last_small_ts = @@sorted.get(j).ts;
+          END;
+        END;
+      END;
+      @@max_online_in_window += cnt_online;
+      @@max_small_online_in_window += cnt_small;
+      IF cnt_small >= min_small_auths THEN
+        @@n_bursts += 1;
+        FOREACH j IN RANGE[i, n - 1] DO
+          IF datetime_diff(@@sorted.get(j).ts, anchor_ts) <= burst_seconds
+             AND @@sorted.get(j).channel == "online"
+             AND @@sorted.get(j).amount < small_amount THEN
+            @@micro_auth_txn_ids += @@sorted.get(j).txn_id;
+          END;
+          IF datetime_diff(@@sorted.get(j).ts, last_small_ts) > 0
+             AND datetime_diff(@@sorted.get(j).ts, last_small_ts) <= followup_seconds
+             AND @@sorted.get(j).amount >= large_amount THEN
+            @@followup_large_txn_ids += @@sorted.get(j).txn_id;
+            @@card_testing_sequence += TRUE;
+          END;
+        END;
+      END;
+    END;
+  END;
+
+  PRINT Start[Start.card_id, Start.customer_id] AS card;
+  PRINT window_start, window_end, n AS n_txns_in_window, small_amount, burst_minutes, min_small_auths,
+        large_amount, followup_hours,
+        @@max_online_in_window AS max_online_in_burst_window,
+        @@max_small_online_in_window AS max_small_online_in_burst_window,
+        @@n_bursts AS n_micro_auth_bursts,
+        @@card_testing_sequence AS card_testing_sequence_detected,
+        @@max_amount AS max_amount_in_window;
+  PRINT @@micro_auth_txn_ids AS micro_auth_txn_ids;
+  PRINT @@followup_large_txn_ids AS followup_large_txn_ids;
+  PRINT @@sorted AS transactions;
+}

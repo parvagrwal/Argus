@@ -1,0 +1,116 @@
+// -------------------------------------------------------------------------------------
+// Query:     region_profile
+// Algorithm: Grouped aggregation (MapAccum histogram) of the card's transactions by billing
+//            region (addr1) split into a baseline period (before window_start) and the
+//            investigation window, with first/last-seen dates per region and an argmax to
+//            find the card's home region. Reports whether the flagged region has prior
+//            history and whether home-region activity continued inside the window.
+//            NOTE: the data has ONE region field (addr1 = billing region code) and a
+//            country code (addr2, 87 = home country). There is no separate "transaction
+//            region" or merchant location, so "billing vs transaction region" is realised as
+//            "baseline billing-region history vs the region of the flagged activity".
+// Pattern:   out_of_region_use (pattern 4: card-present purchases in a region the cardholder
+//            has no history in while normal activity continues at home; several days in one
+//            new region is a trip). Also the travel-exoneration test (716 cleared cases:
+//            "confirmed travel to the billing region in question").
+// Columns:   Transaction.{addr1,addr2,ts,channel,amount} <- transactions.csv
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY region_profile(VERTEX<Card> card, STRING flagged_region, DATETIME window_start,
+                                       DATETIME window_end)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  MapAccum<STRING, SumAccum<INT>> @@baseline_by_region;
+  MapAccum<STRING, SumAccum<INT>> @@baseline_in_person_by_region;
+  MapAccum<STRING, SumAccum<DOUBLE>> @@baseline_amount_by_region;
+  MapAccum<STRING, MinAccum<DATETIME>> @@baseline_first_seen;
+  MapAccum<STRING, MaxAccum<DATETIME>> @@baseline_last_seen;
+  MapAccum<STRING, SumAccum<INT>> @@window_by_region;
+  MapAccum<STRING, SumAccum<INT>> @@window_in_person_by_region;
+  MapAccum<STRING, SumAccum<INT>> @@baseline_by_country;
+  MapAccum<STRING, SumAccum<INT>> @@window_by_country;
+  SumAccum<INT> @@baseline_total;
+  SumAccum<INT> @@baseline_missing_region;   // addr1 blank (65,739 rows overall, mostly online)
+  SumAccum<INT> @@window_total;
+  SumAccum<INT> @@flagged_region_baseline_txns;
+  SumAccum<INT> @@flagged_region_baseline_in_person;
+  SumAccum<INT> @@flagged_region_window_txns;
+  MinAccum<DATETIME> @@flagged_region_first_seen;
+  MaxAccum<DATETIME> @@flagged_region_last_seen;
+  SumAccum<INT> @@distinct_window_days_in_flagged_region;
+  SetAccum<STRING> @@window_days_in_flagged_region;
+  STRING home_region = "";
+  INT home_region_txns = 0;
+  INT home_region_window_txns = 0;
+
+  Start = {card};
+
+  Baseline = SELECT t
+             FROM Start:c -(CARD_HAS_TRANS>:e)- Transaction:t
+             WHERE t.ts < window_start
+             ACCUM
+               @@baseline_total += 1,
+               CASE WHEN t.addr1 == "" THEN @@baseline_missing_region += 1
+               ELSE
+                 @@baseline_by_region += (t.addr1 -> 1),
+                 @@baseline_amount_by_region += (t.addr1 -> t.amount),
+                 @@baseline_first_seen += (t.addr1 -> t.ts),
+                 @@baseline_last_seen += (t.addr1 -> t.ts),
+                 CASE WHEN t.channel == "in_person" THEN @@baseline_in_person_by_region += (t.addr1 -> 1) END
+               END,
+               CASE WHEN t.addr2 != "" THEN @@baseline_by_country += (t.addr2 -> 1) END,
+               CASE WHEN t.addr1 == flagged_region AND flagged_region != "" THEN
+                 @@flagged_region_baseline_txns += 1,
+                 @@flagged_region_first_seen += t.ts,
+                 @@flagged_region_last_seen += t.ts,
+                 CASE WHEN t.channel == "in_person" THEN @@flagged_region_baseline_in_person += 1 END
+               END;
+
+  Window = SELECT t
+           FROM Start:c -(CARD_HAS_TRANS>:e)- Transaction:t
+           WHERE t.ts >= window_start AND t.ts <= window_end
+           ACCUM
+             @@window_total += 1,
+             CASE WHEN t.addr1 != "" THEN
+               @@window_by_region += (t.addr1 -> 1),
+               CASE WHEN t.channel == "in_person" THEN @@window_in_person_by_region += (t.addr1 -> 1) END
+             END,
+             CASE WHEN t.addr2 != "" THEN @@window_by_country += (t.addr2 -> 1) END,
+             CASE WHEN t.addr1 == flagged_region AND flagged_region != "" THEN
+               @@flagged_region_window_txns += 1,
+               @@window_days_in_flagged_region += datetime_format(t.ts, "%Y-%m-%d")
+             END;
+
+  FOREACH (region, cnt) IN @@baseline_by_region DO
+    IF cnt > home_region_txns THEN
+      home_region = region;
+      home_region_txns = cnt;
+    END;
+  END;
+  IF home_region != "" AND @@window_by_region.containsKey(home_region) THEN
+    home_region_window_txns = @@window_by_region.get(home_region);
+  END;
+  @@distinct_window_days_in_flagged_region += @@window_days_in_flagged_region.size();
+
+  PRINT Start[Start.card_id, Start.customer_id] AS card;
+  PRINT flagged_region, window_start, window_end,
+        @@baseline_total AS baseline_txns, @@baseline_missing_region AS baseline_txns_without_region,
+        @@window_total AS window_txns,
+        home_region, home_region_txns AS home_region_baseline_txns, home_region_window_txns,
+        (home_region_window_txns > 0) AS home_activity_continued_in_window,
+        @@flagged_region_baseline_txns AS flagged_region_baseline_txns,
+        @@flagged_region_baseline_in_person AS flagged_region_baseline_in_person_txns,
+        (@@flagged_region_baseline_txns > 0) AS flagged_region_has_history,
+        @@flagged_region_first_seen AS flagged_region_first_seen,
+        @@flagged_region_last_seen AS flagged_region_last_seen,
+        @@flagged_region_window_txns AS flagged_region_window_txns,
+        @@distinct_window_days_in_flagged_region AS distinct_window_days_in_flagged_region,
+        (flagged_region == home_region) AS flagged_region_is_home;
+  PRINT @@baseline_by_region AS baseline_by_region;
+  PRINT @@baseline_in_person_by_region AS baseline_in_person_by_region;
+  PRINT @@baseline_amount_by_region AS baseline_amount_by_region;
+  PRINT @@baseline_first_seen AS baseline_first_seen;
+  PRINT @@baseline_last_seen AS baseline_last_seen;
+  PRINT @@window_by_region AS window_by_region;
+  PRINT @@window_in_person_by_region AS window_in_person_by_region;
+  PRINT @@baseline_by_country AS baseline_by_country;
+  PRINT @@window_by_country AS window_by_country;
+}
