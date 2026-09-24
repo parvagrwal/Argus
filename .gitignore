@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+data/raw/
+# Large dataset files stay local (708 MB / 27 MB). Small ones are committed.
+data/transactions.csv
+data/identity.csv
+# scratch
+.tmp_*
+*.pdf
