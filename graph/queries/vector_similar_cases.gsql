@@ -1,0 +1,14 @@
+// -------------------------------------------------------------------------------------
+// Query:     vector_similar_cases
+// Algorithm: Top-k kNN search on ClosedCase.note_embedding using cosine similarity.
+//            Takes a 384-dimensional dense vector representing the investigation trigger
+//            narrative and retrieves the k most semantically similar historical closed cases.
+// Pattern:   Investigative narrative context (R1/R4: human analyst reference context;
+//            never enters risk scoring or Policy §6 evidence thresholds).
+// Columns:   ClosedCase.case_id, ClosedCase.note_text, ClosedCase.outcome
+// -------------------------------------------------------------------------------------
+CREATE OR REPLACE QUERY vector_similar_cases(LIST<FLOAT> query_vector, INT k)
+FOR GRAPH FraudInvestigation SYNTAX v2 {
+  Res = vectorSearch({ClosedCase.note_embedding}, query_vector, k);
+  PRINT Res[Res.case_id, Res.note_text, Res.outcome] AS similar_cases;
+}

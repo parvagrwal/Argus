@@ -2,7 +2,7 @@
 
 Argus is an agentic fraud-investigation system built for the TigerGraph Agentic Fraud Investigation hackathon (Hacker House Goa, 2026). Given a trigger — a risky transaction — the agent investigates on a TigerGraph graph: traversing card/device/identity relationships, gathering evidence through a controlled query budget, scoring risk deterministically, and recommending next-best-actions with exact approval routes under the bank's fraud policy.
 
-**Results:** 20/20 benchmark cases pass the policy-grounded grader · 16 fraud / 4 legitimate · 99 tests green · any investigation replayable offline in ~2 seconds with zero credentials.
+**Results:** 20/20 benchmark cases pass the policy-grounded grader · 16 fraud / 4 legitimate · 106 passed, 2 skipped · any investigation replayable offline in ~2 seconds with zero credentials.
 
 ## Live demo
 
