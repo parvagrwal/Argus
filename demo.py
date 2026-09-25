@@ -66,6 +66,8 @@ def run_single_demo(case_id: str, offline: bool = False) -> None:
 
     sar_actions = {a["action"] for a in d["final"]}
     sar_filed = "FILE_REPORT" in sar_actions
+    vec_cases = getattr(inv, "vector_context", [])
+    vec_summary = ", ".join(f"{c.get('case_id', '')} {c.get('outcome', '')}".strip() for c in vec_cases) if vec_cases else "none"
 
     tag = "[fixture] " if offline else ""
     print(f"{tag}==================================================")
@@ -79,6 +81,7 @@ def run_single_demo(case_id: str, offline: bool = False) -> None:
     print(f"{tag}What Changed:     {d['what_changed']}")
     print(f"{tag}Evidence Count:   {len(inv.evidence)}")
     print(f"{tag}SAR Filed:        {'yes' if sar_filed else 'no'}")
+    print(f"{tag}Vector recall:    {len(vec_cases)} prior cases by note similarity ({vec_summary})")
     print(f"{tag}--------------------------------------------------")
     print(f"{tag}Economics:        {econ['reading']}")
     print(f"{tag}Counterfactual:   {cf_sentence}")

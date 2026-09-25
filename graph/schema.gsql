@@ -76,8 +76,11 @@ CREATE SCHEMA_CHANGE JOB argus_p1_schema FOR GRAPH FraudInvestigation {
     exposure_usd DOUBLE,
     actions_taken STRING,        // pipe-separated policy actions
     report_filed BOOL,           // Yes/No -> true/false
-    analyst_notes STRING
+    analyst_notes STRING,
+    note_text STRING             // first 500 chars of analyst note for vector context
   ) WITH primary_id_as_attribute="true";
+
+  ALTER VERTEX ClosedCase ADD VECTOR ATTRIBUTE note_embedding(DIMENSION=384, METRIC="COSINE");
 
   // Cases written by Argus itself (AGENTS.md §8). Attributes are AnswerFile fields only.
   ADD VERTEX InvestigationCase (

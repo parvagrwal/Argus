@@ -22,7 +22,7 @@ SCHEMA_TEXT = gp.SCHEMA_FILE.read_text(encoding="utf-8")
 QUERY_FILES = sorted(gp.QUERIES_DIR.glob("*.gsql"))
 EXPECTED_QUERIES = {
     "card_window", "velocity_check", "device_neighbors", "detect_fraud_ring",
-    "region_profile", "write_fraud_case", "get_case_with_evidence",
+    "region_profile", "write_fraud_case", "get_case_with_evidence", "vector_similar_cases",
 }
 
 

@@ -1,0 +1,52 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T23:21:40Z",
+  "source": "live TigerGraph SENTINEL (vectorSearch)",
+  "query": "vector_similar_cases",
+  "params": {
+    "query_text": "customer_report: Customer C13171 message: 'I never made this $55.68 purchase. Please check my card.' Refers to 3558054.",
+    "k": 3
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 2
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "similar_cases": [
+          {
+            "v_id": "CC-0553",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-0553",
+              "Res.note_text": "Case CC-0553: model scored a $42.59 transaction at 0.88. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-0956",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-0956",
+              "Res.note_text": "Case CC-0956: model scored a $50.04 transaction at 0.86. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-0623",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-0623",
+              "Res.note_text": "Case CC-0623: model scored a $554.04 transaction at 0.93. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

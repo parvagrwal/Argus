@@ -1,0 +1,52 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T23:21:39Z",
+  "source": "live TigerGraph SENTINEL (vectorSearch)",
+  "query": "vector_similar_cases",
+  "params": {
+    "query_text": "risk_score: Real-time model scored transaction 3514030 ($77.07, in billing region 444.0) at 0.61. Review and decide.",
+    "k": 3
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 2
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "similar_cases": [
+          {
+            "v_id": "CC-2444",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2444",
+              "Res.note_text": "Case CC-2444: model scored a $1,845.90 transaction at 0.88. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-1732",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-1732",
+              "Res.note_text": "Case CC-1732: model scored a $1,855.84 transaction at 0.82. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-2091",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2091",
+              "Res.note_text": "Case CC-2091: model scored a $1,609.33 transaction at 0.85. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

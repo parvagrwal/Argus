@@ -119,6 +119,7 @@ class Investigation:
     backend: str = "mock"
     results: dict[str, dict[str, Any]] = field(default_factory=dict)
     memory: bool = True
+    vector_context: list[dict[str, Any]] = field(default_factory=list)
 
 
 def run_input(
@@ -195,6 +196,13 @@ def run_input(
         inv.stop_reason = f"graph backend unavailable ({type(exc).__name__}); decision taken on the evidence gathered so far"
     if not inv.stop_reason:
         inv.stop_reason = "investigation ended after the playbook; further steps unlikely to change the decision"
+    try:
+        from agent.vector_memory import recall_similar_cases
+        query_text = f"{case.trigger_type}: {case.trigger_text}"
+        inv.vector_context = recall_similar_cases(client, query_text=query_text, k=3)
+    except Exception as exc:
+        log.warning("Vector recall failed gracefully: %s", exc)
+        inv.vector_context = []
     return inv, trace
 
 

@@ -5,7 +5,7 @@
     "verdict": "fraud",
     "fraud_probability": 0.9989,
     "pattern": "none",
-    "pattern_description": "",
+    "pattern_description": "No named archetype: flagged transaction 3491361 returned no graph row in the 30-day window, so device, amount, and channel signals were unavailable for classification. Fraud verdict (1.00) rests on heavy priors — card carries confirmed-fraud cases CC-5558, CC-5441, CC-4942; 136 connected cards and 758 similar prior cases in its neighborhood.",
     "affected_txn_ids": [],
     "first_suspicious_txn_id": "",
     "connected_card_ids": [

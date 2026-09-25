@@ -212,8 +212,10 @@ def apply_region(feat: Features, res: dict[str, Any]) -> None:
 
 def classify(feat: Features, prob: float, open_case_threshold: float = 0.30) -> tuple[str, str]:
     """Deterministic pattern label + factual basis (the LLM/narrator phrases the description)."""
-    if prob < open_case_threshold or not feat.flagged:  # no graph row for the flagged txn: nothing to classify honestly
+    if prob < open_case_threshold:
         return Pattern.none.value, ""
+    if not feat.flagged:  # flagged txn has no graph row: no device/amount/channel signals, so no archetype; verdict may still rest on priors
+        return Pattern.none.value, "flagged transaction has no graph row in the window; no device/amount/channel signals to classify"
     if feat.ring or (feat.proxy and feat.neighbor_prior_fraud and feat.shared_device_cards_log > 0):
         return Pattern.undocumented.value, "shared proxy device profile across cards with confirmed fraud"
     if feat.structuring:

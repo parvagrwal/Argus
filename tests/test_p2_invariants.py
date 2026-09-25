@@ -58,3 +58,12 @@ def test_stop_reason_present_and_tool_calls_int_for_every_case(tmp_path):
         assert type(data["tool_calls"]) is int and data["tool_calls"] == len(record.tool_trace) >= 1
         assert data["case"]["written_to_graph"] is False  # mock never counts as written
         assert set(data) == {"case_id", "case", "evidence_requests", "next_best_actions", "sar", "stop_reason", "tool_calls", "tokens", "latency_s"}
+
+
+def test_classify_flagged_falsy_returns_none_with_basis():
+    from agent.scoring import Features, classify
+    feat = Features(flagged=False)
+    pattern, basis = classify(feat, prob=0.99)
+    assert pattern == "none"
+    assert basis and isinstance(basis, str)
+

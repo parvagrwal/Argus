@@ -1,0 +1,52 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T23:21:41Z",
+  "source": "live TigerGraph SENTINEL (vectorSearch)",
+  "query": "vector_similar_cases",
+  "params": {
+    "query_text": "risk_score: Real-time model scored transaction 3450629 ($100.09, online) at 0.57. Review and decide.",
+    "k": 3
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 2
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "similar_cases": [
+          {
+            "v_id": "CC-2444",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2444",
+              "Res.note_text": "Case CC-2444: model scored a $1,845.90 transaction at 0.88. Cardholder confirmed travel to the billing region in question. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-2096",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2096",
+              "Res.note_text": "Case CC-2096: model scored a $1,360.65 transaction at 0.90. Cardholder confirmed the purchase. Amount unusual for this customer but consistent with their stated intent. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          },
+          {
+            "v_id": "CC-0657",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-0657",
+              "Res.note_text": "Case CC-0657: model scored a $1,769.94 transaction at 0.90. Cardholder confirmed the purchase. Amount unusual for this customer but consistent with their stated intent. Alert cleared.",
+              "Res.outcome": "cleared"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

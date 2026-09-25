@@ -1,0 +1,52 @@
+{
+  "fixture": true,
+  "recorded_at": "2026-09-24T23:21:41Z",
+  "source": "live TigerGraph SENTINEL (vectorSearch)",
+  "query": "vector_similar_cases",
+  "params": {
+    "query_text": "analyst_request: Analyst request: several cards this month show purchases from the same unusual device profile. Review transaction 3478561 on card C13487-K1 and look for related activity.",
+    "k": 3
+  },
+  "response": {
+    "version": {
+      "edition": "enterprise",
+      "api": "v2",
+      "schema": 2
+    },
+    "error": false,
+    "message": "",
+    "results": [
+      {
+        "similar_cases": [
+          {
+            "v_id": "CC-2677",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2677",
+              "Res.note_text": "Case CC-2677: cardholder C04105 reported unrecognized activity on card C04105-K2. 2 transaction(s) between 2016-08-26 and 2016-08-27 totaling $164.01 were confirmed fraudulent. Mixed-channel activity inconsistent with the cardholder; credentials and card data both used. Online transactions came from a iOS Device on mobile safari 11.0. Card blocked and reissued. Customer reimbursed.",
+              "Res.outcome": "confirmed_fraud"
+            }
+          },
+          {
+            "v_id": "CC-3470",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-3470",
+              "Res.note_text": "Case CC-3470: cardholder C00750 reported unrecognized activity on card C00750-K2. 12 transaction(s) between 2016-09-08 and 2016-09-13 totaling $1,417.17 were confirmed fraudulent. Mixed-channel activity inconsistent with the cardholder; credentials and card data both used. Online transactions came from a Pixel Build/OPM1.171019.016 on chrome 64.0 for android. Card blocked and reissued. Customer reimbursed.",
+              "Res.outcome": "confirmed_fraud"
+            }
+          },
+          {
+            "v_id": "CC-2985",
+            "v_type": "ClosedCase",
+            "attributes": {
+              "Res.case_id": "CC-2985",
+              "Res.note_text": "Case CC-2985: cardholder C06617 reported 3 online purchase(s) they did not make. The purchases came from a Samsung SM-G935F on Chrome for Android behind an anonymous proxy, a device never seen on this account. Two other cardholders reported the same device profile this month. Pattern not matched to a documented typology. Card blocked and reissued.",
+              "Res.outcome": "confirmed_fraud"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
